@@ -1,0 +1,61 @@
+html,body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    font-family: "Product Sans Bold";
+}
+
+@font-face {
+    font-family: "Product Sans Regular";
+    src: url("../fonts/Product-Sans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Product Sans Bold";
+    src: url("../fonts/Product-Sans-Bold.ttf");
+}
+
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+.header {
+    height: 35%;
+    width: 100%;
+}
+
+.header-content-box {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-image-box {
+    height: 11rem;
+    width: 100%;
+}
+
+.header-image-box img {
+    height: 100%;
+    width: auto;
+}
+
+.header-project-name-box {
+    font-size: 3rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+}
+
+.header-page-name-box {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}

@@ -23,6 +23,7 @@ function submitDetails() {
             if (input2.value !== "") {
                 center0.style.display = "none";
                 center1.style.display = "block";
+                document.getElementById("CardID").focus();
                 output0.innerText = input0.value;
                 input_name = input0.value;
                 output1.innerText = input1.value;

@@ -9,7 +9,7 @@
         </head>
     </head>
     <body>
-    <?php
+            <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -42,8 +42,8 @@
                 echo "<script>console.log('Everything is not inserted');</script>";
             }
 
-mysqli_close($conn);
-?>
+    mysqli_close($conn);
+    ?>
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">
@@ -108,12 +108,12 @@ mysqli_close($conn);
             </div>
         </div>
         <div class="center3" id="center3">
-            <form action="./" method="post">
+            <form method="post" id="center3form">
                 <input id="StudentName2" name="StudentName" type="text"/>
                 <input id="StudentID2" name="StudentID" type="text"/>
                 <input id="Class2" name="Class" type="text"/>
                 <input id="CardID2" name="CardID" type="text"/>
-                <input value="Submit" name="submit" type="submit">
+                <button type="submit">SUBMIT</button>
             </form>
         </div>
         <script src="../script/memberreg.js"></script>

@@ -1,57 +1,86 @@
 <html lang="en">
     <head>
         <head>
-            <title>ATNDSYS Home</title>
+            <title>ATNDSYS Member Registration</title>
             <meta name="viewport" content="width=device-width,initial-scale=1.0" initial-scale="1"/>
             <meta charset="utf-8"/>
-            <link rel="stylesheet" href="./css/global.css"/>
-            <link rel="stylesheet" href="./css/index.css"/>
+            <link rel="stylesheet" href="../css/global.css"/>
+            <link rel="stylesheet" href="../css/memberreg.css"/>
         </head>
     </head>
     <body>
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">
-                    <img src="./img/i-Creatorz-Logo-Black.png" draggable="false"/>
+                    <img src="../img/i-Creatorz-Logo-Black.png" draggable="false"/>
                 </div>
                 <div class="header-project-name-box">
                     ATTENDANCE SYSTEM
                 </div>
                 <div class="header-page-name-box">
-                    MAIN INDEX
+                    MEMBER REGISTRATION
                 </div>
             </div>
         </div>
-        <div class="center">
-            <div class="center-content-box">
-                <div class="c1-box">
-                    <a href="./memberreg/index.html"><button class="c1">
-                        MEMBER<br>REGISTRATION
-                    </button></a>
-                </div><!--
-                --><div class="c2-box">
-                    <button class="c2">
-                        ACTIVITY<br>RECORD
-                    </button>
-                </div><!--
-                --><div class="c3-box">
-                    <button class="c3">
-                        ACTIVITY<br>ATTENDANCE
-                    </button>
-                </div><!--
-                --><div class="c4-box">
-                     <button class="c4">
-                        ACTIVITY<br>EXPORT
-                    </button>
+        <div class="center0" id="center0">
+            <div class="center0-box">
+                <div class="center0-content-box">
+                    <form onsubmit="return false">
+                    <div class="c1">
+                        <div class="c1a">MEMBER NAME</div>
+                        <input type="text" class="c1b" id="StudentName">
+                    </div>
+                    <div class="c2">
+                        <div class="c2a">MEMBER SCHOOL NUMBER</div>
+                        <input type="text" class="c2b" id="StudentID">
+                    </div>
+                    <div class="c3">
+                        <div class="c3a">MEMBER CLASS</div>
+                        <input type="text" class="c3b" id="Class">
+                    </div>
+                    <div class="submit-box">
+                        <button class="submit" onclick="submitDetails();">SUBMIT</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="footer-content-box">
-                <div class="f1">VERSION</div>
-                <div class="f2">V0.1</div>
+        <div class="center1" id="center1">
+            <div class="center1-box">
+                <div class="c4">
+                    <div class="c4-box">
+                        <div class="c4a" id="c4a">MEMBER_NAME</div>
+                        <div class="c4b" id="c4b">MEMBER_SCHNO</div>
+                        <div class="c4c" id="c4c">MEMBER_CLASS</div>
+                    </div>
+                </div>
+                <div class="c5">
+                    <div class="c5a">
+                        <img src="../img/icons8-credit-card-96.png" draggable="false"/>
+                    </div>
+                    <div class="c5b" id="c5b">TAP CARD ON SCANNER TO FINISH PROCESS</div>
+                    <div class="c5c" id="c5c">SCANNER IS IDLE</div>
+                    <input type="text" class="CardID" id="CardID" autofocus>
+                </div>
             </div>
         </div>
-        <script src="./script/index.js"></script>
+        <div class="center2" id="center2">
+            <div class="center2-box">
+                <div class="c6">DONE ADDING MEMBER DATA</div>
+                <div class="back-box">
+                    <button class="back" onclick="backtoInit();">BACK</button>
+                </div>
+            </div>
+        </div>
+        <div class="center3" id="center3">
+            <form method="post" action="./index.html" id="center3form">
+                <input id="StudentName2" type="text"/>
+                <input id="StudentID2" type="text"/>
+                <input id="Class2" type="text"/>
+                <input id="CardID2" type="text"/>
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+        <script src="../script/memberreg.js"></script>
     </body>
 </html>

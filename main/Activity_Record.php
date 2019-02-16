@@ -97,51 +97,5 @@
             }
         ?>
     </form>
-    <table>
-    <tr>
-        <th>Venue Name</th>
-        <th> Option</th>
-    </tr>
-    <?php
-        //SQL Login Details
-        $servername="localhost";
-        $username="root";
-        $password="";
-        $dbname="i-Attendance";
-
-        //Create a connection
-        $conn = new mysqli($servername,$username,$password,$dbname);
-
-        //Check if the connection is successful or not
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        //SQL commands
-        $sql = ("SELECT * FROM Activity_Venue");
-        $result = mysqli_query($conn,$sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-                echo "<script>console.log('".$row['Venue']."')</script>";
-                echo "<tr>";
-                echo "<td>".$row['Venue']."</td>";
-                echo "<td></td>";
-                echo "</tr>";
-            }
-        } else {
-            
-        }
-
-        mysqli_close($conn);
-
-    ?>
-    </table>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
 </body>
 </html>

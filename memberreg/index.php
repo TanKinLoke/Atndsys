@@ -38,7 +38,7 @@
                 //SQL Result
                 if (mysqli_query($conn, $sql)) {
                     //Success
-                    echo "New record created successfully";
+                    echo "New record created successfully for ".$StudentID;
                 } else {
                     //Fail
                     echo "<script>console.log('Error: " . $sql . mysqli_error($conn)."');</script>";

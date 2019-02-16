@@ -23,7 +23,6 @@ function submitDetails() {
             if (input2.value !== "") {
                 center0.style.display = "none";
                 center1.style.display = "block";
-                document.getElementById("CardID").focus();
                 output0.innerText = input0.value;
                 input_name = input0.value;
                 output1.innerText = input1.value;
@@ -48,14 +47,11 @@ function endProcess() {
     center0.style.display = "none";
     center1.style.display = "none";
     center3.style.display = "block";
-    console.log(document.getElementById("StudentName").value);
-    console.log(document.getElementById("StudentID").value);
-    console.log(document.getElementById("Class").value);
-    console.log(document.getElementById("CardID").value);
     document.getElementById("StudentName2").value = input_name;
     document.getElementById("StudentID2").value = input_id;
     document.getElementById("Class2").value = input_class;
     document.getElementById("CardID2").value = document.getElementById("CardID").value;
+    document.getElementById("center3form").submit();
 }
 
 function backtoInit() {

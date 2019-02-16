@@ -10,6 +10,7 @@
     </head>
     <body>
             <?php
+            //phpmyadmin login details
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -31,18 +32,23 @@
                 $StudentName = $_POST["StudentName"];
                 $Class = $_POST["Class"];
     
+                //SQL code
                 $sql = "INSERT INTO student_info (Student_Name, Student_ID, Card_ID, Class) VALUES ('$StudentName','$StudentID','$CardID','$Class')";
+                
+                //SQL Result
                 if (mysqli_query($conn, $sql)) {
+                    //Success
                     echo "New record created successfully";
                 } else {
+                    //Fail
                     echo "<script>console.log('Error: " . $sql . mysqli_error($conn)."');</script>";
                 }
             } else {
                 //If something is not inserted
                 echo "<script>console.log('Everything is not inserted');</script>";
             }
-
-    mysqli_close($conn);
+        //Close MySQL Connection
+        mysqli_close($conn);
     ?>
         <div class="header">
             <div class="header-content-box">

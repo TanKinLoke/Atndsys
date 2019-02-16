@@ -1,0 +1,26 @@
+DEBUG     Checking PHPLS_ALLOW_XDEBUG
+DEBUG     The xdebug extension is not loaded
+
+[Info  - 21:26:07] 9 files total
+[Info  - 21:26:07] Indexing project for definitions and static references
+Parsing file:///var/www/html/Example/Example_Register.php
+Parsing file:///var/www/html/main/Register.php
+Parsing file:///var/www/html/main/Activity_Attendance.php
+Parsing file:///var/www/html/main/Member_Register.php
+Parsing file:///var/www/html/main/Activity_Record.php
+Parsing file:///var/www/html/main/Attendance_Export.php
+Parsing file:///var/www/html/index.php
+Parsing file:///var/www/html/memberreg/Register.php
+Parsing file:///var/www/html/memberreg/index.php
+[Info  - 21:26:07] Indexing project for dynamic references
+Parsing file:///var/www/html/Example/Example_Register.php
+Parsing file:///var/www/html/main/Register.php
+Parsing file:///var/www/html/main/Activity_Attendance.php
+Parsing file:///var/www/html/main/Member_Register.php
+Parsing file:///var/www/html/main/Activity_Record.php
+Parsing file:///var/www/html/main/Attendance_Export.php
+Parsing file:///var/www/html/index.php
+Parsing file:///var/www/html/memberreg/Register.php
+Parsing file:///var/www/html/memberreg/index.php
+[Info  - 21:26:07] 0 Packages
+[Info  - 21:26:07] All 9 PHP files parsed in 0 seconds. 146 MiB allocated.

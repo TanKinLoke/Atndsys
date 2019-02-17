@@ -42,7 +42,6 @@
                 
                 if(mysqli_query($conn,$sql)) {
                     echo "New record created successfully";
-                    $_POST = array();
                 } else {
                     echo "Failed to create record".mysqli_error($conn);
                 }
@@ -66,7 +65,49 @@
         <div class="content-box">
             <div class="popup-venue-box-container" id="popup-venue-box-container" onclick="closeVenueBox();">
                 <div class="popup-venue-box" id="popup-venue-box">
-                    <div class="popup-venue-boxcontent"></div>
+                    <div class="popup-venue-boxcontent">
+                    <table>
+    <tr>
+        <th>Venue Name</th>
+        <th> Option</th>
+    </tr>
+    <?php
+        //SQL Login Details
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $dbname="i-Attendance";
+
+        //Create a connection
+        $conn = new mysqli($servername,$username,$password,$dbname);
+
+        //Check if the connection is successful or not
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        //SQL commands
+        $sql = ("SELECT * FROM Activity_Venue");
+        $result = mysqli_query($conn,$sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>".$row['Venue']."</td>";
+                echo "<td><button type='button'>Edit</button><button type='button'>Delete</button></td>";
+                echo "</tr>";
+            }
+        } else {
+            
+        }
+
+        mysqli_close($conn);
+
+    ?>
+    </table>
+    <button type='button'>Add Venue</button>
+                    </div>
                 </div>
             </div>
             <div class="content-box-container-0" id="content-box-container-0">

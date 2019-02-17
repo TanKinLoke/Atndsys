@@ -42,10 +42,13 @@
                 
                 if(mysqli_query($conn,$sql)) {
                     echo "New record created successfully";
+                    header("Location: /index.php");
+                    exit;
                 } else {
                     echo "Failed to create record".mysqli_error($conn);
                 }
 
+                //Close MySQL Connection
                 mysqli_close($conn);
             }
         ?>
@@ -94,9 +97,9 @@
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>".$row['Venue']."</td>";
-                echo "<td><button type='button'>Edit</button><button type='button'>Delete</button></td>";
-                echo "</tr>";
+                echo "<td>".$row['Venue']."</td>\n";
+                echo "<td><button type='button'>Edit</button><button type='button'>Delete</button></td>\n";
+                echo "</tr>\n";
             }
         } else {
             

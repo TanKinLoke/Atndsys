@@ -1,4 +1,3 @@
-<!-- test for commit changes -->
 <html lang="en">
     <head>
         <head>
@@ -29,18 +28,18 @@
                     <a href="./memberreg/index.php"><button class="c1">
                         MEMBER<br>REGISTRATION
                     </button></a>
-                </div>
-                div class="c2-box">
-                    <button class="c2">
+                </div><!--
+                --><div class="c2-box">
+                    <a href="./actrecord/index.php"><button class="c2">
                         ACTIVITY<br>RECORD
-                    </button>
-                </div>
-                <div class="c3-box">
+                    </button></a>
+                </div><!--
+                --><div class="c3-box">
                     <button class="c3">
                         ACTIVITY<br>ATTENDANCE
                     </button>
-                </div>
-                <div class="c4-box">
+                </div><!--
+                --><div class="c4-box">
                      <button class="c4">
                         ACTIVITY<br>EXPORT
                     </button>

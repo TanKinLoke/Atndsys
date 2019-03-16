@@ -1,15 +1,4 @@
-<html lang="en">
-    <head>
-        <head>
-            <title>ATNDSYS Member Registration</title>
-            <meta name="viewport" content="width=device-width,initial-scale=1.0" initial-scale="1"/>
-            <meta charset="utf-8"/>
-            <link rel="stylesheet" href="../css/global.css"/>
-            <link rel="stylesheet" href="../css/memberreg.css"/>
-        </head>
-    </head>
-    <body>
-            <?php
+<?php
             //phpmyadmin login details
             $servername = "localhost";
             $username = "root";
@@ -50,6 +39,17 @@
         //Close MySQL Connection
         mysqli_close($conn);
     ?>
+<html lang="en">
+    <head>
+        <head>
+            <title>ATNDSYS Member Registration</title>
+            <meta name="viewport" content="width=device-width,initial-scale=1.0" initial-scale="1"/>
+            <meta charset="utf-8"/>
+            <link rel="stylesheet" href="../css/global.css"/>
+            <link rel="stylesheet" href="../css/memberreg.css"/>
+        </head>
+    </head>
+    <body>
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">

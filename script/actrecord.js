@@ -71,3 +71,9 @@ function closeVenueBox() {
 document.getElementById("popup-venue-box").onclick = function(e) {
     e.stopPropagation();
 }
+
+function deleteVenue(venue) {
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.open("POST","sql.php?function=delete&data=\""+venue+"\"",true);
+    xmlhttp.send();
+}

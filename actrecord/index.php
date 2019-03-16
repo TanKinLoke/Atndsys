@@ -98,7 +98,7 @@
             while($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>".$row['Venue']."</td>\n";
-                echo "<td><button type='button'>Edit</button><button type='button'>Delete</button></td>\n";
+                echo "<td><button type='button' value='".$row['Venue']."'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                 echo "</tr>\n";
             }
         } else {

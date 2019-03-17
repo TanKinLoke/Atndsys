@@ -63,25 +63,21 @@
                 </div>
             </div>
         </div>
-        <!--
-            #DIV ID = center0
-            Add new member datas (name, school number and class) to database
-        -->
         <div class="center0" id="center0">
             <div class="center0-box">
                 <div class="center0-content-box">
                     <form onsubmit="return false">
                     <div class="c1">
                         <div class="c1a">MEMBER NAME</div>
-                        <input type="text" class="c1b" id="StudentName" autocomplete="off">
+                        <input type="text" class="c1b" id="StudentName">
                     </div>
                     <div class="c2">
                         <div class="c2a">MEMBER SCHOOL NUMBER</div>
-                        <input type="text" class="c2b" id="StudentID" autocomplete="off">
+                        <input type="text" class="c2b" id="StudentID">
                     </div>
                     <div class="c3">
                         <div class="c3a">MEMBER CLASS</div>
-                        <input type="text" class="c3b" id="Class" autocomplete="off">
+                        <input type="text" class="c3b" id="Class">
                     </div>
                     <div class="submit-box">
                         <button class="submit" onclick="submitDetails();">SUBMIT</button>
@@ -90,10 +86,6 @@
                 </div>
             </div>
         </div>
-        <!--
-            #DIV ID = center1
-            Add new member card data to database
-        -->
         <div class="center1" id="center1">
             <div class="center1-box">
                 <div class="c4">
@@ -109,20 +101,24 @@
                     </div>
                     <div class="c5b" id="c5b">TAP CARD ON SCANNER TO FINISH PROCESS</div>
                     <div class="c5c" id="c5c">SCANNER IS IDLE</div>
-                    <input type="text" class="CardID" id="CardID" autofocus autocomplete="off">
+                    <input type="text" class="CardID" id="CardID" autofocus>
                 </div>
             </div>
         </div>
-        <!--
-            #DIV ID = center3
-            Summarize all received data and send to backend
-        -->
+        <div class="center2" id="center2">
+            <div class="center2-box">
+                <div class="c6">DONE ADDING MEMBER DATA</div>
+                <div class="back-box">
+                    <button class="back" onclick="backtoInit();">BACK</button>
+                </div>
+            </div>
+        </div>
         <div class="center3" id="center3">
             <form method="post" id="center3form">
-                <input id="StudentName2" type="text"/>
-                <input id="StudentID2" type="text"/>
-                <input id="Class2" type="text"/>
-                <input id="CardID2" type="text"/>
+                <input id="StudentName2" name="StudentName" type="text"/>
+                <input id="StudentID2" name="StudentID" type="text"/>
+                <input id="Class2" name="Class" type="text"/>
+                <input id="CardID2" name="CardID" type="text"/>
                 <button type="submit">SUBMIT</button>
             </form>
         </div>

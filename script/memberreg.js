@@ -18,12 +18,15 @@ var status0 = document.getElementById("c5c");
 var pageCheck = 0;
 
 function submitDetails() {
+    /*
+        Function = submitDetails()
+        Data validation and stores user data temporarily
+    */
     if (input0.value !== "") {
         if (input1.value !== "") {
             if (input2.value !== "") {
                 center0.style.display = "none";
                 center1.style.display = "block";
-                document.getElementById("CardID").focus();
                 output0.innerText = input0.value;
                 input_name = input0.value;
                 output1.innerText = input1.value;
@@ -31,12 +34,19 @@ function submitDetails() {
                 output2.innerText = input2.value;
                 input_class = input2.value;
                 pageCheck = 1;
+                if (document.getElementById("CardID").focus() !== true) {
+                    document.getElementById("CardID").focus();
+                }
             }
         }
     }
 }
 
 function inputCardDetails(cardvalue) {
+    /*
+        Function = inputCardDetails(cardvalue)
+        Detects card and its data
+    */
     output3.innerText = cardvalue;
     status0.innerText = "CARD DETECTED";
     setTimeout(function() {
@@ -45,6 +55,10 @@ function inputCardDetails(cardvalue) {
 }
 
 function endProcess() {
+    /*
+        Function = endProcess()
+        Combines all received data and send to backend
+    */
     center0.style.display = "none";
     center1.style.display = "none";
     center3.style.display = "block";
@@ -53,18 +67,14 @@ function endProcess() {
     document.getElementById("Class2").value = input_class;
     document.getElementById("CardID2").value = document.getElementById("CardID").value;
     document.getElementById("center3form").submit();
-}
-
-function backtoInit() {
-    center0.style.display = "block";
-    center1.style.display = "none";
-    center2.style.display = "none";
-    input0.value = "";
-    input1.value = "";
-    input2.value = "";
+    window.alert("New member data has been added to the database successfully.");
 }
 
 document.addEventListener('keydown', function (e) {
+    /*
+        EventListener = keydown
+        Detects keypress(key shortcuts) for faster user experience
+    */
     var key = e.which || e.keyCode;
     if (key === 13) { 
         if (pageCheck == 1) {

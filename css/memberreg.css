@@ -1,10 +1,14 @@
-.center0,.center1,.center2,.center3 {
+.center0,.center1,.center3 {
     height: 65%;
     width: 100%;
 }
 
-.center1,.center2,.center3 {
+.center1,.center3 {
     display: none;
+}
+
+.center3 {
+    opacity: 0;
 }
 
 .center0-box {
@@ -13,14 +17,6 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-}
-
-.center2-box {
-    height: auto;
-    width: 100%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-80%);
 }
 
 .center0-content-box {

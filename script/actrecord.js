@@ -68,12 +68,17 @@ function closeVenueBox() {
     document.getElementById("popup-venue-box-container").style.display = "none";
 }
 
-document.getElementById("popup-venue-box").onclick = function(e) {
+document.getElementById("popup-venue-box").onclick = function (e) {
     e.stopPropagation();
 }
 
 function deleteVenue(venue) {
     var xmlhttp = new XMLHttpRequest;
-    xmlhttp.open("POST","sql.php?function=delete&data=\""+venue+"\"",true);
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            $("#"+venue.split(" ").join("_")).remove();
+        }
+    };
+    xmlhttp.open("POST", "sql.php?function=delete&data=\"" + venue + "\"", true);
     xmlhttp.send();
 }

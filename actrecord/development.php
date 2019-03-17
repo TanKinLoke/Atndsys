@@ -49,6 +49,7 @@
             <meta charset="utf-8"/>
             <link rel="stylesheet" href="../css/global.css"/>
             <link rel="stylesheet" href="../css/actrecord.css"/>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         </head>
     </head>
     <body>
@@ -96,7 +97,8 @@
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
+                //Table row
+                echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>";
                 echo "<td>".$row['Venue']."</td>\n";
                 echo "<td><button type='button' value='".$row['Venue']."'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                 echo "</tr>\n";
@@ -211,5 +213,6 @@
             </div>
         </div>
         <script src="../script/actrecord.js"></script>
+
     </body>
 </html>

@@ -83,7 +83,29 @@ function deleteVenue(venue) {
     xmlhttp.send();
 }
 
-function editVenue(venue) {
+function editVenueText(venue) {
     $("#"+venue+"_text").attr("readonly",false);
     document.getElementById(venue+"_text").focus(); 
+}
+
+function editVenue(venue) {
+    var venue2 = document.getElementById(venue+"_text").value;
+
+    $("#"+venue+"_text").attr("readonly",true);
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        venue2 = venue2.replace(" ","_");
+        $("#"+venue+"_text").attr("onchange","editVenue('"+venue2+"')");
+        $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
+        $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
+        $("#"+venue+"_text").attr("id",venue2+"_text");
+        $("#"+venue+"_edit").attr("id",venue2+"_edit");
+        $("#"+venue+"_delete").attr("id",venue2+"_delete");
+    };
+
+    venue = venue.replace("_"," ");
+    xmlhttp.open("POST","sql.php?function=edit&data=\"" + venue + "\"&data2=\"" + venue2 + "\"",true);
+    venue = venue.replace(" ","_");
+    xmlhttp.send();
 }

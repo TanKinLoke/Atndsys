@@ -84,6 +84,6 @@ function deleteVenue(venue) {
 }
 
 function editVenue(venue) {
-    $("#"+venue+"_text").attr("contenteditable","true");
+    $("#"+venue+"_text").attr("readonly",false);
     document.getElementById(venue+"_text").focus(); 
 }

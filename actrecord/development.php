@@ -100,7 +100,7 @@
                 //Table row
                 echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>\n";
                 echo "<td><a id='".str_replace(" ","_",$row['Venue'])."_text'>".$row['Venue']."</a></td>\n";
-                echo "<td><button type='button' onclick='editVenue(\"".$row['Venue']."\")'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
+                echo "<td><button type='button' onclick='editVenue(\"".str_replace(" ","_",$row['Venue'])."\")'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                 echo "</tr>\n";
             }
         } else {

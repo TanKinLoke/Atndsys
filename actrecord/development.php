@@ -98,9 +98,9 @@
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
                 //Table row
-                echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>";
-                echo "<td>".$row['Venue']."</td>\n";
-                echo "<td><button type='button' value='".$row['Venue']."'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
+                echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>\n";
+                echo "<td><a id='".str_replace(" ","_",$row['Venue'])."_text'>".$row['Venue']."</a></td>\n";
+                echo "<td><button type='button' onclick='editVenue(\"".$row['Venue']."\")'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                 echo "</tr>\n";
             }
         } else {

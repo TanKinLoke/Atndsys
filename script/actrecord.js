@@ -82,3 +82,8 @@ function deleteVenue(venue) {
     xmlhttp.open("POST", "sql.php?function=delete&data=\"" + venue + "\"", true);
     xmlhttp.send();
 }
+
+function editVenue(venue) {
+    $("#"+venue+"_text").attr("contenteditable","true");
+    document.getElementById(venue+"_text").focus(); 
+}

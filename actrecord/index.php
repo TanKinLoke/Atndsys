@@ -96,7 +96,7 @@
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
+                echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>\n";
                 echo "<td>".$row['Venue']."</td>\n";
                 echo "<td><button type='button' value='".$row['Venue']."'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                 echo "</tr>\n";

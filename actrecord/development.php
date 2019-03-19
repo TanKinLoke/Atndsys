@@ -70,11 +70,9 @@
             <div class="popup-venue-box-container" id="popup-venue-box-container" onclick="closeVenueBox();">
                 <div class="popup-venue-box" id="popup-venue-box">
                     <div class="popup-venue-boxcontent">
-                    <table>
-    <tr>
-        <th>Venue Name</th>
-        <th> Option</th>
-    </tr>
+                        <div class="popup-venue-boxcontent-up">
+                            <div class="venue-table-box">
+                        <table>
     <?php
         //SQL Login Details
         $servername="localhost";
@@ -110,8 +108,15 @@
         mysqli_close($conn);
 
     ?>
-    </table>
-    <button type='button'>Add Venue</button>
+                        </table>
+                            </div>
+                        </div>
+                        <div class="popup-venue-boxcontent-down">
+                            <input class="add-venue-input-box" type="text">
+                            <button type='button' class="add-venue-submit">
+                                <img src="../img/icons8-plus-96.png"/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

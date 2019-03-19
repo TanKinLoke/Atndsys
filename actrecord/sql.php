@@ -28,5 +28,6 @@
     } else if ($function == "add") {
         $sql = "INSERT INTO Activity_Venue (Venue) VALUES ($data)";
         $result = mysqli_query($conn,$sql);
+        echo "done";
     }
 ?>

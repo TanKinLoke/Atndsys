@@ -34,7 +34,7 @@
                 }
             } else {
                 //If something is not inserted
-                echo "<script>console.log('Everything is not inserted');</script>";
+                echo "<script>console.log('Something is not inserted');</script>";
             }
         //Close MySQL Connection
         mysqli_close($conn);

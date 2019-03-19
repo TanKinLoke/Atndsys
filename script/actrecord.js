@@ -109,3 +109,14 @@ function editVenue(venue) {
     venue = venue.replace(" ","_");
     xmlhttp.send();
 }
+
+function addVenue() {
+    var venue = document.getElementById("add_venue_text").value;
+    
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        venue = "";
+    };
+    xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
+    xmlhttp.send();
+}

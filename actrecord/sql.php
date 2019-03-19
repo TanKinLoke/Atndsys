@@ -25,5 +25,8 @@
     } else if ($function == "edit") {
         $sql = "UPDATE Activity_Venue SET Venue=$data2 WHERE Venue=$data";
         $result = mysqli_query($conn,$sql);
+    } else if ($function == "add") {
+        $sql = "INSERT INTO Activity_Venue (Venue) VALUES ($data)";
+        $result = mysqli_query($conn,$sql);
     }
 ?>

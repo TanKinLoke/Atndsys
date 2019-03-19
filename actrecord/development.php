@@ -112,8 +112,8 @@
                             </div>
                         </div>
                         <div class="popup-venue-boxcontent-down">
-                            <input class="add-venue-input-box" type="text">
-                            <button type='button' class="add-venue-submit">
+                            <input class="add-venue-input-box" type="text" id="add_venue_text">
+                            <button type='button' class="add-venue-submit" onclick="addVenue()">
                                 <img src="../img/icons8-plus-96.png"/>
                             </button>
                         </div>

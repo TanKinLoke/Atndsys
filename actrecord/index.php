@@ -49,6 +49,7 @@
             <meta charset="utf-8"/>
             <link rel="stylesheet" href="../css/global.css"/>
             <link rel="stylesheet" href="../css/actrecord.css"/>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         </head>
     </head>
     <body>
@@ -69,11 +70,9 @@
             <div class="popup-venue-box-container" id="popup-venue-box-container" onclick="closeVenueBox();">
                 <div class="popup-venue-box" id="popup-venue-box">
                     <div class="popup-venue-boxcontent">
-                    <table>
-    <tr>
-        <th>Venue Name</th>
-        <th> Option</th>
-    </tr>
+                        <div class="popup-venue-boxcontent-up">
+                            <div class="venue-table-box">
+                        <table id="venue-settings">
     <?php
         //SQL Login Details
         $servername="localhost";
@@ -96,9 +95,10 @@
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
+                //Table row
                 echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>\n";
-                echo "<td>".$row['Venue']."</td>\n";
-                echo "<td><button type='button' value='".$row['Venue']."'>Edit</button><button type='button' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
+                echo "<td><input type='text' onchange='editVenue(\"".str_replace(" ","_",$row['Venue'])."\")' id='".str_replace(" ","_",$row['Venue'])."_text' value='".$row['Venue']."' readonly></td>\n";
+                echo "<td><button type='button' id='".str_replace(" ","_",$row['Venue'])."_edit' onclick='editVenueText(\"".str_replace(" ","_",$row['Venue'])."\")'>Edit</button>\n<button type='button' id='".str_replace(" ","_",$row['Venue'])."_delete' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                 echo "</tr>\n";
             }
         } else {
@@ -108,8 +108,15 @@
         mysqli_close($conn);
 
     ?>
-    </table>
-    <button type='button'>Add Venue</button>
+                        </table>
+                            </div>
+                        </div>
+                        <div class="popup-venue-boxcontent-down">
+                            <input class="add-venue-input-box" type="text" id="add_venue_text">
+                            <button type='button' class="add-venue-submit" onclick="addVenue()">
+                                <img src="../img/icons8-plus-96.png"/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -211,5 +218,6 @@
             </div>
         </div>
         <script src="../script/actrecord.js"></script>
+
     </body>
 </html>

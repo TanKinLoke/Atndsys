@@ -25,14 +25,18 @@
         <div class="center">
             <div class="center-content-box">
                 <div class="c1-box">
-                    <a href="./memberreg/index.php"><button class="c1">
-                        MEMBER<br>REGISTRATION
-                    </button></a>
+                    <a href="./memberreg/index.php">
+                        <button class="c1">
+                            MEMBER<br>REGISTRATION
+                        </button>
+                    </a>
                 </div><!--
                 --><div class="c2-box">
-                    <a href="./actrecord/index.php"><button class="c2">
-                        ACTIVITY<br>RECORD
-                    </button></a>
+                    <a href="./actrecord/index.php">
+                        <button class="c2">
+                            ACTIVITY<br>RECORD
+                        </button>
+                    </a>
                 </div><!--
                 --><div class="c3-box">
                     <button class="c3">

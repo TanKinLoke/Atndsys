@@ -39,9 +39,11 @@
                     </a>
                 </div><!--
                 --><div class="c3-box">
-                    <button class="c3">
-                        ACTIVITY<br>ATTENDANCE
-                    </button>
+                    <a href="./actatnd/index.php">
+                        <button class="c3">
+                            ACTIVITY<br>ATTENDANCE
+                        </button>
+                    </a>
                 </div><!--
                 --><div class="c4-box">
                      <button class="c4">

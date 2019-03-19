@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2019 at 01:09 PM
--- Server version: 10.3.11-MariaDB
--- PHP Version: 7.2.14
+-- Generation Time: Mar 19, 2019 at 01:47 PM
+-- Server version: 10.3.12-MariaDB
+-- PHP Version: 7.2.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -62,11 +62,9 @@ CREATE TABLE `activity_record` (
 --
 
 INSERT INTO `activity_record` (`Activity_Name`, `Activity_Venue`, `Activity_Date`, `Activity_Start_Time`, `Activity_End_Time`, `pkey`) VALUES
-('a', 'a', '2019-01-30', '10:00 am', '12:00 pm', 1),
-('General Meeting', 'Hub', '2019-01-31', '10:00 am', '12:00 pm', 2),
-('General Meeting', 'Hub', '2019-01-31', '10:00 am', '12:00 pm', 3),
-('General Meeting', 'Hub', '2019-01-31', '10:00 am', '12:00 pm', 4),
-('General Meeting', 'Hub', '2019-01-31', '10:00 am', '12:00 pm', 5);
+('Test', 'i-CreatorZ Hub', '2019-02-17', '10:30 am', '12:30 pm', 35),
+('First Activity', 'i-CreatorZ Hub', '2019-02-28', '10:30 am', '12:30 pm', 36),
+('test', 'i-CreatorZ Hub', '2019-03-16', '10:30 am', '12:30 pm', 37);
 
 -- --------------------------------------------------------
 
@@ -107,6 +105,7 @@ CREATE TABLE `student_info` (
 INSERT INTO `student_info` (`Student_Name`, `Student_ID`, `Card_ID`, `Class`) VALUES
 ('ZXIU', 'D1111', '8712', '4SK1'),
 ('kin loke', 'D3276', '817212', '4sk1'),
+('CHEAH ZIXU', 'D3503', '12345567', '4SK2'),
 ('ZIXU', 'E3508', 'fhfgfhjfh', '5AK5');
 
 --
@@ -151,7 +150,7 @@ ALTER TABLE `activity_attendance`
 -- AUTO_INCREMENT for table `activity_record`
 --
 ALTER TABLE `activity_record`
-  MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

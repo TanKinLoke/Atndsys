@@ -2,10 +2,12 @@ var confirmState = false;
 var selectedActivity;
 
 function confirmActivity() {
+    // Hide select activity box and start detecting card
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     document.getElementById("CardID").focus();
     confirmState = true;
+    // Get card data and save as variable
     selectedActivity = document.getElementById("activity-name-selector-input").value;
 }
 
@@ -30,6 +32,7 @@ document.addEventListener('keydown', function (e) {
 
                 }
             };
+            // Post datas to SQL via PHP
             xmlhttp.open("POST","sql.php?CardID="+CardID+"&ActivitySelection="+selectedActivity,true);
             xmlhttp.send();
         }

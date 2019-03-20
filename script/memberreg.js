@@ -67,9 +67,13 @@ function endProcess() {
     document.getElementById("Class2").value = input_class;
     document.getElementById("CardID2").value = document.getElementById("CardID").value;
     
-    
-
-    window.alert("New member data has been added to the database successfully.");
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if(this.responseText == "done") {
+            window.alert("New member data has been added to the database successfully.");
+        }
+    };
+    xmlhttp.open("POST","",true);    
 }
 
 document.addEventListener('keydown', function (e) {

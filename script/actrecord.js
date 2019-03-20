@@ -114,21 +114,20 @@ function editVenue(venue) {
 
 function addVenue() {
     var venue = document.getElementById("add_venue_text").value;
-    var add_table = false;
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (venue != "") {
-            $("#venue-settings").append(
-            "<tr id='"+venue.replace(" ","_")+"'>\n"+
-            "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
-            "<td><button type='button' id='"+venue.replace(" ","_")+"_edit' onclick='editVenueText(\""+venue.replace(" ","_")+"\")'>Edit</button>\n<button type='button' id='"+venue.replace(" ","_")+"_delete' onclick='deleteVenue(\""+venue.replace(" ","_")+"\")'>Delete</button></td>\n"+
-            "</tr>\n");
-
-            document.getElementById("add_venue_text").value = "";
-            venue = ""; 
+            setTimeout(function() {
+                $("#venue-settings").append(
+                "<tr id='"+venue.replace(" ","_")+"'>\n"+
+                "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
+                "<td><button type='button' id='"+venue.replace(" ","_")+"_edit' onclick='editVenueText(\""+venue.replace(" ","_")+"\")'>Edit</button>\n<button type='button' id='"+venue.replace(" ","_")+"_delete' onclick='deleteVenue(\""+venue.replace(" ","_")+"\")'>Delete</button></td>\n"+
+                "</tr>\n");
+                document.getElementById("add_venue_text").value = "";
+                venue = ""; 
+            },100);
         }
-
     };
     xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
     xmlhttp.send();

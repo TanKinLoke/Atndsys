@@ -17,8 +17,21 @@ document.addEventListener('keydown', function (e) {
     var key = e.which || e.keyCode;
     if (key === 13) { 
         if (confirmState == true) {
-            document.getElementById("CardID").submit();
             // Get Card ID by calling document.getElementById("CardID").value
+            var CardID = document.getElementById("CardID").value;
+
+            var xmlhttp = new XMLHttpRequest;
+            xmlhttp.onreadystatechange = function() {
+                if(this.responseText == "done") {
+                    console.log("Success");
+                } else if (this.responseText == "fail") {
+
+                } else if (this.responseText == "CardEmpty") {
+
+                }
+            };
+            xmlhttp.open("POST","sql.php?CardID="+CardID+"&ActivitySelection="+selectedActivity,true);
+            xmlhttp.send();
         }
     }
 });

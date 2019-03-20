@@ -1,5 +1,7 @@
 var confirmState = false;
 var selectedActivity;
+var showSuccess = document.getElementById("content-box-b-c4");
+var CardID;
 
 function confirmActivity() {
     // Hide select activity box and start detecting card
@@ -20,12 +22,12 @@ document.addEventListener('keydown', function (e) {
     if (key === 13) { 
         if (confirmState == true) {
             // Get Card ID by calling document.getElementById("CardID").value
-            var CardID = document.getElementById("CardID").value;
+            CardID = document.getElementById("CardID").value;
 
             var xmlhttp = new XMLHttpRequest;
             xmlhttp.onreadystatechange = function() {
                 if(this.responseText == "done") {
-                    console.log("Success");
+                    showSuccessFun(CardID);
                 } else if (this.responseText == "fail") {
 
                 } else if (this.responseText == "CardEmpty") {
@@ -38,3 +40,10 @@ document.addEventListener('keydown', function (e) {
         }
     }
 });
+
+function showSuccessFun(id) {
+    if (id !== "") {
+        showSuccess.innerHTML = "Attendance marked for " + id;
+        document.getElementById("CardID").value = "";
+    }
+}

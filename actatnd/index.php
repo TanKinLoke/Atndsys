@@ -76,6 +76,7 @@
                     </div>
                     <div class="content-box-b-c2">TAP CARD ON SCANNER TO MARK ATTENDANCE</div>
                     <div class="content-box-b-c3">WAITING FOR CARD</div>
+                    <div class="content-box-b-c4" id="content-box-b-c4"></div>
                     <form id="content-box-b-form" onsubmit="return false">
                         <input type="text" class="CardID" id="CardID" autofocus autocomplete="off">
                     </form>

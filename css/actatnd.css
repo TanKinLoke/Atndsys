@@ -88,6 +88,12 @@
     color: rgb(0, 81, 255);
 }
 
+.content-box-b-c4 {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-family: "Product Sans Bold";
+}
+
 .CardID {
     opacity: 0;
 }

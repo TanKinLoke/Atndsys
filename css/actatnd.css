@@ -4,7 +4,15 @@
     text-align: center;
 }
 
-.content-box-center {
+.content-box-a,.content-box-b {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.content-box-center,.content-box-b-center {
     height: auto;
     width: 100%;
     position: relative;
@@ -61,4 +69,29 @@
     transition: 0.4s;
     background-color: black;
     color: white;
+}
+
+.content-box-b-c1 img {
+    height: 7rem;
+}
+
+.content-box-b-c2 {
+    font-size: 2rem;
+    font-family: "Product Sans Bold";
+    margin-top: 2rem;
+}
+
+.content-box-b-c3 {
+    padding-top: 10rem;
+    font-size: 2rem;
+    font-family: "Product Sans Bold";
+    color: rgb(0, 81, 255);
+}
+
+.CardID {
+    opacity: 0;
+}
+
+.CardID:focus {
+    outline: 0;
 }

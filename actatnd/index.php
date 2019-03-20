@@ -23,12 +23,13 @@
             </div>
         </div>
         <div class="content-box">
+            <div class="content-box-a" id="content-box-a">
             <div class="content-box-center">
                 <div class="activity-selector-box">
                     <div class="activity-selector-box-center">
                         <div class="activity-name-selector-box">
                             ACTIVITY NAME
-                            <select class="activity-name-selector-input" name="ActivitySelection">
+                            <select class="activity-name-selector-input" id="activity-name-selector-input" name="ActivitySelection">
                             <?php
                                 $servername="localhost";
                                 $username="root";
@@ -63,8 +64,21 @@
                         </div>
                     </div>
                     <div class="activity-selector-confirm">
-                        <button class="confirm-button">CONFIRM</button>
+                        <button class="confirm-button" onclick="confirmActivity();">CONFIRM</button>
                     </div>
+                </div>
+            </div>
+            </div>
+            <div class="content-box-b" id="content-box-b" style="display:none;">
+                <div class="content-box-b-center">
+                    <div class="content-box-b-c1">
+                        <img src="../img/icons8-card-security-96.png"/>
+                    </div>
+                    <div class="content-box-b-c2">TAP CARD ON SCANNER TO MARK ATTENDANCE</div>
+                    <div class="content-box-b-c3">WAITING FOR CARD</div>
+                    <form method="post" id="content-box-b-form">
+                        <input type="text" class="CardID" id="CardID" autofocus autocomplete="off">
+                    </form>
                 </div>
             </div>
         </div>

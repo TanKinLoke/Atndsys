@@ -59,7 +59,6 @@ function endProcess() {
         Function = endProcess()
         Combines all received data and send to backend
     */
-    center0.style.display = "none";
     center1.style.display = "none";
     var CardValue = document.getElementById("CardID").value;
     var success = "New member data has been added to the database successfully.";

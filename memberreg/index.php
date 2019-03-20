@@ -60,7 +60,11 @@
                     </div>
                     <div class="c5b" id="c5b">TAP CARD ON SCANNER TO FINISH PROCESS</div>
                     <div class="c5c" id="c5c">SCANNER IS IDLE</div>
+<<<<<<< HEAD
                     <input type="text" class="CardID" id="CardID" autocomplete="false" autofocus>
+=======
+                    <input type="text" class="CardID" id="CardID" autofocus autocomplete="off">
+>>>>>>> 5acd98a0864aad763e752686bd7a49c9861c9fbe
                 </div>
             </div>
         </div>

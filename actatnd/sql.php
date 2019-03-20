@@ -13,40 +13,44 @@
         }
 
         if(!empty($_REQUEST["CardID"])) {
-            //CardID and Student Name Link
+            //CardID
             $CardID = $_REQUEST["CardID"];
 
+            //Get info from student_info table
             $Cardsql = "SELECT * FROM student_info WHERE Card_ID=$CardID";
             $CardResult = mysqli_query($conn,$Cardsql);
             $row = mysqli_fetch_assoc($CardResult);
 
+            //Get student name and student ID
             $StudentName = $row["Student_Name"];
             $StudentID = $row["Student_ID"];
             //echo $row["Student_Name"];
 
             //Activity Name
             $ActivityName = $_REQUEST["ActivitySelection"];
-            //$Activitysql = "SELECT Activity_Name FROM activity_record WHERE Activity_Name = $ActivityName";
-            //$ActivityResult = mysqli_query($conn,$Activitysql);
-
-            //Insert into Database
-            //echo $CardID." and ".$ActivityName." and ".$row["Student_Name"];
+            
+            //Check for duplication
             $DuplicateSQL = "SELECT COUNT(*) FROM activity_attendance WHERE Activity_Name='$ActivityName' AND Student_ID='$StudentID'";
             $Duplicate = mysqli_query($conn,$DuplicateSQL);
             $Duplicate = mysqli_fetch_assoc($Duplicate);
 
             if ($Duplicate['COUNT(*)'] == 0) {
+                //Mark attendance
                 $AttendanceSql = "INSERT INTO activity_attendance (Activity_Name,Student_Name,Student_ID) VALUES ('$ActivityName','$StudentName','$StudentID')";
                 if (mysqli_query($conn,$AttendanceSql)) {
-                    echo "done,$StudentName";
+                    //Success
+                    echo "done,$StudentID";
                 } else {
-                    echo "fail,$StudentName"; 
+                    //Fail
+                    echo "fail,$StudentID"; 
                 }
             } else {
-                echo "Duplicate,$StudentName";
+                //Duplicate
+                echo "Duplicate,$StudentID";
             }
         
         } else {
+            //Card ID is empty
             echo "CardEmpty";
         }
 

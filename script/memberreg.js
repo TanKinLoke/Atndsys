@@ -70,6 +70,7 @@ function endProcess() {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if(this.responseText == "done") {
+            
             window.alert("New member data has been added to the database successfully.");
         }
     };

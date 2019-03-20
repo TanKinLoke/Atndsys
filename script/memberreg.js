@@ -62,12 +62,24 @@ function endProcess() {
     center1.style.display = "none";
     var CardValue = document.getElementById("CardID").value;
     var success = "New member data has been added to the database successfully.";
+    var fail = "Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.";
+    var empty = "Some info is being left empty. Please fill it and submit again. If you think is this a bug, please contact system administrator, @Cheah Zixu and @Kin Loke.";
     
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if(this.responseText == "done" && success != "") {
             window.alert(success);
             success = "";
+            center0.style.display = "block";
+            center1.style.display = "none";
+        } else if(this.responseText == "fail" && fail != "") {
+            window.alert(fail);
+            fail = "";
+            center0.style.display = "block";
+            center1.style.display = "none";
+        } else if(this.responseText == "empty" && empty != "") {
+            window.alert(empty);
+            empty = "";
             center0.style.display = "block";
             center1.style.display = "none";
         }

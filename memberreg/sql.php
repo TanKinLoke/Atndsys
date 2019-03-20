@@ -14,12 +14,12 @@
             } 
 
             //Check if Student Info are inserted or not
-            if (!empty($_POST["StudentID"]) && !empty($_POST["CardID"]) && !empty($_POST["StudentName"]) && !empty($_POST["Class"])) {
+            if (!empty($_REQUEST["StudentID"]) && !empty($_REQUEST["CardID"]) && !empty($_REQUEST["StudentName"]) && !empty($_REQUEST["Class"])) {
                 //If everything is inserted
-                $StudentID = $_POST["StudentID"];
-                $CardID = $_POST["CardID"];
-                $StudentName = $_POST["StudentName"];
-                $Class = $_POST["Class"];
+                $StudentID = $_REQUEST["StudentID"];
+                $CardID = $_REQUEST["CardID"];
+                $StudentName = $_REQUEST["StudentName"];
+                $Class = $_REQUEST["Class"];
     
                 //SQL code
                 $sql = "INSERT INTO student_info (Student_Name, Student_ID, Card_ID, Class) VALUES ('$StudentName','$StudentID','$CardID','$Class')";
@@ -27,14 +27,14 @@
                 //SQL Result
                 if (mysqli_query($conn, $sql)) {
                     //Success
-                    echo "New record created successfully for ".$StudentID;
+                    echo "done";
                 } else {
                     //Fail
-                    echo "<script>console.log('Error: " . $sql . mysqli_error($conn)."');</script>";
+                    echo "fail";
                 }
             } else {
                 //If something is not inserted
-                echo "<script>console.log('Something is not inserted');</script>";
+                echo "empty";
             }
         //Close MySQL Connection
         mysqli_close($conn);

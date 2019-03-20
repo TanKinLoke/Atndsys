@@ -60,18 +60,9 @@
                     </div>
                     <div class="c5b" id="c5b">TAP CARD ON SCANNER TO FINISH PROCESS</div>
                     <div class="c5c" id="c5c">SCANNER IS IDLE</div>
-                    <input type="text" class="CardID" id="CardID" autofocus>
+                    <input type="text" class="CardID" id="CardID" autocomplete="false" autofocus>
                 </div>
             </div>
-        </div>
-        <div class="center3" id="center3">
-            <form method="post" id="center3form">
-                <input id="StudentName2" name="StudentName" type="text"/>
-                <input id="StudentID2" name="StudentID" type="text"/>
-                <input id="Class2" name="Class" type="text"/>
-                <input id="CardID2" name="CardID" type="text"/>
-                <button type="submit">SUBMIT</button>
-            </form>
         </div>
         <script src="../script/memberreg.js"></script>
     </body>

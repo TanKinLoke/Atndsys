@@ -61,20 +61,18 @@ function endProcess() {
     */
     center0.style.display = "none";
     center1.style.display = "none";
-    center3.style.display = "block";
-    document.getElementById("StudentName2").value = input_name;
-    document.getElementById("StudentID2").value = input_id;
-    document.getElementById("Class2").value = input_class;
-    document.getElementById("CardID2").value = document.getElementById("CardID").value;
+    var CardValue = document.getElementById("CardID").value;
+    var success = "New member data has been added to the database successfully.";
     
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        if(this.responseText == "done") {
-            
-            window.alert("New member data has been added to the database successfully.");
+        if(this.responseText == "done" && success != "") {
+            window.alert(success);
+            success = "";
         }
     };
-    xmlhttp.open("POST","",true);    
+    xmlhttp.open("POST","sql.php?StudentID="+input_id+"&CardID="+CardValue+"&StudentName="+input_name+"&Class="+input_class,true);
+    xmlhttp.send();    
 }
 
 document.addEventListener('keydown', function (e) {
@@ -89,6 +87,7 @@ document.addEventListener('keydown', function (e) {
         }
         if (pageCheck == 2) {
             endProcess();
+            pageCheck++;
         }
     }
 });

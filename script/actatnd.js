@@ -27,11 +27,18 @@ document.addEventListener('keydown', function (e) {
             var xmlhttp = new XMLHttpRequest;
             xmlhttp.onreadystatechange = function() {
                 if(this.responseText == "done") {
+                    //Attendance marked
                     showSuccessFun(CardID);
+                    console.log('Success');
                 } else if (this.responseText == "fail") {
+                    //Server Fail to mark attendance
 
                 } else if (this.responseText == "CardEmpty") {
+                    //CardID is empty
 
+                } else if (this.responseText == "Duplicate") {
+                    //Attendance duplicate
+                    
                 }
             };
             // Post datas to SQL via PHP

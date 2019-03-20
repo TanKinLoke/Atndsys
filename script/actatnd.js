@@ -29,16 +29,15 @@ document.addEventListener('keydown', function (e) {
                 if(this.responseText == "done") {
                     //Attendance marked
                     showSuccessFun(CardID);
-                    console.log('Success');
                 } else if (this.responseText == "fail") {
                     //Server Fail to mark attendance
-
+                    showFailFun(CardID);
                 } else if (this.responseText == "CardEmpty") {
                     //CardID is empty
-
+                    showEmptyFun();
                 } else if (this.responseText == "Duplicate") {
                     //Attendance duplicate
-                    
+                    showDuplicateFun(CardID);
                 }
             };
             // Post datas to SQL via PHP
@@ -49,8 +48,27 @@ document.addEventListener('keydown', function (e) {
 });
 
 function showSuccessFun(id) {
-    if (id !== "") {
+    if (id != "") {
         showSuccess.innerHTML = "Attendance marked for " + id;
+        document.getElementById("CardID").value = "";
+    }
+}
+
+function showFailFun(id) {
+    if (id != "") {
+        showSuccess.innerHTML = "Attendance marking fail " + id;
+        document.getElementById("CardID").value = "";
+    }
+}
+
+function showEmptyFun() {
+        showSuccess.innerHTML = "CardID is empty";
+        document.getElementById("CardID").value = "";
+}
+
+function showDuplicateFun(id) {
+    if (id != "") {
+        showSuccess.innerHTML = "Attendance duplication for " + id;
         document.getElementById("CardID").value = "";
     }
 }

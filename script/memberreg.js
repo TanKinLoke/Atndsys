@@ -34,7 +34,7 @@ function submitDetails() {
                 output2.innerText = input2.value;
                 input_class = input2.value;
                 pageCheck = 1;
-                if (document.getElementById("CardID").focus() !== true) {
+                if (document.getElementById("CardID").focus() != true) {
                     document.getElementById("CardID").focus();
                 }
             }

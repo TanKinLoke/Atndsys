@@ -71,7 +71,9 @@ function endProcess() {
         }
     };
     xmlhttp.open("POST","sql.php?StudentID="+input_id+"&CardID="+CardValue+"&StudentName="+input_name+"&Class="+input_class,true);
-    xmlhttp.send();    
+    xmlhttp.send();
+
+    location.reload();
 }
 
 document.addEventListener('keydown', function (e) {

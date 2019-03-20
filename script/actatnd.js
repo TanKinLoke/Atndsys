@@ -26,18 +26,21 @@ document.addEventListener('keydown', function (e) {
 
             var xmlhttp = new XMLHttpRequest;
             xmlhttp.onreadystatechange = function() {
-                if(this.responseText == "done") {
+                response = this.responseText;
+                response = response.split(",");
+
+                if(response[0] == "done") {
                     //Attendance marked
-                    showSuccessFun(CardID);
-                } else if (this.responseText == "fail") {
+                    showSuccessFun(response[1]);
+                } else if (response[0] == "fail") {
                     //Server Fail to mark attendance
-                    showFailFun(CardID);
-                } else if (this.responseText == "CardEmpty") {
+                    showFailFun(response[1]);
+                } else if (response[0] == "CardEmpty") {
                     //CardID is empty
                     showEmptyFun();
-                } else if (this.responseText == "Duplicate") {
+                } else if (response[0] == "Duplicate") {
                     //Attendance duplicate
-                    showDuplicateFun(CardID);
+                    showDuplicateFun(response[1]);
                 }
             };
             // Post datas to SQL via PHP

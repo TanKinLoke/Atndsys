@@ -14,33 +14,36 @@
 
         if(!empty($_REQUEST["CardID"])) {
             //CardID and Student Name Link
-            $Cardcondition = $_REQUEST["CardID"];
-            $Cardsql = "SELECT * FROM student_info WHERE Card_ID=$Cardcondition";
+            $CardID = $_REQUEST["CardID"];
+
+            $Cardsql = "SELECT * FROM student_info WHERE Card_ID=$CardID";
             $CardResult = mysqli_query($conn,$Cardsql);
             $row = mysqli_fetch_assoc($CardResult);
-            $CardName = $row["Student_Name"];   
+
+            $StudentName = $row["Student_Name"];
+            $StudentID = $row["Student_ID"];
             //echo $row["Student_Name"];
 
             //Activity Name
-            $Activitycondition = $_REQUEST["ActivitySelection"];
-            //$Activitysql = "SELECT Activity_Name FROM activity_record WHERE Activity_Name = $Activitycondition";
+            $ActivityName = $_REQUEST["ActivitySelection"];
+            //$Activitysql = "SELECT Activity_Name FROM activity_record WHERE Activity_Name = $ActivityName";
             //$ActivityResult = mysqli_query($conn,$Activitysql);
 
             //Insert into Database
-            //echo $Cardcondition." and ".$Activitycondition." and ".$row["Student_Name"];
-            $DuplicateSQL = "SELECT COUNT(*) FROM activity_attendance WHERE Activity_Name='$Activitycondition' AND Student_ID='$Cardcondition'";
+            //echo $CardID." and ".$ActivityName." and ".$row["Student_Name"];
+            $DuplicateSQL = "SELECT COUNT(*) FROM activity_attendance WHERE Activity_Name='$ActivityName' AND Student_ID='$StudentID'";
             $Duplicate = mysqli_query($conn,$DuplicateSQL);
             $Duplicate = mysqli_fetch_assoc($Duplicate);
 
             if ($Duplicate['COUNT(*)'] == 0) {
-                $AttendanceSql = "INSERT INTO activity_attendance (Activity_Name,Student_Name,Student_ID) VALUES ('$Activitycondition','$CardName','$Cardcondition')";
+                $AttendanceSql = "INSERT INTO activity_attendance (Activity_Name,Student_Name,Student_ID) VALUES ('$ActivityName','$StudentName','$StudentID')";
                 if (mysqli_query($conn,$AttendanceSql)) {
-                    echo "done";
+                    echo "done,$StudentName";
                 } else {
-                    echo "fail"; 
+                    echo "fail,$StudentName"; 
                 }
             } else {
-                echo "Duplicate";
+                echo "Duplicate,$StudentName";
             }
         
         } else {

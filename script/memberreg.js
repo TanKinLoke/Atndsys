@@ -66,7 +66,9 @@ function endProcess() {
     document.getElementById("StudentID2").value = input_id;
     document.getElementById("Class2").value = input_class;
     document.getElementById("CardID2").value = document.getElementById("CardID").value;
-    document.getElementById("center3form").submit();
+    
+    
+
     window.alert("New member data has been added to the database successfully.");
 }
 

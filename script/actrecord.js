@@ -118,7 +118,7 @@ function addVenue() {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        if (this.responseText == "done" && venue != "") {
+        if (venue != "") {
             $("#venue-settings").append(
             "<tr id='"+venue.replace(" ","_")+"'>\n"+
             "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+

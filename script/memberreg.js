@@ -68,12 +68,12 @@ function endProcess() {
         if(this.responseText == "done" && success != "") {
             window.alert(success);
             success = "";
+            center0.style.display = "block";
+            center1.style.display = "none";
         }
     };
     xmlhttp.open("POST","sql.php?StudentID="+input_id+"&CardID="+CardValue+"&StudentName="+input_name+"&Class="+input_class,true);
     xmlhttp.send();
-
-    location.reload();
 }
 
 document.addEventListener('keydown', function (e) {

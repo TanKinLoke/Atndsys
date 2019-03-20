@@ -131,4 +131,13 @@ function addVenue() {
     };
     xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
     xmlhttp.send();
+    sessionStorage.setItem("activityAdded", "true");
+    location.reload();
+}
+
+window.onload = function() {
+    if (sessionStorage.getItem("activityAdded")) {
+        sessionStorage.setItem("activityAdded", "false");
+        showVenueBox();
+    }
 }

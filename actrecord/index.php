@@ -54,9 +54,9 @@
         </head>
     </head>
     <body>
-        <div class="back-btn" onclick="location.href='../'">
-            <span>Back</span>
-        </div>
+        <button id="back-btn">
+            <img src="../img/back-arrow.svg">
+        </button>
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">
@@ -222,6 +222,7 @@
             </div>
         </div>
         <script src="../script/actrecord.js"></script>
+        <script src="../script/animation.js"></script>
 
     </body>
 </html>

@@ -20,24 +20,25 @@ html,body {
 }
 
 * {
+    outline: none;
     user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
 }
 
-.back-btn {
+#back-btn {
     cursor: pointer;
     position: absolute;
-    width: 100px;
-    height: 85px;
+    top: 5px;
+    left: 5px;
+    background-color: transparent;
+    border: none;
+    transition: .5s;
 }
 
-.back-btn span {
-    position: absolute;
-    transform: translateY(-100%);
-    top: 50%;
-    font-size: 2em;
+#back-btn img {
+    width: 50px;
 }
 
 .header {

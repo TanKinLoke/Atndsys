@@ -7,6 +7,7 @@
             <link rel="icon" href="../img/favicon.png">
             <link rel="stylesheet" href="../css/global.css"/>
             <link rel="stylesheet" href="../css/actexport.css"/>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         </head>
     </head>
     <body>
@@ -72,7 +73,11 @@
                 <div class="content-title" id="content-title">ACTIVITY_NAME</div>
                 <div class="content-desc">ATTENDANCE LIST</div>
             </div>
-            <div class="content-table-box"></div>
+            <div class="content-table-box">
+                <table id="export-table">
+                    
+                </table>
+            </div>
         </div>
         <script src="../script/actexport.js"></script>
     </body>

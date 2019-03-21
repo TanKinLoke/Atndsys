@@ -6,7 +6,7 @@
             <meta charset="utf-8"/>
             <link rel="icon" href="../img/favicon.png">
             <link rel="stylesheet" href="../css/global.css"/>
-            <link rel="stylesheet" href="../css/actatnd.css"/>
+            <link rel="stylesheet" href="../css/actexport.css"/>
         </head>
     </head>
     <body>
@@ -24,8 +24,19 @@
             </div>
         </div>
         <div class="content-box">
-            
+            <div class="content-box-a">
+                <div class="content-box-a-center">
+                    <div class="activity-selector-box">
+                        ACTIVITY NAME
+                        <select class="activity-selector-input" id="activity-selector-input"></select>
+                    </div>
+                    <div class="activity-export-box">
+                        <button class="export-button">EXPORT</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content-box-b" style="display:none"></div>
         </div>
-        <script src="../script/actatnd.js"></script>
+        <script src="../script/actexport.js"></script>
     </body>
 </html>

@@ -1,0 +1,61 @@
+.content-box {
+    height: 65%;
+    width: 100%;
+    text-align: center;
+}
+
+.content-box-a,.content-box-b {
+    height: 65%;
+    width: 100%;
+    position: absolute;
+}
+
+.content-box-a-center {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 15%;
+}
+
+.activity-selector-box {
+    height: auto;
+    width: 45rem;
+    display: inline-block;
+    text-align: left;
+    font-size: 1.25rem;
+    font-family: "Product Sans Bold";
+}
+
+.activity-selector-input {
+    height: 7rem;
+    width: 100%;
+    border: 5px solid black;
+    background-color: white;
+    color: black;
+    font-family: "Product Sans Bold";
+    font-size: 2rem;
+}
+
+.activity-export-box {
+    height: auto;
+    width: 100%;
+}
+
+.export-button {
+    height: 6rem;
+    width: 15rem;
+    transition: 0.4s;
+    border: 5px solid black;
+    background-color: white;
+    color: black;
+    font-family: "Product Sans Bold";
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 10rem;
+}
+
+.export-button:hover {
+    transition: 0.4s;
+    background-color: black;
+    color: white;
+}

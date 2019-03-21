@@ -47,6 +47,7 @@
             <title>ATNDSYS Activity Record</title>
             <meta name="viewport" content="width=device-width,initial-scale=1.0" initial-scale="1"/>
             <meta charset="utf-8"/>
+            <link rel="icon" href="../img/favicon.png">
             <link rel="stylesheet" href="../css/global.css"/>
             <link rel="stylesheet" href="../css/actrecord.css"/>
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

@@ -4,6 +4,7 @@
             <title>ATNDSYS Home</title>
             <meta name="viewport" content="width=device-width,initial-scale=1.0" initial-scale="1"/>
             <meta charset="utf-8"/>
+            <link rel="icon" href="./img/favicon.png">
             <link rel="stylesheet" href="./css/global.css"/>
             <link rel="stylesheet" href="./css/index.css"/>
         </head>
@@ -25,30 +26,32 @@
         <div class="center">
             <div class="center-content-box">
                 <div class="c1-box">
-                    <a href="./memberreg/index.php">
+                    <a href="./memberreg/">
                         <button class="c1">
                             MEMBER<br>REGISTRATION
                         </button>
                     </a>
                 </div><!--
                 --><div class="c2-box">
-                    <a href="./actrecord/index.php">
+                    <a href="./actrecord/">
                         <button class="c2">
                             ACTIVITY<br>RECORD
                         </button>
                     </a>
                 </div><!--
                 --><div class="c3-box">
-                    <a href="./actatnd/index.php">
+                    <a href="./actatnd/">
                         <button class="c3">
                             ACTIVITY<br>ATTENDANCE
                         </button>
                     </a>
                 </div><!--
                 --><div class="c4-box">
-                     <button class="c4">
-                        ACTIVITY<br>EXPORT
-                    </button>
+                    <a href="./actexport/">
+                        <button class="c4">
+                            ACTIVITY<br>EXPORT
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

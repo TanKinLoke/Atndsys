@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2019 at 01:47 PM
+-- Generation Time: Mar 21, 2019 at 12:36 PM
 -- Server version: 10.3.12-MariaDB
 -- PHP Version: 7.2.16
 
@@ -40,7 +40,8 @@ CREATE TABLE `activity_attendance` (
 --
 
 INSERT INTO `activity_attendance` (`Activity_Name`, `Student_Name`, `Student_ID`, `pkey`) VALUES
-('General Meeting', '1', '12', 6);
+('Normal Activity', 'ZXIU', 'D1111', 2),
+('Normal Activity', 'Kin Loke', 'D3276', 3);
 
 -- --------------------------------------------------------
 
@@ -62,9 +63,7 @@ CREATE TABLE `activity_record` (
 --
 
 INSERT INTO `activity_record` (`Activity_Name`, `Activity_Venue`, `Activity_Date`, `Activity_Start_Time`, `Activity_End_Time`, `pkey`) VALUES
-('Test', 'i-CreatorZ Hub', '2019-02-17', '10:30 am', '12:30 pm', 35),
-('First Activity', 'i-CreatorZ Hub', '2019-02-28', '10:30 am', '12:30 pm', 36),
-('test', 'i-CreatorZ Hub', '2019-03-16', '10:30 am', '12:30 pm', 37);
+('Normal Activity', 'i-CreatorZ Hub', '2019-03-20', '10:30 am', '12:30 pm', 1);
 
 -- --------------------------------------------------------
 
@@ -122,7 +121,8 @@ ALTER TABLE `activity_attendance`
 -- Indexes for table `activity_record`
 --
 ALTER TABLE `activity_record`
-  ADD PRIMARY KEY (`pkey`);
+  ADD PRIMARY KEY (`pkey`),
+  ADD UNIQUE KEY `Activity_Name` (`Activity_Name`);
 
 --
 -- Indexes for table `Activity_Venue`
@@ -134,7 +134,8 @@ ALTER TABLE `Activity_Venue`
 -- Indexes for table `student_info`
 --
 ALTER TABLE `student_info`
-  ADD PRIMARY KEY (`Student_ID`);
+  ADD PRIMARY KEY (`Student_ID`),
+  ADD UNIQUE KEY `Card_ID` (`Card_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -144,13 +145,13 @@ ALTER TABLE `student_info`
 -- AUTO_INCREMENT for table `activity_attendance`
 --
 ALTER TABLE `activity_attendance`
-  MODIFY `pkey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pkey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `activity_record`
 --
 ALTER TABLE `activity_record`
-  MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

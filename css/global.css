@@ -27,17 +27,8 @@ html,body {
 }
 
 .back-btn {
-    cursor: pointer;
     position: absolute;
-    width: 100px;
-    height: 85px;
-}
-
-.back-btn span {
-    position: absolute;
-    transform: translateY(-100%);
-    top: 50%;
-    font-size: 2em;
+    display: none;
 }
 
 .header {

@@ -27,6 +27,7 @@ html,body {
     -webkit-user-select: none;
 }
 
+<<<<<<< HEAD
 #back-btn {
     cursor: pointer;
     position: absolute;
@@ -39,6 +40,11 @@ html,body {
 
 #back-btn img {
     width: 50px;
+=======
+.back-btn {
+    position: absolute;
+    display: none;
+>>>>>>> dd79625a5b98f578f2d295dff26da9b39ee67c70
 }
 
 .header {

@@ -10,7 +10,11 @@
         </head>
     </head>
     <body>
+<<<<<<< HEAD
         <button id="back-btn">
+=======
+        <button class="back-btn" onclick="location.href='../'">
+>>>>>>> dd79625a5b98f578f2d295dff26da9b39ee67c70
             <img src="../img/back-arrow.svg">
         </button>
         <div class="header">

@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-.content-box-a,.content-box-b {
+.content-box-a {
     height: 65%;
     width: 100%;
     position: absolute;
@@ -58,4 +58,35 @@
     transition: 0.4s;
     background-color: black;
     color: white;
+}
+
+.content-box-b {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+.content-title {
+    font-family: "Product Sans Bold";
+    font-size: 2.5rem;
+}
+
+.content-desc {
+    font-family: "Product Sans Bold";
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.content-contents-box {
+    height: auto;
+    width: 100%;
+    padding: 4rem 0;
+}
+
+.content-table-box {
+    height: auto;
+    width: 100%;
 }

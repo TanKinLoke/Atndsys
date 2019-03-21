@@ -62,11 +62,17 @@
                         </select>
                     </div>
                     <div class="activity-export-box">
-                        <button class="export-button">EXPORT</button>
+                        <button class="export-button" onclick="seeAttendance();">EXPORT</button>
                     </div>
                 </div>
             </div>
-            <div class="content-box-b" style="display:none"></div>
+        </div>
+        <div class="content-box-b" id="content-box-b" style="display: none;">
+            <div class="content-contents-box">
+                <div class="content-title" id="content-title">ACTIVITY_NAME</div>
+                <div class="content-desc">ATTENDANCE LIST</div>
+            </div>
+            <div class="content-table-box"></div>
         </div>
         <script src="../script/actexport.js"></script>
     </body>

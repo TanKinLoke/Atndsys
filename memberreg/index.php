@@ -10,6 +10,9 @@
         </head>
     </head>
     <body>
+        <button id="back-btn" onclick="location.href='../'">
+            <img src="../img/back-arrow.svg">
+        </button>
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">

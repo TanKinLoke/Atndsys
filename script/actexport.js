@@ -1,6 +1,7 @@
 var atndlistStatus = false;
 
 function seeAttendance() {
+    //Let user check Attendance List after selecting activity
     if (!atndlistStatus) {
         var displayTitle = document.getElementById("activity-selector-input").value;
         document.getElementById("content-box-b").style.display = "block";

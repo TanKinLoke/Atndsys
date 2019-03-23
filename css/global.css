@@ -27,7 +27,7 @@ html,body {
     -webkit-user-select: none;
 }
 
-#back-btn {
+.back-btn {
     cursor: pointer;
     position: absolute;
     top: 5px;
@@ -37,7 +37,7 @@ html,body {
     transition: .5s;
 }
 
-#back-btn img {
+.back-btn img {
     width: 50px;
 }
 

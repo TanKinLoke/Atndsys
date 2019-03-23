@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 21, 2019 at 12:36 PM
+-- Generation Time: Mar 23, 2019 at 04:15 AM
 -- Server version: 10.3.12-MariaDB
 -- PHP Version: 7.2.16
 
@@ -32,6 +32,7 @@ CREATE TABLE `activity_attendance` (
   `Activity_Name` varchar(50) DEFAULT NULL,
   `Student_Name` varchar(50) DEFAULT NULL,
   `Student_ID` varchar(5) DEFAULT NULL,
+  `Class` varchar(5) NOT NULL,
   `pkey` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,9 +40,9 @@ CREATE TABLE `activity_attendance` (
 -- Dumping data for table `activity_attendance`
 --
 
-INSERT INTO `activity_attendance` (`Activity_Name`, `Student_Name`, `Student_ID`, `pkey`) VALUES
-('Normal Activity', 'ZXIU', 'D1111', 2),
-('Normal Activity', 'Kin Loke', 'D3276', 3);
+INSERT INTO `activity_attendance` (`Activity_Name`, `Student_Name`, `Student_ID`, `Class`, `pkey`) VALUES
+('Normal Activity', 'ZXIU', 'D1111', '4SK2', 2),
+('Normal Activity', 'Kin Loke', 'D3276', '5SK1', 3);
 
 -- --------------------------------------------------------
 

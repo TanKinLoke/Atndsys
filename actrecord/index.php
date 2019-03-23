@@ -54,7 +54,7 @@
         </head>
     </head>
     <body>
-        <button id="back-btn">
+        <button id="back-btn" onclick="location.href='../'">
             <img src="../img/back-arrow.svg">
         </button>
         <div class="header">
@@ -222,7 +222,6 @@
             </div>
         </div>
         <script src="../script/actrecord.js"></script>
-        <script src="../script/animation.js"></script>
 
     </body>
 </html>

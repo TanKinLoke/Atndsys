@@ -48,7 +48,7 @@
                 </div>
                 <br><!--
                 --><div class="c4-box">
-                    <a href="">
+                    <a href="./chkmember/">
                         <button class="c4">
                             CHECK<br>MEMBER
                         </button>

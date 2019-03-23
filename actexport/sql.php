@@ -25,7 +25,8 @@
             while($row = mysqli_fetch_assoc($result)) {
                 $value1 = $row['Student_Name'];
                 $value2 = $row['Student_ID'];
-                $response .= "$value1|$value2,";
+                $value3 = $row['Class'];
+                $response .= "$value1|$value2|$value3,";
             }
             $response = rtrim($response,",");
 

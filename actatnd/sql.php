@@ -24,6 +24,7 @@
             //Get student name and student ID
             $StudentName = $row["Student_Name"];
             $StudentID = $row["Student_ID"];
+            $StudentClass = $row["Class"];
             //echo $row["Student_Name"];
 
             //Activity Name
@@ -36,7 +37,7 @@
 
             if ($Duplicate['COUNT(*)'] == 0) {
                 //Mark attendance
-                $AttendanceSql = "INSERT INTO activity_attendance (Activity_Name,Student_Name,Student_ID) VALUES ('$ActivityName','$StudentName','$StudentID')";
+                $AttendanceSql = "INSERT INTO activity_attendance (Activity_Name,Student_Name,Student_ID,Class) VALUES ('$ActivityName','$StudentName','$StudentID','$StudentClass')";
                 if (mysqli_query($conn,$AttendanceSql)) {
                     //Success
                     echo "done,$StudentID";

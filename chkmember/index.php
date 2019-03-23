@@ -30,7 +30,39 @@
             <div class="content-box-center">
                 <div class="select-member-box">
                     MEMBER NAME
-                    <select class="member-selector-input"></select>
+                    <input type="text" class="member-selector-input" list="member-id" autocomplete="off">
+                    <datalist id="member-id">
+                    <?php
+                        $servername="localhost";
+                        $username="root";
+                        $password="";
+                        $dbname="i-Attendance";
+            
+                        //Create a connection
+                        $conn = new mysqli($servername,$username,$password,$dbname);
+            
+                        //Check if the connection is successful or not
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+            
+                        $sql = ("SELECT * FROM student_info");
+                        $result = mysqli_query($conn,$sql);
+            
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while($row = mysqli_fetch_assoc($result)) {
+                                //Datalist for dropdown menu
+                                echo "<option value=\"".$row["Student_Name"]."\">";
+                            }
+                        } else {
+                            
+                        }
+                
+                        mysqli_close($conn);
+                    ?>
+                    </datalist>
+                    </select>
                 </div>
                 <div class="confirm-selection-box">
                     <button class="confirm-selection-input">SEARCH</button>

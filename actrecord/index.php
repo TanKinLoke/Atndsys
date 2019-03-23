@@ -136,7 +136,7 @@
                     <div class="c1a">
                         <div class="c1a-title">ACTIVITY VENUE</div>
                         <div class="c1a-box">
-                            <input type="text" class="c1a-inputbox" id="inputvenuebox" list="Venue">
+                            <input type="text" class="c1a-inputbox" id="inputvenuebox" list="Venue" autocomplete="off">
                             <datalist id="Venue">
         <?php
             $servername="localhost";
@@ -167,9 +167,6 @@
     
             mysqli_close($conn);
         ?>
-        <!-- <option value="i-CreatorZ Hub">
-        <option value="Auditorium">
-        <option value="Penang Science Cluster"> -->
         </datalist>
                         </div>
                     </div>

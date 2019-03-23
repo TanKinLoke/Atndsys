@@ -21,7 +21,7 @@ function seeAttendance() {
                     var Stdid = Stddata[1];
 
                     $("#export-table").append("<tr>\n"+
-                    "<td>"+Stdname+"</td>"+"<td>"+Stdid+"</td>"
+                    "<td class='student_name_td'>"+Stdname+"</td>"+"<td class='student_id_td'>"+Stdid+"</td>"
                     +"\n</tr>\n");
                 }
             }

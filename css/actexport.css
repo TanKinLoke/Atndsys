@@ -88,5 +88,27 @@
 
 .content-table-box {
     height: auto;
-    width: 100%;
+    width: 60%;
+    display: inline-block;
+    padding-top: 2rem;
+}
+
+.student_name_td {
+    height: auto;
+    width: 45rem;
+    text-align: left;
+}
+
+.student_id_td {
+    height: auto;
+    width: 10rem;
+}
+
+#export-table {
+    text-align: center;
+}
+
+tr {
+    font-size: 2rem;
+    display: inline-block;
 }

@@ -55,7 +55,7 @@
                     </a>
                 </div><!--
                 --><div class="c5-box">
-                    <a href="">
+                    <a href="./chkact/">
                         <button class="c5">
                             CHECK<br>ACTIVITY
                         </button>

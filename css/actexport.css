@@ -97,9 +97,15 @@
     height: auto;
     width: 45rem;
     text-align: left;
+    padding-left: 2rem;
 }
 
 .student_id_td {
+    height: auto;
+    width: 10rem;
+}
+
+.student_cls_td {
     height: auto;
     width: 10rem;
 }
@@ -111,4 +117,8 @@
 tr {
     font-size: 2rem;
     display: inline-block;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
 }

@@ -88,30 +88,32 @@
 
 .content-table-box {
     height: auto;
-    width: 60%;
+    width: 80%;
     display: inline-block;
     padding-top: 2rem;
 }
 
 .student_name_td {
     height: auto;
-    width: 45rem;
+    width: 90rem;
     text-align: left;
     padding-left: 2rem;
 }
 
 .student_id_td {
     height: auto;
-    width: 10rem;
+    width: 10%;
 }
 
 .student_cls_td {
     height: auto;
-    width: 10rem;
+    width: 10%;
 }
 
 #export-table {
     text-align: center;
+    width: 100%;
+    font-family: "Product Sans Regular";
 }
 
 tr {

@@ -1,0 +1,55 @@
+.content-box {
+    height: 65%;
+    width: 100%;
+    text-align: center;
+}
+
+.content-box-center {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 15%;
+}
+
+.select-activity-box {
+    display: inline-block;
+    height: auto;
+    width: 45rem;
+    text-align: left;
+    font-size: 1.25rem;
+    font-family: "Product Sans Bold";
+}
+
+.activity-selector-input {
+    height: 7rem;
+    width: 100%;
+    border: 5px solid black;
+    background-color: white;
+    color: black;
+    font-family: "Product Sans Bold";
+    font-size: 2rem;
+}
+
+.confirm-selection-box {
+    height: auto;
+    width: 100%;
+}
+
+.confirm-selection-input {
+    height: 6rem;
+    width: 15rem;
+    transition: 0.4s;
+    border: 5px solid black;
+    background-color: white;
+    color: black;
+    font-family: "Product Sans Bold";
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 10rem;
+}
+
+.confirm-selection-input:hover {
+    transition: 0.4s;
+    background-color: black;
+    color: white;
+}

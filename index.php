@@ -45,10 +45,25 @@
                             ACTIVITY<br>ATTENDANCE
                         </button>
                     </a>
-                </div><!--
+                </div>
+                <br><!--
                 --><div class="c4-box">
-                    <a href="./actexport/">
+                    <a href="">
                         <button class="c4">
+                            CHECK<br>MEMBER
+                        </button>
+                    </a>
+                </div><!--
+                --><div class="c5-box">
+                    <a href="">
+                        <button class="c5">
+                            CHECK<br>ACTIVITY
+                        </button>
+                    </a>
+                </div><!--
+                --><div class="c6-box">
+                    <a href="./actexport/">
+                        <button class="c6">
                             ACTIVITY<br>EXPORT
                         </button>
                     </a>

@@ -8,19 +8,23 @@
     width: 100%;
     position: relative;
     top: 50%;
-    transform: translateY(-100%);
+    transform: translateY(-50%);
 }
 
-.c1-box,.c2-box,.c3-box,.c4-box {
+.c1-box,.c2-box,.c3-box,.c4-box,.c5-box,.c6-box {
     border: 5px solid black;
     height: 15rem;
     width: 25rem;
     display: inline-block;
     vertical-align: top;
-    margin: 0 2rem;
+    margin: 1rem 2rem;
 }
 
-.c1,.c2,.c3,.c4 {
+.c4-box {
+    margin-left: 1.75rem;
+}
+
+.c1,.c2,.c3,.c4,.c5,.c6 {
     height: 100%;
     width: 100%;
     font-size: 2.5rem;
@@ -35,7 +39,7 @@
     cursor: pointer;
 }
 
-.c1:hover,.c2:hover,.c3:hover,.c4:hover {
+.c1:hover,.c2:hover,.c3:hover,.c4:hover,.c5:hover,.c6:hover {
     transition: 0.4s;
     background-color: black;
     color: white;

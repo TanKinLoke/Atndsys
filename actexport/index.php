@@ -1,7 +1,7 @@
 <html lang="en">
     <head>
         <head>
-            <title>ATNDSYS Activity Attendance</title>
+            <title>ATNDSYS Attendance Export</title>
             <meta name="viewport" content="width=device-width,initial-scale=1.0" initial-scale="1"/>
             <meta charset="utf-8"/>
             <link rel="icon" href="../img/favicon.png">

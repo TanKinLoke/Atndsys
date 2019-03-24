@@ -27,9 +27,10 @@
             </div>
         </div>
         <div class="content-box">
+            <div class="content-box-a" id="content-box-a">
             <div class="content-box-center">
                 <div class="select-member-box">
-                    MEMBER NAME
+                    MEMBER STUDENT ID
                     <input type="text" class="member-selector-input" list="member-id" autocomplete="off">
                     <datalist id="member-id">
                     <?php
@@ -65,10 +66,12 @@
                     </select>
                 </div>
                 <div class="confirm-selection-box">
-                    <button class="confirm-selection-input">SEARCH</button>
+                    <button class="confirm-selection-input" onclick="displayData();">SEARCH</button>
                 </div>
             </div>
+            </div>
+            <div class="content-box-b" style="display:none;" id="content-box-b"></div>
         </div>
-        <script src=""></script>
+        <script src="../script/chkmember.js"></script>
     </body>
 </html>

@@ -27,6 +27,7 @@
             </div>
         </div>
         <div class="content-box">
+            <div class="content-box-a" id="content-box-a">
             <div class="content-box-center">
                 <div class="select-activity-box">
                     ACTIVITY NAME
@@ -64,10 +65,12 @@
                     </select>
                 </div>
                 <div class="confirm-selection-box">
-                    <button class="confirm-selection-input">CHECK</button>
+                    <button class="confirm-selection-input" onclick="displayData();">CHECK</button>
                 </div>
             </div>
+            </div>
+            <div class="content-box-b" style="display:none;" id="content-box-b"></div>
         </div>
-        <script src=""></script>
+        <script src="../script/chkact.js"></script>
     </body>
 </html>

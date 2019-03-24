@@ -131,8 +131,10 @@ function addVenue() {
     };
     xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
     xmlhttp.send();
-    sessionStorage.setItem("activityAdded", "true");
-    location.reload();
+
+    //Below 2 codes caused system doesn't work on Firefox
+    // sessionStorage.setItem("activityAdded", "true");
+    // location.reload();
 }
 
 window.onload = function() {

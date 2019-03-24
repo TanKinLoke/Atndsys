@@ -59,6 +59,7 @@
                                     echo "<option value=\"No result\">No result</option>";
                                 }
 
+                                //Close connection
                                 mysqli_close($conn);
                                 echo "<br>";
                             ?>

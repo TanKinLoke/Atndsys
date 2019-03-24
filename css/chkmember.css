@@ -53,3 +53,10 @@
     background-color: black;
     color: white;
 }
+
+.content-box-a,.content-box-b {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: white;
+}

@@ -1,46 +1,3 @@
-<?php
-            $servername="localhost";
-            $username="root";
-            $password="";
-            $dbname="i-Attendance";
-
-            //Create a connection
-            $conn = new mysqli($servername,$username,$password,$dbname);
-
-            //Check if the connection is successful or not
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
-
-            if(!empty($_POST["ActivityName"]) && !empty($_POST["ActivityVenue"]) && !empty($_POST["ActivityDate"]) && !empty($_POST["ActivityStartTime"]) && !empty($_POST["ActivityEndTime"])) {
-                //If everything is inserted
-                $ActivityName = $_POST["ActivityName"];
-                $ActivityVenue = $_POST["ActivityVenue"];
-
-                //Date and Time special code
-                $rawdate = htmlentities($_POST['ActivityDate']);
-                $ActivityDate = date('Y-m-d', strtotime($rawdate));
-
-                $rawtime = htmlentities($_POST['ActivityStartTime']);
-                $ActivityStartTime = date('h:i a', strtotime($rawtime));
-
-                $rawtime = htmlentities($_POST['ActivityEndTime']);
-                $ActivityEndTime = date('h:i a', strtotime($rawtime));
-
-                $sql = ("INSERT INTO activity_record (Activity_Name,Activity_Venue,Activity_Date,Activity_Start_Time,Activity_End_Time) VALUES ('$ActivityName','$ActivityVenue','$ActivityDate','$ActivityStartTime','$ActivityEndTime')");
-                
-                if(mysqli_query($conn,$sql)) {
-                    echo "New record created successfully";
-                    header("Location: /index.php");
-                    exit;
-                } else {
-                    echo "Failed to create record".mysqli_error($conn);
-                }
-
-                //Close MySQL Connection
-                mysqli_close($conn);
-            }
-?>
 <html lang="en">
     <head>
         <head>
@@ -130,7 +87,7 @@
                     <div class="c1a">
                         <div class="c1a-title">ACTIVITY NAME</div>
                         <div class="c1a-box">
-                            <input type="text" class="c1a-inputbox" id="inputnamebox">
+                            <input type="text" class="c1a-inputbox" id="inputnamebox" autocomplete="off">
                         </div>
                     </div>
                     <div class="c1a">
@@ -207,15 +164,6 @@
                     <div class="output-time-box" id="output-time-box"></div>
                     <button class="confirm" id="confirm" onclick="confirmRecord();" autofocus>CONFIRM</button>
                 </div>
-            </div>
-            <div class="content-box-container-2" id="content-box-container-2">
-                <form method="post" id="center2form">
-                    <input id="submitName" name="ActivityName" type="text"/>
-                    <input id="submitVenue" name="ActivityVenue" type="text"/>
-                    <input id="submitDate" name="ActivityDate" type="date"/>
-                    <input id="submitStartTime" name="ActivityStartTime" type="time"/>
-                    <input id="submitEndTime" name="ActivityEndTime" type="time"/>
-                </form>
             </div>
         </div>
         <script src="../script/actrecord.js"></script>

@@ -49,15 +49,20 @@ function showDatas() {
 }
 
 function confirmRecord() {
-    content0.style.display = "none";
-    content1.style.display = "none";
-    content2.style.display = "inline-block";
-    submit_name.value = input_name;
-    submit_venue.value = input_venue;
-    submit_date.value = input_date;
-    submit_starttime.value = input_starttime;
-    submit_endtime.value = input_endtime;
-    document.getElementById("center2form").submit();
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "done") {
+                window.alert("Activity record added.");
+                //Back to home page
+                window.history.back();
+            } else if (this.responseText == "fail") {
+                window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke");
+            }
+        }
+    };
+    xmlhttp.open("POST", "addAct.php?ActivityName="+input_name+"&ActivityVenue="+input_venue+"&ActivityDate="+input_date+"&ActivityStartTime="+input_starttime+"&ActivityEndTime="+input_endtime,true);
+    xmlhttp.send();
 }
 
 function showVenueBox() {

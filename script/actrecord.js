@@ -134,6 +134,7 @@ function addVenue() {
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
             if (this.responseText == "done" && venue != "") {
+                //Success
                 $("#venue-settings").append(
                 "<tr id='"+venue.replace(" ","_")+"'>\n"+
                 "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
@@ -146,7 +147,7 @@ function addVenue() {
         }
 
     };
-    
+
     xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
     xmlhttp.send();
 

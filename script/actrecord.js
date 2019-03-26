@@ -142,6 +142,7 @@ function addVenue() {
                 "</tr>\n");
 
                 document.getElementById("add_venue_text").value = "";
+                
                 venue = ""; 
             }
         }

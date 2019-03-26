@@ -112,6 +112,7 @@ function editVenue(venue) {
                 $("#"+venue+"_edit").attr("id",venue2+"_edit");
                 $("#"+venue+"_delete").attr("id",venue2+"_delete");
             } else {
+                //Error
                 window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.");
             }
         }

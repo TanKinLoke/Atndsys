@@ -146,6 +146,7 @@ function addVenue() {
         }
 
     };
+    
     xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
     xmlhttp.send();
 

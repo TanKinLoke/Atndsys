@@ -18,13 +18,15 @@
     }
 
     if ($function == "delete") {
-        //SQL commands
+        //Delete venue
         $sql = "DELETE FROM Activity_Venue WHERE Venue=$data";
         $result = mysqli_query($conn,$sql);
         echo $result;
     } else if ($function == "edit") {
+        //Edit venue
         $sql = "UPDATE Activity_Venue SET Venue=$data2 WHERE Venue=$data";
         $result = mysqli_query($conn,$sql);
+        echo "done";
     } else if ($function == "add") {
         $sql = "INSERT INTO Activity_Venue (Venue) VALUES ($data)";
         $result = mysqli_query($conn,$sql);

@@ -102,13 +102,19 @@ function editVenue(venue) {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        venue2 = venue2.replace(" ","_");
-        $("#"+venue+"_text").attr("onchange","editVenue('"+venue2+"')");
-        $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
-        $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
-        $("#"+venue+"_text").attr("id",venue2+"_text");
-        $("#"+venue+"_edit").attr("id",venue2+"_edit");
-        $("#"+venue+"_delete").attr("id",venue2+"_delete");
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "done") {
+                venue2 = venue2.replace(" ","_");
+                $("#"+venue+"_text").attr("onchange","editVenue('"+venue2+"')");
+                $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
+                $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
+                $("#"+venue+"_text").attr("id",venue2+"_text");
+                $("#"+venue+"_edit").attr("id",venue2+"_edit");
+                $("#"+venue+"_delete").attr("id",venue2+"_delete");
+            } else {
+                window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.");
+            }
+        }
     };
 
     venue = venue.replace("_"," ");
@@ -122,15 +128,17 @@ function addVenue() {
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        if (this.responseText == "done" && venue != "") {
-            $("#venue-settings").append(
-            "<tr id='"+venue.replace(" ","_")+"'>\n"+
-            "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
-            "<td><button type='button' id='"+venue.replace(" ","_")+"_edit' onclick='editVenueText(\""+venue.replace(" ","_")+"\")'>Edit</button>\n<button type='button' id='"+venue.replace(" ","_")+"_delete' onclick='deleteVenue(\""+venue.replace(" ","_")+"\")'>Delete</button></td>\n"+
-            "</tr>\n");
+        if (this.status == 200 && this.readyState == 4) {
+            if (this.responseText == "done" && venue != "") {
+                $("#venue-settings").append(
+                "<tr id='"+venue.replace(" ","_")+"'>\n"+
+                "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
+                "<td><button type='button' id='"+venue.replace(" ","_")+"_edit' onclick='editVenueText(\""+venue.replace(" ","_")+"\")'>Edit</button>\n<button type='button' id='"+venue.replace(" ","_")+"_delete' onclick='deleteVenue(\""+venue.replace(" ","_")+"\")'>Delete</button></td>\n"+
+                "</tr>\n");
 
-            document.getElementById("add_venue_text").value = "";
-            venue = ""; 
+                document.getElementById("add_venue_text").value = "";
+                venue = ""; 
+            }
         }
 
     };

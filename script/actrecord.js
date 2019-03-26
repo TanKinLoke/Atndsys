@@ -117,8 +117,10 @@ function editVenue(venue) {
         }
     };
 
+    //Replace _ with spaces, so the data in the SQL database is same as what user typed
     venue = venue.replace("_"," ");
     xmlhttp.open("POST","sql.php?function=edit&data=\"" + venue + "\"&data2=\"" + venue2 + "\"",true);
+    //Change back to prevent any upcoming code error
     venue = venue.replace(" ","_");
     xmlhttp.send();
 }

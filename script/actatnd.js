@@ -19,7 +19,7 @@ document.addEventListener('keydown', function (e) {
         Detects keypress(key shortcuts) for faster user experience
     */
     var key = e.which || e.keyCode;
-    
+
     if (key === 13) { 
         if (confirmState == true) {
             // Get Card ID by calling document.getElementById("CardID").value
@@ -27,6 +27,7 @@ document.addEventListener('keydown', function (e) {
 
             var xmlhttp = new XMLHttpRequest;
             xmlhttp.onreadystatechange = function() {
+                //split response into array
                 response = this.responseText;
                 response = response.split(",");
 

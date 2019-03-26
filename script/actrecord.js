@@ -104,6 +104,7 @@ function editVenue(venue) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "done") {
+                //Success
                 venue2 = venue2.replace(" ","_");
                 $("#"+venue+"_text").attr("onchange","editVenue('"+venue2+"')");
                 $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");

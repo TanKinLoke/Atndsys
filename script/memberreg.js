@@ -61,6 +61,7 @@ function endProcess() {
     */
     center1.style.display = "none";
     var CardValue = document.getElementById("CardID").value;
+    
     var success = "New member data has been added to the database successfully.";
     var fail = "Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.";
     var empty = "Some info is being left empty. Please fill it and submit again. If you think is this a bug, please contact system administrator, @Cheah Zixu and @Kin Loke.";
@@ -88,6 +89,7 @@ function endProcess() {
         }
         input1.value = "";
     };
+
     xmlhttp.open("POST","sql.php?StudentID="+input_id+"&CardID="+CardValue+"&StudentName="+input_name+"&Class="+input_class,true);
     xmlhttp.send();
 }

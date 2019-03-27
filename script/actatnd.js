@@ -43,6 +43,8 @@ document.addEventListener('keydown', function (e) {
                 } else if (response[0] == "Duplicate") {
                     //Attendance duplicate
                     showDuplicateFun(response[1]);
+                } else if (response[0] == "Not Exist") {
+                    showNotExistFun();
                 }
             };
 
@@ -77,4 +79,9 @@ function showDuplicateFun(id) {
         showSuccess.innerHTML = "Attendance duplication for " + id;
         document.getElementById("CardID").value = "";
     }
+}
+
+function showNotExistFun() {
+        showSuccess.innerHTML = "Card not exist";
+        document.getElementById("CardID").value = "";
 }

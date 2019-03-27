@@ -16,6 +16,18 @@
             //CardID
             $CardID = $_REQUEST["CardID"];
 
+            //Check if card exist in database
+            $CardcheckSQL = "SELECT COUNT(*) FROM student_info WHERE Card_ID=$CardID";
+            $CardcheckResult = mysqli_query($conn,$CardcheckSQL);
+            $CardcheckResult = mysqli_fetch_assoc($CardcheckResult);
+            if ($CardcheckResult['COUNT(*)'] == 1) {
+                //Exist in database
+            } else {
+                //Not exist in database
+                echo "Not Exist";
+                exit;
+            }
+
             //Get info from student_info table
             $Cardsql = "SELECT * FROM student_info WHERE Card_ID=$CardID";
             $CardResult = mysqli_query($conn,$Cardsql);

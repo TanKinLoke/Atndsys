@@ -25,8 +25,8 @@ before_script:
 # - php /usr/local/bin/composer
 # - mv composer.phar /usr/local/bin/composer
 # - php composer.phar install
-- npm install
-- npm run deploy
+# - npm install
+# - npm run deploy
 
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
@@ -42,6 +42,6 @@ variables:
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
-test:
-  script:
-  - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
+# test:
+#   script:
+#   - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never

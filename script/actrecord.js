@@ -181,7 +181,7 @@ $(document).keypress(function(e) {
 });
 
 $(document).keyup(function(e) { 
-    if (e.which == 27) undoEdit(); // esc   (does not work)
+    if (e.which == 27) undoEdit(); // esc   (does not work in keypress)
 });
 
 function lastClick(venue) {

@@ -18,7 +18,7 @@ before_script:
 # Install and run Composer
 - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 - php composer-setup.php
-- php composer.phar
+- php composer.phar install
 # - php -r "unlink('composer-setup.php');"
 # - curl -sS https://getcomposer.org/installer | php
 # - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

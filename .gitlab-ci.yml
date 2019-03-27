@@ -19,7 +19,7 @@ before_script:
 - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 - php composer-setup.php
 - php -r "unlink('composer-setup.php');"
-- curl -sS https://getcomposer.org/installer | php
+# - curl -sS https://getcomposer.org/installer | php
 - php composer.phar install
 - npm install
 - npm run deploy

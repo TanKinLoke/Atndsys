@@ -205,7 +205,7 @@ function undoEdit() {
 }
 
 function clickEnter() {
-    if (last_focus_id == "" && last_focus_text == "") {
+    if (last_focus_id == "" || last_focus_text == "" || last_focus_id == null || last_focus_text == null) {
         addVenue();
     } else {
         var localvenue = last_focus_text.split(" ").join("_");

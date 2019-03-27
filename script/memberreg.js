@@ -74,6 +74,9 @@ function endProcess() {
             success = "";
             center0.style.display = "block";
             center1.style.display = "none";
+            input0.value = "";
+            input1.value = "";
+            input2.value = "";
         } else if(this.responseText == "fail" && fail != "") {
             //Fail
             window.alert(fail);
@@ -87,7 +90,7 @@ function endProcess() {
             center0.style.display = "block";
             center1.style.display = "none";
         }
-        input1.value = "";
+        input3.value = "";
     };
 
     xmlhttp.open("POST","sql.php?StudentID="+input_id+"&CardID="+CardValue+"&StudentName="+input_name+"&Class="+input_class,true);

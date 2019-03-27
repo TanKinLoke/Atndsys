@@ -176,7 +176,7 @@ window.onload = function() {
 }
 
 $(document).keypress(function(e) { 
-    if (e.which == 13) addVenue();   // enter (works as expected)
+    if (e.which == 13) clickEnter();   // enter (works as expected)
     if (e.which == 27) console.log('test2'); // esc   (does not work)
 });
 
@@ -200,4 +200,13 @@ function undoEdit() {
     //Undo the changes to "Add Venue"
     document.getElementById(last_focus_id).value = last_focus_text;
     doneVenueText(last_focus_text);
+}
+
+function clickEnter() {
+    if (last_focus_id == "" && last_focus_text == "") {
+        addVenue();
+    } else {
+        doneVenueText(last_focus_text);
+    }
+
 }

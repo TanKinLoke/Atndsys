@@ -80,7 +80,7 @@ document.getElementById("popup-venue-box").onclick = function (e) {
 }
 
 function deleteVenue(venue) {
-    venue = venue.replace("_"," ");
+    venue = venue.split("_").join(" ");
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function () {
@@ -117,7 +117,7 @@ function editVenue(venue) {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "done") {
                 //Success
-                venue2 = venue2.replace(" ","_");
+                venue2 = venue2.split(" ").join("_");
                 $("#"+venue+"_text").attr("onclick","lastClick('"+venue2+"')");
                 $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
                 $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
@@ -148,9 +148,9 @@ function addVenue() {
             if (this.responseText == "done" && venue != "") {
                 //Success
                 $("#venue-settings").append(
-                "<tr id='"+venue.replace(" ","_")+"'>\n"+
-                "<td><input type='text' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
-                "<td><button type='button' id='"+venue.replace(" ","_")+"_edit' onclick='editVenueText(\""+venue.replace(" ","_")+"\")'>Edit</button>\n<button type='button' id='"+venue.replace(" ","_")+"_delete' onclick='deleteVenue(\""+venue.replace(" ","_")+"\")'>Delete</button></td>\n"+
+                "<tr id='"+venue.split(" ").join("_")+"'>\n"+
+                "<td><input type='text' id='"+venue.split(" ").join("_")+"_text' value='"+venue+"' readonly></td>\n"+
+                "<td><button type='button' id='"+venue.split(" ").join("_")+"_edit' onclick='editVenueText(\""+venue.split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+venue.split(" ").join("_")+"_delete' onclick='deleteVenue(\""+venue.split(" ").join("_")+"\")'>Delete</button></td>\n"+
                 "</tr>\n");
 
                 document.getElementById("add_venue_text").value = "";
@@ -199,14 +199,17 @@ function rmLastClick() {
 function undoEdit() {
     //Undo the changes to "Add Venue"
     document.getElementById(last_focus_id).value = last_focus_text;
-    doneVenueText(last_focus_text);
+    var localvenue = last_focus_text.split(" ").join("_");
+    console.log(localvenue);
+    doneVenueText(localvenue);
 }
 
 function clickEnter() {
     if (last_focus_id == "" && last_focus_text == "") {
         addVenue();
     } else {
-        doneVenueText(last_focus_text);
+        var localvenue = last_focus_text.split(" ").join("_");
+        doneVenueText(localvenue);
     }
 
 }

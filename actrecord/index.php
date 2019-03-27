@@ -58,7 +58,7 @@
                                 while($row = mysqli_fetch_assoc($result)) {
                                     //Table row
                                     echo "<tr id='".str_replace(" ","_",$row['Venue'])."'>\n";
-                                    echo "<td><input type='text' onchange='editVenue(\"".str_replace(" ","_",$row['Venue'])."\")' id='".str_replace(" ","_",$row['Venue'])."_text' value='".$row['Venue']."' readonly></td>\n";
+                                    echo "<td><input type='text' id='".str_replace(" ","_",$row['Venue'])."_text' value='".$row['Venue']."' readonly></td>\n";
                                     echo "<td><button type='button' id='".str_replace(" ","_",$row['Venue'])."_edit' onclick='editVenueText(\"".str_replace(" ","_",$row['Venue'])."\")'>Edit</button>\n<button type='button' id='".str_replace(" ","_",$row['Venue'])."_delete' onclick='deleteVenue(\"".$row['Venue']."\")'>Delete</button></td>\n";
                                     echo "</tr>\n";
                                 }

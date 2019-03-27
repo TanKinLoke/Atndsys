@@ -91,14 +91,22 @@ function deleteVenue(venue) {
 }
 
 function editVenueText(venue) {
+    $("#"+venue+"_edit").text("Done");
+    $("#"+venue+"_edit").attr("onclick","doneVenueText('"+venue+"')");
     $("#"+venue+"_text").attr("readonly",false);
     document.getElementById(venue+"_text").focus(); 
 }
 
+function doneVenueText(venue) {
+    $("#"+venue+"_edit").text("Edit");
+    $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue+"')");
+    $("#"+venue+"_text").attr("readonly",true);
+
+    editVenue(venue);
+}
+
 function editVenue(venue) {
     var venue2 = document.getElementById(venue+"_text").value;
-
-    $("#"+venue+"_text").attr("readonly",true);
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
@@ -106,7 +114,6 @@ function editVenue(venue) {
             if (this.responseText == "done") {
                 //Success
                 venue2 = venue2.replace(" ","_");
-                $("#"+venue+"_text").attr("onchange","editVenue('"+venue2+"')");
                 $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
                 $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
                 $("#"+venue+"_text").attr("id",venue2+"_text");
@@ -125,7 +132,7 @@ function editVenue(venue) {
     //Change back to prevent any upcoming code error
     venue = venue.replace(" ","_");
     xmlhttp.send();
-}
+}   
 
 function addVenue() {
     var venue = document.getElementById("add_venue_text").value;
@@ -137,7 +144,7 @@ function addVenue() {
                 //Success
                 $("#venue-settings").append(
                 "<tr id='"+venue.replace(" ","_")+"'>\n"+
-                "<td><input type='text' onchange='editVenue(\""+venue.replace(" ","_")+"\")' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
+                "<td><input type='text' id='"+venue.replace(" ","_")+"_text' value='"+venue+"' readonly></td>\n"+
                 "<td><button type='button' id='"+venue.replace(" ","_")+"_edit' onclick='editVenueText(\""+venue.replace(" ","_")+"\")'>Edit</button>\n<button type='button' id='"+venue.replace(" ","_")+"_delete' onclick='deleteVenue(\""+venue.replace(" ","_")+"\")'>Delete</button></td>\n"+
                 "</tr>\n");
 
@@ -162,3 +169,8 @@ window.onload = function() {
         showVenueBox();
     }
 }
+
+$(document).keypress(function(e) { 
+    if (e.which == 13) addVenue();   // enter (works as expected)
+    if (e.which == 27) console.log('test2'); // esc   (does not work)
+});

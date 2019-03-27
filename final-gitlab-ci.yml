@@ -27,6 +27,7 @@ before_script:
 
 # Didn't have composer.json, which is a file that composer use as reference to install dependencies
 # Refer to https://getcomposer.org/doc/01-basic-usage.md
+# Install PHPunit: https://coderwall.com/p/mklvdw/install-phpunit-with-composer 
 # - php composer.phar install
 
 

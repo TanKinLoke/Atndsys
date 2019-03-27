@@ -18,15 +18,15 @@ before_script:
 # Install and run Composer
 - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 - php composer-setup.php
-- php composer.phar install
+- php composer.phar
 # - php -r "unlink('composer-setup.php');"
 # - curl -sS https://getcomposer.org/installer | php
 # - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 # - php /usr/local/bin/composer
 # - mv composer.phar /usr/local/bin/composer
 # - php composer.phar install
-# - npm install
-# - npm run deploy
+- npm install
+- npm run deploy
 
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service

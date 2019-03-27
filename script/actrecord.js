@@ -185,16 +185,19 @@ $(document).keyup(function(e) {
 });
 
 function lastClick(venue) {
+    //Record last clicked "Edit" button
     last_focus_id = venue+"_text";
     last_focus_text = document.getElementById(last_focus_id).value;
 }
 
 function rmLastClick() {
+    //Remove the variable so it wouldn't affect the "venue" after clicked "Done" button
     last_focus_id = "";
     last_focus_text = "";
 }
 
 function undoEdit() {
+    //Undo the changes to "Add Venue"
     document.getElementById(last_focus_id).value = last_focus_text;
     doneVenueText(last_focus_text);
 }

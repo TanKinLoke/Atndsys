@@ -16,6 +16,8 @@ var submit_venue = document.getElementById("submitVenue");
 var submit_date = document.getElementById("submitDate");
 var submit_starttime = document.getElementById("submitStartTime");
 var submit_endtime = document.getElementById("submitEndTime");
+var last_focus_id;
+var last_focus_text;
 
 function inputDatas() {
     input_name = document.getElementById("inputnamebox").value;
@@ -91,6 +93,7 @@ function deleteVenue(venue) {
 }
 
 function editVenueText(venue) {
+    lastClick(venue);
     $("#"+venue+"_edit").text("Done");
     $("#"+venue+"_edit").attr("onclick","doneVenueText('"+venue+"')");
     $("#"+venue+"_text").attr("readonly",false);
@@ -98,6 +101,7 @@ function editVenueText(venue) {
 }
 
 function doneVenueText(venue) {
+    rmLastClick();
     $("#"+venue+"_edit").text("Edit");
     $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue+"')");
     $("#"+venue+"_text").attr("readonly",true);
@@ -114,6 +118,7 @@ function editVenue(venue) {
             if (this.responseText == "done") {
                 //Success
                 venue2 = venue2.replace(" ","_");
+                $("#"+venue+"_text").attr("onclick","lastClick('"+venue2+"')");
                 $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
                 $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
                 $("#"+venue+"_text").attr("id",venue2+"_text");
@@ -174,3 +179,22 @@ $(document).keypress(function(e) {
     if (e.which == 13) addVenue();   // enter (works as expected)
     if (e.which == 27) console.log('test2'); // esc   (does not work)
 });
+
+$(document).keyup(function(e) { 
+    if (e.which == 27) undoEdit(); // esc   (does not work)
+});
+
+function lastClick(venue) {
+    last_focus_id = venue+"_text";
+    last_focus_text = document.getElementById(last_focus_id).value;
+}
+
+function rmLastClick() {
+    last_focus_id = "";
+    last_focus_text = "";
+}
+
+function undoEdit() {
+    document.getElementById(last_focus_id).value = last_focus_text;
+    doneVenueText(last_focus_text);
+}

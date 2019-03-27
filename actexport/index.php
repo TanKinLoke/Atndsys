@@ -11,9 +11,10 @@
         </head>
     </head>
     <body>
-        <a class="back-btn" onclick="location.href='../'">
-            <img src="../img/back-arrow.svg">
+        <a class='back-btn' onclick='location.href=\"../\"'>
+            <img src='../img/back-arrow.svg'>
         </a>
+        <div id="back-btn"></div>
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">

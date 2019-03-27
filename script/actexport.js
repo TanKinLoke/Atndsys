@@ -1,6 +1,7 @@
 var atndlistStatus = false;
 
 function seeAttendance() {
+    $("#export-table").append("<a class='back-btn' onclick='location.href=\"../\"'><img src='../img/back-arrow.svg'></a>");
     //Let user check Attendance List after selecting activity
     if (!atndlistStatus) {
         //Get activity value

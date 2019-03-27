@@ -27,7 +27,7 @@ before_script:
 
 # Didn't have composer.json, which is a file that composer use as reference to install dependencies
 # Refer to https://getcomposer.org/doc/01-basic-usage.md
-- php composer.phar install
+# - php composer.phar install
 
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service

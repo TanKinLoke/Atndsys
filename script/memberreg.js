@@ -93,6 +93,7 @@ function endProcess() {
         input3.value = "";
     };
 
+    input3.value = "";
     xmlhttp.open("POST","sql.php?StudentID="+input_id+"&CardID="+CardValue+"&StudentName="+input_name+"&Class="+input_class,true);
     xmlhttp.send();
 }

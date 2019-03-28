@@ -18,6 +18,7 @@ var submit_starttime = document.getElementById("submitStartTime");
 var submit_endtime = document.getElementById("submitEndTime");
 var last_focus_id;
 var last_focus_text;
+var venueArray;
 
 function inputDatas() {
     input_name = document.getElementById("inputnamebox").value;
@@ -169,6 +170,7 @@ function addVenue() {
 }
 
 window.onload = function() {
+    getVenue(1);
     if (sessionStorage.getItem("activityAdded")) {
         sessionStorage.setItem("activityAdded", "false");
         showVenueBox();
@@ -212,4 +214,36 @@ function clickEnter() {
         doneVenueText(localvenue);
     }
 
+}
+
+function getVenue(page) {
+    end = page * 5;
+
+    var startFrom = (page-1) * 5;
+
+    var code = "";
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            venueArray = this.responseText;
+            venueArray = venueArray.split(",");
+            for (var i = startFrom; i<end ;i++) {
+                if (venueArray[i] == null || venueArray[i] == "") {
+
+                } else {
+                    code = code.concat(
+                    "<tr id='"+venueArray[i]+"'>\n"+
+                    "<td><input type='text' id='"+venueArray[i]+"_text' value='"+venueArray[i]+"' readonly></td>\n"+
+                    "<td><button type='button' id='"+venueArray[i]+"_edit' onclick='editVenueText(\""+venueArray[i]+"\")'>Edit</button>\n<button type='button' id='"+venueArray[i]+"_delete' onclick='deleteVenue(\""+venueArray[i]+"\")'>Delete</button></td>\n"+
+                    "</tr>\n");
+                }
+            };
+            $("#venue-settings").html("");
+            $("#venue-settings").append("<tbody>"+code+"</tbody>");
+        }
+    };
+
+    xmlhttp.open("POST","getVenue.php",true);
+    xmlhttp.send();
 }

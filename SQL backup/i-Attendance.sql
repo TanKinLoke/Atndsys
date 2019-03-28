@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 23, 2019 at 04:15 AM
+-- Generation Time: Mar 28, 2019 at 01:00 PM
 -- Server version: 10.3.12-MariaDB
 -- PHP Version: 7.2.16
 
@@ -42,7 +42,8 @@ CREATE TABLE `activity_attendance` (
 
 INSERT INTO `activity_attendance` (`Activity_Name`, `Student_Name`, `Student_ID`, `Class`, `pkey`) VALUES
 ('Normal Activity', 'ZXIU', 'D1111', '4SK2', 2),
-('Normal Activity', 'Kin Loke', 'D3276', '5SK1', 3);
+('Normal Activity', 'Kin Loke', 'D3276', '5SK1', 3),
+('Normal Activity', '', '', '', 4);
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,7 @@ INSERT INTO `activity_attendance` (`Activity_Name`, `Student_Name`, `Student_ID`
 CREATE TABLE `activity_record` (
   `Activity_Name` varchar(50) NOT NULL,
   `Activity_Venue` varchar(50) NOT NULL,
-  `Activity_Date` date NOT NULL,
+  `Activity_Date` varchar(10) NOT NULL,
   `Activity_Start_Time` varchar(15) NOT NULL,
   `Activity_End_Time` varchar(15) NOT NULL,
   `pkey` int(10) NOT NULL
@@ -81,9 +82,28 @@ CREATE TABLE `Activity_Venue` (
 --
 
 INSERT INTO `Activity_Venue` (`Venue`) VALUES
+('a'),
 ('Auditorium'),
+('b'),
+('c'),
+('cr'),
+('d'),
+('dg'),
+('dh'),
+('dj'),
+('dk'),
+('dr'),
+('dt'),
+('du'),
+('dy'),
+('e'),
+('f'),
 ('i-CreatorZ Hub'),
-('Penang Science Cluster');
+('kd'),
+('Penang Science Cluster'),
+('td'),
+('ud'),
+('yd');
 
 -- --------------------------------------------------------
 
@@ -146,13 +166,13 @@ ALTER TABLE `student_info`
 -- AUTO_INCREMENT for table `activity_attendance`
 --
 ALTER TABLE `activity_attendance`
-  MODIFY `pkey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pkey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `activity_record`
 --
 ALTER TABLE `activity_record`
-  MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

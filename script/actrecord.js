@@ -217,13 +217,14 @@ function clickEnter() {
 }
 
 function getVenue(page) {
+    //Prevent page less than 1
     if (page < 1) {
         page = 1;
     }
 
     end = page * 5;
 
-    var startFrom = (page-1) * 5;
+    startFrom = (page-1) * 5;
 
     var code = "";
 
@@ -232,6 +233,14 @@ function getVenue(page) {
         if (this.status == 200 && this.readyState == 4) {
             venueArray = this.responseText;
             venueArray = venueArray.split(",");
+            
+            //Prevent page more than existing pages
+            if (Math.ceil((venueArray.length - 1)/5) < page) {
+                page = Math.ceil((venueArray.length - 1)/5);
+                end = page * 5;
+                startFrom = (page-1) * 5;
+            }
+
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {
 

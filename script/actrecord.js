@@ -217,6 +217,10 @@ function clickEnter() {
 }
 
 function getVenue(page) {
+    if (page < 1) {
+        page = 1;
+    }
+
     end = page * 5;
 
     var startFrom = (page-1) * 5;

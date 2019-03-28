@@ -19,6 +19,7 @@ var submit_endtime = document.getElementById("submitEndTime");
 var last_focus_id;
 var last_focus_text;
 var venueArray;
+var last_page;
 
 function inputDatas() {
     input_name = document.getElementById("inputnamebox").value;
@@ -86,7 +87,7 @@ function deleteVenue(venue) {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            $("#"+venue.split(" ").join("_")).remove();
+            getVenue(last_page);
         }
     };
     xmlhttp.open("POST", "sql.php?function=delete&data=\"" + venue + "\"", true);
@@ -148,11 +149,13 @@ function addVenue() {
         if (this.status == 200 && this.readyState == 4) {
             if (this.responseText == "done" && venue != "") {
                 //Success
-                $("#venue-settings").append(
-                "<tr id='"+venue.split(" ").join("_")+"'>\n"+
-                "<td><input type='text' id='"+venue.split(" ").join("_")+"_text' value='"+venue+"' readonly></td>\n"+
-                "<td><button type='button' id='"+venue.split(" ").join("_")+"_edit' onclick='editVenueText(\""+venue.split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+venue.split(" ").join("_")+"_delete' onclick='deleteVenue(\""+venue.split(" ").join("_")+"\")'>Delete</button></td>\n"+
-                "</tr>\n");
+                // $("#venue-settings").append(
+                // "<tr id='"+venue.split(" ").join("_")+"'>\n"+
+                // "<td><input type='text' id='"+venue.split(" ").join("_")+"_text' value='"+venue+"' readonly></td>\n"+
+                // "<td><button type='button' id='"+venue.split(" ").join("_")+"_edit' onclick='editVenueText(\""+venue.split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+venue.split(" ").join("_")+"_delete' onclick='deleteVenue(\""+venue.split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                // "</tr>\n");
+
+                getVenue(last_page);
 
                 document.getElementById("add_venue_text").value = "";
                 venue = ""; 
@@ -241,14 +244,16 @@ function getVenue(page) {
                 startFrom = (page-1) * 5;
             }
 
+            last_page = page;
+
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {
 
                 } else {
                     code = code.concat(
-                    "<tr id='"+venueArray[i]+"'>\n"+
-                    "<td><input type='text' id='"+venueArray[i]+"_text' value='"+venueArray[i]+"' readonly></td>\n"+
-                    "<td><button type='button' id='"+venueArray[i]+"_edit' onclick='editVenueText(\""+venueArray[i]+"\")'>Edit</button>\n<button type='button' id='"+venueArray[i]+"_delete' onclick='deleteVenue(\""+venueArray[i]+"\")'>Delete</button></td>\n"+
+                    "<tr id='"+venueArray[i].split(" ").join("_")+"'>\n"+
+                    "<td><input type='text' id='"+venueArray[i].split(" ").join("_")+"_text' value='"+venueArray[i]+"' readonly></td>\n"+
+                    "<td><button type='button' id='"+venueArray[i].split(" ").join("_")+"_edit' onclick='editVenueText(\""+venueArray[i].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+venueArray[i].split(" ").join("_")+"_delete' onclick='deleteVenue(\""+venueArray[i].split(" ").join("_")+"\")'>Delete</button></td>\n"+
                     "</tr>\n");
                 }
             };

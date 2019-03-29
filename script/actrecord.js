@@ -16,7 +16,7 @@ var submit_venue = document.getElementById("submitVenue");
 var submit_date = document.getElementById("submitDate");
 var submit_starttime = document.getElementById("submitStartTime");
 var submit_endtime = document.getElementById("submitEndTime");
-var last_focus_id;
+var last_focus_id = "";
 var last_focus_text;
 var venueArray;
 var last_page;
@@ -95,6 +95,10 @@ function deleteVenue(venue) {
 }
 
 function editVenueText(venue) {
+    if (last_focus_id != "" && last_focus_id != null) {
+        doneVenueText(last_focus_text.split(" ").join("_"));
+    }
+
     lastClick(venue);
     $("#"+venue+"_edit").text("Done");
     $("#"+venue+"_edit").attr("onclick","doneVenueText('"+venue+"')");

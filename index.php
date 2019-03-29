@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="center">
+        <div class="center"> 
             <div class="center-content-box">
                 <div class="c1-box">
                     <a href="./memberreg/">

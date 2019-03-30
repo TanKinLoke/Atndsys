@@ -1,8 +1,8 @@
 var zixuArray = "";
 
 function displayData() {
-    // document.getElementById("content-box-a").style.display = "none";
-    // document.getElementById("content-box-b").style.display = "block";
+    document.getElementById("content-box-a").style.display = "none";
+    document.getElementById("content-box-b").style.display = "block";
     getMember();
 }
 
@@ -40,9 +40,16 @@ function getMember() {
                     asetArray2 = asetArray[i].split(":");
 
                     if (asetArray2[queryNo].toUpperCase().indexOf(input) > -1) {
-                        code = code.concat("<option id='"+asetArray2[queryNo]+"'>"+
-                        asetArray2[queryNo]+
-                        "</option>");
+                        code = code.concat(
+                            "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
+                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                            "</tr>\n");
+                        console.log(code);
+
                         zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
                                            
 
@@ -50,18 +57,14 @@ function getMember() {
 
                     }
 
-                    // code = code.concat(
-                    //     "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
-                    //     "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
-                    //     "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
-                    //     "<td><input type='text' class='data-bold' id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
-                    //     "<td><input type='number' class='aset-input-no data-bold' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                    //     "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteAset(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
-                    //     "</tr>\n"
-                    // )
+                    
+
+                    // code = code.concat("<option id='"+asetArray2[queryNo]+"'>"+
+                    // asetArray2[queryNo]+
+                    // "</option>");
             };
-            $("#member-id").html("");
-            $("#member-id").append(code);
+            $("#member-table").html("");
+            $("#member-table").append(code);
         }
     }
     };

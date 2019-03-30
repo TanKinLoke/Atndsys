@@ -52,6 +52,9 @@
             </div>
             <div class="content-box-b" style="display:none;" id="content-box-b"></div>
         </div>
+        <table id="member-table">
+        
+        </table>
         <script src="../script/chkmember.js"></script>
     </body>
 </html>

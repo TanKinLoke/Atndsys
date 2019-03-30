@@ -215,7 +215,8 @@ function undoEdit() {
 
 function clickEnter() {
     if (last_focus_id == "" || last_focus_text == "" || last_focus_id == null || last_focus_text == null) {
-        addVenue();
+        if (document.getElementById("add_venue_text").value != "" && document.getElementById("add_venue_text").value != null)
+            addVenue();
     } else {
         var localvenue = last_focus_text.split(" ").join("_");
         doneVenueText(localvenue);
@@ -250,6 +251,8 @@ function getVenue(page) {
 
             last_page = page;
             document.getElementById('popup-venue-pg-input').value = last_page;
+            console.log(startFrom);
+            console.log(end);
 
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {

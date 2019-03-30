@@ -73,13 +73,13 @@
                             </div>
                         </div>
                         <div class="popup-venue-boxcontent-middle">
-                            <button class="popup-venue-prev-btn" onclick="console.log('Hi');">
+                            <button class="popup-venue-prev-btn" onclick="getVenue(last_page-1)">
                                 <img src="../img/icons8-chevron-left-90.png"/>
                             </button>
-                            <button class="popup-venue-next-btn" onclick="console.log('Hi');">
+                            <button class="popup-venue-next-btn" onclick="getVenue(last_page+1)">
                                 <img src="../img/icons8-chevron-right-90.png"/>
                             </button>
-                            <input class="popup-venue-pg-input"/>
+                            <input class="popup-venue-pg-input" id="popup-venue-pg-input" onchange="getVenue(document.getElementById('popup-venue-pg-input').value)"/>
                         </div>
                         <div class="popup-venue-boxcontent-down">
                             <input class="add-venue-input-box" type="text" id="add_venue_text">

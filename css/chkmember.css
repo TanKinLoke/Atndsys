@@ -30,6 +30,24 @@
     font-size: 2rem;
 }
 
+.query-type-selector-box {
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.query-type-selector-input {
+    height: 4rem;
+    width: 60%;
+    border: 5px solid black;
+    background-color: white;
+    color: black;
+    font-family: "Product Sans Regular";
+    font-size: 1.25rem;
+    margin: 1rem 0;
+    display: inline-block;
+}
+
 .confirm-selection-box {
     height: auto;
     width: 100%;

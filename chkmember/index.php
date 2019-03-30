@@ -30,8 +30,15 @@
             <div class="content-box-a" id="content-box-a">
             <div class="content-box-center">
                 <div class="select-member-box">
-                    MEMBER STUDENT ID
+                    SEARCH QUERY
                     <input type="text" class="member-selector-input" list="member-id" autocomplete="off">
+                    <div class="query-type-selector-box">
+                        <select class="query-type-selector-input" id="query-type-selector-input">
+                            <option>Member School Number</option>
+                            <option>Member Name</option>
+                            <option>Member Class</option>
+                        </select>
+                    </div>
                     <datalist id="member-id">
                     <?php
                         $servername="localhost";

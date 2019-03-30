@@ -48,7 +48,6 @@ function getMember() {
                             "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
                             "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
                             "</tr>\n");
-                        console.log(code);
 
                         zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
                                            

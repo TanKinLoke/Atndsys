@@ -11,6 +11,7 @@ function getQueryType() {
 }
 
 function getMember() {
+    zixuArray = "";
     input = document.getElementById("member-selector-input").value.toUpperCase();
 
     var queryType = getQueryType();

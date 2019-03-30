@@ -1,3 +1,5 @@
+var zixuArray = "";
+
 function displayData() {
     // document.getElementById("content-box-a").style.display = "none";
     // document.getElementById("content-box-b").style.display = "block";
@@ -40,6 +42,9 @@ function getMember() {
                         code = code.concat("<option id='"+asetArray2[queryNo]+"'>"+
                         asetArray2[queryNo]+
                         "</option>");
+                        zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
+                                           
+
                     } else {
 
                     }

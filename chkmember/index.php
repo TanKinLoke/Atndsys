@@ -7,6 +7,7 @@
             <link rel="icon" href="../img/favicon.png">
             <link rel="stylesheet" href="../css/global.css"/>
             <link rel="stylesheet" href="../css/chkmember.css"/>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         </head>
     </head>
     <body>
@@ -31,7 +32,7 @@
             <div class="content-box-center">
                 <div class="select-member-box">
                     SEARCH QUERY
-                    <input type="text" class="member-selector-input" list="member-id" autocomplete="off">
+                    <input type="text" class="member-selector-input" id="member-selector-input" list="member-id" autocomplete="off">
                     <div class="query-type-selector-box">
                         <select class="query-type-selector-input" id="query-type-selector-input">
                             <option>Member School Number</option>
@@ -40,35 +41,7 @@
                         </select>
                     </div>
                     <datalist id="member-id">
-                    <?php
-                        $servername="localhost";
-                        $username="root";
-                        $password="";
-                        $dbname="i-Attendance";
-            
-                        //Create a connection
-                        $conn = new mysqli($servername,$username,$password,$dbname);
-            
-                        //Check if the connection is successful or not
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-            
-                        $sql = ("SELECT * FROM student_info");
-                        $result = mysqli_query($conn,$sql);
-            
-                        if (mysqli_num_rows($result) > 0) {
-                            // output data of each row
-                            while($row = mysqli_fetch_assoc($result)) {
-                                //Datalist for dropdown menu
-                                echo "<option value=\"".$row["Student_Name"]."\">";
-                            }
-                        } else {
-                            
-                        }
-                
-                        mysqli_close($conn);
-                    ?>
+                        
                     </datalist>
                     </select>
                 </div>

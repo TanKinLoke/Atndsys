@@ -249,6 +249,7 @@ function getVenue(page) {
             }
 
             last_page = page;
+            document.getElementById('popup-venue-pg-input').value = last_page;
 
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {

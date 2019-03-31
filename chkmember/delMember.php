@@ -12,11 +12,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $originalID = $_REQUEST['originalID'];
-    $newName = $_REQUEST['newName'];
-    $newID = $_REQUEST['newID'];
-    $newCard = $_REQUEST['newCard'];
-    $newClass = $_REQUEST['newClass'];
+    $originalID = $_REQUEST['id'];
 
     $sql = "DELETE FROM student_info WHERE Student_ID='$originalID'";
 

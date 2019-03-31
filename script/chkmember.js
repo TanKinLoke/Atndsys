@@ -170,6 +170,8 @@ function editStudentSend(name) {
 }
 
 function deleteStudent(name) {
+    var delID = document.getElementById(name+"_ID_text").value;
+
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
@@ -183,6 +185,6 @@ function deleteStudent(name) {
             }
         }
     };
-    xmlhttp.open("POST","delMember.php?id="+last_student_id,true);
+    xmlhttp.open("POST","delMember.php?id="+delID,true);
     xmlhttp.send();
 }

@@ -62,8 +62,8 @@ function getMember() {
                     // asetArray2[queryNo]+
                     // "</option>");
             };
-            $("#member-table").html("");
-            $("#member-table").append(code);
+            $(".content-box-b").html("");
+            $(".content-box-b").append(code);
         }
     }
     };

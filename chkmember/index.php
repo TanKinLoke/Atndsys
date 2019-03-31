@@ -34,7 +34,7 @@
                     SEARCH QUERY
                     <input type="text" class="member-selector-input" id="member-selector-input" list="member-id" autocomplete="off">
                     <div class="query-type-selector-box">
-                        <select class="query-type-selector-input" id="query-type-selector-input">
+                        <select class="query-type-selector-input" id="query-type-selector-input" onchange="document.getElementById('member-selector-input').value = ''">
                             <option>Member School Number</option>
                             <option>Member Name</option>
                             <option>Member Class</option>

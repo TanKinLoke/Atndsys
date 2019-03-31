@@ -168,3 +168,21 @@ function editStudentSend(name) {
     xmlhttp.open("POST","editMember.php?originalID="+last_student_id+"&newName="+send_student_name+"&newID="+send_student_id+"&newCard="+send_student_card+"&newClass="+send_student_class,true);
     xmlhttp.send();
 }
+
+function deleteStudent(name) {
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            if (this.responseText = "done") {
+                $("#"+name).remove();
+                window.alert("Data deleted");
+            } else if (this.responseText == "fail") {
+                //
+            } else {
+                console.log(this.responseText);
+            }
+        }
+    };
+    xmlhttp.open("POST","delMember.php?id="+last_student_id,true);
+    xmlhttp.send();
+}

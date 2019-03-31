@@ -81,6 +81,10 @@ function getMember() {
 }
 
 function editStudent(name) {
+    if (last_focus_id != "") {
+        doneEditStudent(last_focus_id);
+    }
+
     last_focus_id = name;
     last_student_name = document.getElementById(name+"_text").value;
     last_student_id = document.getElementById(name+"_ID_text").value;

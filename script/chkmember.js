@@ -1,6 +1,13 @@
 var zixuArray = "";
+var page = "search";
+var last_focus_id = "";
+var last_student_name = "";
+var last_student_id = "";
+var last_student_card = "";
+var last_student_class = "";
 
 function displayData() {
+    page="show";
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getMember();
@@ -44,8 +51,8 @@ function getMember() {
                             "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
                             "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
                             "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_jenis_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_bilangan_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_card_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_class_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
                             "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
                             "</tr>\n");
 
@@ -71,4 +78,89 @@ function getMember() {
     xmlhttp.open("POST","getMember.php",true);
     xmlhttp.send();
 
+}
+
+function editStudent(name) {
+    last_focus_id = name;
+    last_student_name = document.getElementById(name+"_text").value;
+    last_student_id = document.getElementById(name+"_ID_text").value;
+    last_student_card = document.getElementById(name+"_card_text").value;
+    last_student_class = document.getElementById(name+"_class_text").value;
+
+    $("#"+name+"_text").attr("readonly",false);
+    $("#"+name+"_ID_text").attr("readonly",false);
+    $("#"+name+"_card_text").attr("readonly",false);
+    $("#"+name+"_class_text").attr("readonly",false);
+    $("#"+name+"_edit").attr("onclick","doneEditStudent('"+name+"')");
+    $("#"+name+"_edit").text("Done");
+}
+
+function doneEditStudent(name) {
+    editStudentSend(name);
+
+    last_focus_id = "";
+    last_student_name = "";
+    last_student_id = "";
+    last_student_card = "";
+    last_student_class = "";
+
+    $("#"+name+"_text").attr("readonly",true);
+    $("#"+name+"_ID_text").attr("readonly",true);
+    $("#"+name+"_card_text").attr("readonly",true);
+    $("#"+name+"_class_text").attr("readonly",true);
+    $("#"+name+"_edit").attr("onclick","editStudent('"+name+"')");
+    $("#"+name+"_edit").text("Edit");
+}
+
+$(document).keypress(function(e) {
+    if (e.which == 13) clickEnter();
+})
+
+$(document).keyup(function(e) {
+    if (e.which == 27) clickESC();
+})
+
+function clickEnter() {
+    if (page == "search") {
+        displayData();
+    } else if (page == "show") {
+        if (last_focus_id != "") {
+            doneEditStudent(last_focus_id);
+        }
+    }
+}
+
+function clickESC() {
+    if (page == "show") {
+        if (last_focus_id != "") {
+            document.getElementById(last_focus_id+"_text").value = last_student_name;
+            document.getElementById(last_focus_id+"_ID_text").value = last_student_id;
+            document.getElementById(last_focus_id+"_card_text").value = last_student_card;
+            document.getElementById(last_focus_id+"_class_text").value = last_student_class;
+            doneEditStudent(last_focus_id);
+        }
+    }
+}
+
+function editStudentSend(name) {
+    send_student_name = document.getElementById(name+"_text").value;
+    send_student_id = document.getElementById(name+"_ID_text").value;
+    send_student_card = document.getElementById(name+"_card_text").value;
+    send_student_class = document.getElementById(name+"_class_text").value;
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            if (this.responseText == "done") {
+                //Success
+
+            } else if (this.responseText == "fail") {
+                //Fail
+
+            }
+        }
+    };
+
+    xmlhttp.open("POST","editMember.php?originalID="+last_student_id+"&newName="+send_student_name+"&newID="+send_student_id+"&newCard="+send_student_card+"&newClass="+send_student_class,true);
+    xmlhttp.send();
 }

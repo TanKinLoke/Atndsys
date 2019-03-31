@@ -50,11 +50,12 @@
                 </div>
             </div>
             </div>
-            <div class="content-box-b" style="display:none;" id="content-box-b"></div>
-        </div>
-        <table id="member-table">
+            <div class="content-box-b" style="display:none;" id="content-box-b">
+                <table id="member-table" class="member-table">
         
-        </table>
+                </table>
+            </div>
+        </div>
         <script src="../script/chkmember.js"></script>
     </body>
 </html>

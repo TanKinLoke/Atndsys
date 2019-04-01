@@ -90,7 +90,7 @@ function deleteVenue(venue) {
             getVenue(last_page);
         }
     };
-    xmlhttp.open("POST", "sql.php?function=delete&data=\"" + venue + "\"", true);
+    xmlhttp.open("POST", "sql.php?function=delete&data=" + venue + "", true);
     xmlhttp.send();
 }
 
@@ -139,7 +139,7 @@ function editVenue(venue) {
 
     //Replace _ with spaces, so the data in the SQL database is same as what user typed
     venue = venue.replace("_"," ");
-    xmlhttp.open("POST","sql.php?function=edit&data=\"" + venue + "\"&data2=\"" + venue2 + "\"",true);
+    xmlhttp.open("POST","sql.php?function=edit&data=" + venue + "&data2=" + venue2 + "",true);
     //Change back to prevent any upcoming code error
     venue = venue.replace(" ","_");
     xmlhttp.send();
@@ -168,7 +168,7 @@ function addVenue() {
 
     };
 
-    xmlhttp.open("POST","sql.php?function=add&data=\""+venue+"\"",true);
+    xmlhttp.open("POST","sql.php?function=add&data="+venue+"",true);
     xmlhttp.send();
 
     //Below 2 codes caused system doesn't work on Firefox

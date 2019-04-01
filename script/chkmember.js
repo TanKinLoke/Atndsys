@@ -57,8 +57,6 @@ function getMember() {
                             "</tr>\n");
 
                         zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
-                                           
-
                     } else {
 
                     }
@@ -157,7 +155,7 @@ function editStudentSend(name) {
         if (this.status == 200 && this.readyState == 4) {
             if (this.responseText == "done") {
                 //Success
-
+                
             } else if (this.responseText == "fail") {
                 //Fail
 

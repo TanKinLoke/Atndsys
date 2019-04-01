@@ -1,7 +1,7 @@
 <?php
     $function = $_REQUEST["function"];
-    $data = htmlspecialchars($_REQUEST["data"],ENT_QUOTES);
-    $data2 = htmlspecialchars($_REQUEST["data2"],ENT_QUTES);
+    $data = $_REQUEST["data"];
+    $data2 = $_REQUEST["data2"];
 
     //SQL Login Details
     $servername="localhost";

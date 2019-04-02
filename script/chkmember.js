@@ -7,6 +7,7 @@ var last_student_card = "";
 var last_student_class = "";
 
 function displayData() {
+    //Shows search results as table based on search query
     page="show";
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
@@ -15,6 +16,7 @@ function displayData() {
 }
 
 function backToSearch() {
+    //Back to search page
     page="search";
     document.getElementById("content-box-a").style.display = "block";
     document.getElementById("content-box-b").style.display = "none";
@@ -22,10 +24,12 @@ function backToSearch() {
 }
 
 function getQueryType() {
+    //Get user selected value on search query type
     return document.getElementById("query-type-selector-input").value;
 }
 
 function getMember() {
+    //Get data from php and form a table
     zixuArray = "";
     input = document.getElementById("member-selector-input").value.toUpperCase();
 
@@ -87,6 +91,7 @@ function getMember() {
 }
 
 function editStudent(name) {
+    //Enable user to edit member's name
     if (last_focus_id != "") {
         doneEditStudent(last_focus_id);
     }
@@ -106,6 +111,7 @@ function editStudent(name) {
 }
 
 function doneEditStudent(name) {
+    //Lock editing feature after pressing done button
     editStudentSend(name);
 
     last_focus_id = "";
@@ -123,14 +129,17 @@ function doneEditStudent(name) {
 }
 
 $(document).keypress(function(e) {
+    //Detect Enter keypress
     if (e.which == 13) clickEnter();
 })
 
 $(document).keyup(function(e) {
+    //Detect ESC keypress
     if (e.which == 27) clickESC();
 })
 
 function clickEnter() {
+    //Stop editing after pressing Enter button
     if (page == "search") {
         displayData();
     } else if (page == "show") {
@@ -141,6 +150,7 @@ function clickEnter() {
 }
 
 function clickESC() {
+    //Stop editing after pressing ESC button
     if (page == "show") {
         if (last_focus_id != "") {
             document.getElementById(last_focus_id+"_text").value = last_student_name;
@@ -155,6 +165,7 @@ function clickESC() {
 }
 
 function editStudentSend(name) {
+    //Send edited member's name back to database
     send_student_name = document.getElementById(name+"_text").value;
     send_student_id = document.getElementById(name+"_ID_text").value;
     send_student_card = document.getElementById(name+"_card_text").value;
@@ -178,6 +189,7 @@ function editStudentSend(name) {
 }
 
 function deleteStudent(name) {
+    //Enable user to delete a member's data
     var delID = document.getElementById(name+"_ID_text").value;
 
     var xmlhttp = new XMLHttpRequest;

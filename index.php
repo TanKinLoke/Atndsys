@@ -13,7 +13,7 @@
         <div class="header">
             <div class="header-content-box">
                 <div class="header-image-box">
-                    <img src="./img/i-Creatorz-Logo-Black.png" draggable="false"/>
+                    <a href="./about"><img src="./img/i-Creatorz-Logo-Black.png" draggable="false"/></a>
                 </div>
                 <div class="header-project-name-box">
                     ATTENDANCE SYSTEM

@@ -31,39 +31,7 @@
             <div class="content-box-center">
                 <div class="select-activity-box">
                     SEARCH QUERY
-                    <select class="activity-selector-input">
-                    <?php
-                                $servername="localhost";
-                                $username="root";
-                                $password="";
-                                $dbname="i-Attendance";
-
-                                //Create a connection
-                                $conn = new mysqli($servername,$username,$password,$dbname);
-
-                                //Check if the connection is successful or not
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                }
-
-                                $sql = "SELECT * FROM activity_record ORDER BY pkey DESC";
-                                $result = mysqli_query($conn,$sql);
-
-                                if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $result->fetch_assoc()) {
-                                        //Datalist for dropdown menu
-                                        echo "<option value=\"".$row["Activity_Name"]."\">".$row["Activity_Name"]."</option>";
-                                    }
-                                } else {
-                                    echo "<option value=\"No result\">No result</option>";
-                                }
-
-                                //Close connection
-                                mysqli_close($conn);
-                                echo "<br>";
-                            ?>
-                    </select>
+                    <input class="activity-selector-input"/>
                     <div class="query-type-selector-box">
                         <select class="query-type-selector-input" id="query-type-selector-input">
                             <option>Activity Name</option>

@@ -100,7 +100,7 @@ function editVenueText(venue) {
     }
 
     lastClick(venue);
-    $("#"+venue+"_edit").text("Done");
+    $("#"+venue+"_edit").addClass("toDone");
     $("#"+venue+"_edit").attr("onclick","doneVenueText('"+venue+"')");
     $("#"+venue+"_text").attr("readonly",false);
     document.getElementById(venue+"_text").focus(); 
@@ -108,7 +108,7 @@ function editVenueText(venue) {
 
 function doneVenueText(venue) {
     rmLastClick();
-    $("#"+venue+"_edit").text("Edit");
+    $("#"+venue+"_edit").removeClass("toDone");
     $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue+"')");
     $("#"+venue+"_text").attr("readonly",true);
 
@@ -261,7 +261,7 @@ function getVenue(page) {
                     code = code.concat(
                     "<tr id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"'>\n"+
                     "<td><input type='text' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_text' value='"+venueArray[i].split("\'").join("&#039;")+"' readonly></td>\n"+
-                    "<td><button type='button' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editVenueText(\""+venueArray[i].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteVenue(\""+venueArray[i].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
+                    "<td><button type='button' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editVenueText(\""+venueArray[i].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteVenue(\""+venueArray[i].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
                     "</tr>\n");
                 }
             };

@@ -200,27 +200,6 @@ tbody input {
     border: none;
 }
 
-tbody button {
-    height: 4rem;
-    width: 10rem;
-    border: 4px solid black;
-    background-color: white;
-    color: black;
-    font-family: "Product Sans Bold";
-    font-size: 1.75rem;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0 0.5rem;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-tbody button:hover {
-    transition: 0.3s;
-    background-color: black;
-    color: white;
-}
-
 .popup-venue-pg-input {
     height: 90%;
     width: 7rem;
@@ -244,4 +223,30 @@ tbody button:hover {
 .popup-venue-prev-btn img,.popup-venue-next-btn img {
     height: 3rem;
     pointer-events: none;
+}
+
+.edit-btn {
+    background-image: url("../img/icons8-edit.svg");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+.delete-btn {
+    background-image: url("../img/icons8-trash.svg");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+.toDone {
+    background-image: url("../img/icons8-checkmark.svg");
 }

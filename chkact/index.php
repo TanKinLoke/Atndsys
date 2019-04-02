@@ -30,7 +30,7 @@
             <div class="content-box-a" id="content-box-a">
             <div class="content-box-center">
                 <div class="select-activity-box">
-                    ACTIVITY NAME
+                    SEARCH QUERY
                     <select class="activity-selector-input">
                     <?php
                                 $servername="localhost";
@@ -64,6 +64,13 @@
                                 echo "<br>";
                             ?>
                     </select>
+                    <div class="query-type-selector-box">
+                        <select class="query-type-selector-input" id="query-type-selector-input">
+                            <option>Activity Name</option>
+                            <option>Activity Date</option>
+                            <option>Activity Venue</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="confirm-selection-box">
                     <button class="confirm-selection-input" onclick="displayData();">CHECK</button>

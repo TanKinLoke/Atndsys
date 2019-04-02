@@ -70,7 +70,9 @@
                 </div>
             </div>
             </div>
-            <div class="content-box-b" style="display:none;" id="content-box-b"></div>
+            <div class="content-box-b" style="display:none;" id="content-box-b">
+                <table id="data-table"></table>
+            </div>
         </div>
         <script src="../script/chkact.js"></script>
     </body>

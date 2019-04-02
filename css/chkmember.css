@@ -82,3 +82,38 @@
 .member-table {
     display: inline-block;
 }
+
+td input {
+    border: none;
+    background-color: transparent;
+    font-family: "Product Sans Regular";
+    font-size: 2rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.edit-btn {
+    background-image: url("../img/icons8-edit.svg");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-image: url("../img/icons8-trash.svg");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.toDone {
+    background-image: url("../img/icons8-checkmark.svg");
+}

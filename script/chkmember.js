@@ -61,7 +61,7 @@ function getMember() {
                             "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
                             "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
                             "<td><input type='text' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
+                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
                             "</tr>\n");
 
                         zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
@@ -102,7 +102,7 @@ function editStudent(name) {
     $("#"+name+"_card_text").attr("readonly",false);
     $("#"+name+"_class_text").attr("readonly",false);
     $("#"+name+"_edit").attr("onclick","doneEditStudent('"+name+"')");
-    $("#"+name+"_edit").text("Done");
+    $("#"+name+"_edit").addClass("toDone");
 }
 
 function doneEditStudent(name) {
@@ -119,7 +119,7 @@ function doneEditStudent(name) {
     $("#"+name+"_card_text").attr("readonly",true);
     $("#"+name+"_class_text").attr("readonly",true);
     $("#"+name+"_edit").attr("onclick","editStudent('"+name+"')");
-    $("#"+name+"_edit").text("Edit");
+    $("#"+name+"_edit").removeClass("toDone");
 }
 
 $(document).keypress(function(e) {

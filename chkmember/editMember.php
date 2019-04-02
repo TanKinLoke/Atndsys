@@ -23,7 +23,13 @@
     $result = mysqli_query($conn,$sql);
 
     if ($result == 1) {
-        echo "done";
+        $sql = "UPDATE activity_attendance SET Student_Name='$newName', Student_ID='$newID',Class='$newClass' WHERE Student_ID='$originalID'";
+        if (mysqli_query($conn,$sql)) {
+            echo "done";
+            } else {
+                $error = mysqli_error($conn);
+                echo "$error";
+            }
     } else if ($result == 0) {
         $error = mysqli_error($conn);
         echo "$error";

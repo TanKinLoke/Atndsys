@@ -7,6 +7,7 @@
             <link rel="icon" href="../img/favicon.png">
             <link rel="stylesheet" href="../css/global.css"/>
             <link rel="stylesheet" href="../css/chkact.css"/>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         </head>
     </head>
     <body>
@@ -31,7 +32,7 @@
             <div class="content-box-center">
                 <div class="select-activity-box">
                     SEARCH QUERY
-                    <input class="activity-selector-input"/>
+                    <input id= "activity-selector-input" class="activity-selector-input"/>
                     <div class="query-type-selector-box">
                         <select class="query-type-selector-input" id="query-type-selector-input">
                             <option>Activity Name</option>

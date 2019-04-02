@@ -33,6 +33,7 @@ function getMember() {
     zixuArray = "";
     input = document.getElementById("member-selector-input").value.toUpperCase();
 
+    //Get query type
     var queryType = getQueryType();
     queryNo = 0;
 
@@ -49,34 +50,35 @@ function getMember() {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
-            asetArray = this.responseText;
-            asetArray = asetArray.split(",");
+            memberArray = this.responseText;
+            memberArray = memberArray.split(",");
 
-            for (var i = 0; i<asetArray.length ;i++) {
-                if (asetArray[i] == null || asetArray[i] == "") {
+            for (var i = 0; i<memberArray.length ;i++) {
+                if (memberArray[i] == null || memberArray[i] == "") {
 
                 } else {
-                    asetArray2 = asetArray[i].split(":");
+                    memberArray2 = memberArray[i].split(":");
 
-                    if (asetArray2[queryNo].toUpperCase().indexOf(input) > -1) {
+                    //Check if the member contain filter input
+                    if (memberArray2[queryNo].toUpperCase().indexOf(input) > -1) {
                         code = code.concat(
-                            "<tr id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
-                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+asetArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
+                            "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                            "<td><input type='text' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
                             "</tr>\n");
 
-                        zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
+                        zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
                     } else {
 
                     }
 
                     
 
-                    // code = code.concat("<option id='"+asetArray2[queryNo]+"'>"+
-                    // asetArray2[queryNo]+
+                    // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
+                    // memberArray2[queryNo]+
                     // "</option>");
             };
             $("#member-table").html("");

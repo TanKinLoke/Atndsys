@@ -82,7 +82,7 @@ document.getElementById("popup-venue-box").onclick = function (e) {
 }
 
 function deleteVenue(venue) {
-    venue = venue.split("_").join(" ");
+    venue = venue.split("_").join(" ").split("-").join("\'");
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function () {
@@ -123,7 +123,7 @@ function editVenue(venue) {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "done") {
                 //Success
-                venue2 = venue2.split(" ").join("_");
+                venue2 = venue2.split(" ").join("_").split("\'").join("-");
                 $("#"+venue+"_text").attr("onclick","lastClick('"+venue2+"')");
                 $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue2+"')");
                 $("#"+venue+"_delete").attr("onclick","deleteVenue('"+venue2+"')");
@@ -138,10 +138,10 @@ function editVenue(venue) {
     };
 
     //Replace _ with spaces, so the data in the SQL database is same as what user typed
-    venue = venue.replace("_"," ");
-    xmlhttp.open("POST","sql.php?function=edit&data=" + venue + "&data2=" + venue2 + "",true);
+    venue = venue.split("_").join(" ").split("-").join("\'");
+    xmlhttp.open("POST","sql.php?function=edit&data=" + venue + "&data2=" + venue2,true);
     //Change back to prevent any upcoming code error
-    venue = venue.replace(" ","_");
+    venue = venue.split(" ").join("_").split("\'").join("-");
     xmlhttp.send();
 }   
 
@@ -218,7 +218,7 @@ function clickEnter() {
         if (document.getElementById("add_venue_text").value != "" && document.getElementById("add_venue_text").value != null)
             addVenue();
     } else {
-        var localvenue = last_focus_text.split(" ").join("_");
+        var localvenue = last_focus_text.split(" ").join("_").split("\'").join("-");
         doneVenueText(localvenue);
     }
 
@@ -259,9 +259,9 @@ function getVenue(page) {
 
                 } else {
                     code = code.concat(
-                    "<tr id='"+venueArray[i].split(" ").join("_")+"'>\n"+
-                    "<td><input type='text' id='"+venueArray[i].split(" ").join("_")+"_text' value='"+venueArray[i]+"' readonly></td>\n"+
-                    "<td><button type='button' id='"+venueArray[i].split(" ").join("_")+"_edit' onclick='editVenueText(\""+venueArray[i].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+venueArray[i].split(" ").join("_")+"_delete' onclick='deleteVenue(\""+venueArray[i].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                    "<tr id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                    "<td><input type='text' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_text' value='"+venueArray[i].split("\'").join("&#039;")+"' readonly></td>\n"+
+                    "<td><button type='button' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editVenueText(\""+venueArray[i].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+venueArray[i].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteVenue(\""+venueArray[i].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
                     "</tr>\n");
                 }
             };

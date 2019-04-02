@@ -11,7 +11,7 @@
         </head>
     </head>
     <body>
-        <a class="back-btn" onclick="location.href='../'">
+        <a id="back-btn" class="back-btn" onclick="location.href='../'">
             <img src="../img/back-arrow.svg">
         </a>
         <div class="header">

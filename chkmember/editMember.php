@@ -13,7 +13,7 @@
     }
 
     $originalID = $_REQUEST['originalID'];
-    $newName = $_REQUEST['newName'];
+    $newName = htmlspecialchars($_REQUEST['newName'],ENT_QUOTES);
     $newID = $_REQUEST['newID'];
     $newCard = $_REQUEST['newCard'];
     $newClass = $_REQUEST['newClass'];

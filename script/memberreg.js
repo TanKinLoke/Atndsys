@@ -68,29 +68,31 @@ function endProcess() {
     
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
-        if(this.responseText == "done" && success != "") {
-            //Success
-            window.alert(success);
-            success = "";
-            center0.style.display = "block";
-            center1.style.display = "none";
-            input0.value = "";
-            input1.value = "";
-            input2.value = "";
-        } else if(this.responseText == "fail" && fail != "") {
-            //Fail
-            window.alert(fail);
-            fail = "";
-            center0.style.display = "block";
-            center1.style.display = "none";
-        } else if(this.responseText == "empty" && empty != "") {
-            //Some info is being left empty
-            window.alert(empty);
-            empty = "";
-            center0.style.display = "block";
-            center1.style.display = "none";
+        if (this.status == 200 && this.readyState == 4) {
+            if(this.responseText == "done" && success != "") {
+                //Success
+                window.alert(success);
+                success = "";
+                center0.style.display = "block";
+                center1.style.display = "none";
+                input0.value = "";
+                input1.value = "";
+                input2.value = "";
+            }  else if(this.responseText == "empty" && empty != "") {
+                //Some info is being left empty
+                window.alert(empty);
+                empty = "";
+                center0.style.display = "block";
+                center1.style.display = "none";
+            } else {
+                //Fail
+                window.alert(fail);
+                fail = "";
+                center0.style.display = "block";
+                center1.style.display = "none";
+            }
+            input3.value = "";
         }
-        input3.value = "";
     };
 
     input3.value = "";

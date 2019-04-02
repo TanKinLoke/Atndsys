@@ -14,8 +14,8 @@
 
             if(!empty($_REQUEST["ActivityName"]) && !empty($_REQUEST["ActivityVenue"]) && !empty($_REQUEST["ActivityDate"]) && !empty($_REQUEST["ActivityStartTime"]) && !empty($_REQUEST["ActivityEndTime"])) {
                 //If everything is inserted
-                $ActivityName = $_REQUEST["ActivityName"];
-                $ActivityVenue = $_REQUEST["ActivityVenue"];
+                $ActivityName = htmlspecialchars($_REQUEST["ActivityName"],ENT_QUOTES);
+                $ActivityVenue = htmlspecialchars($_REQUEST["ActivityVenue"],ENT_QUOTES);
 
                 //Date and Time special code
                 $rawdate = htmlentities($_REQUEST['ActivityDate']);

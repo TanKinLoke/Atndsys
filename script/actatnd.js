@@ -27,24 +27,26 @@ document.addEventListener('keydown', function (e) {
 
             var xmlhttp = new XMLHttpRequest;
             xmlhttp.onreadystatechange = function() {
+                if (this.status == 200 && this.readyState == 4) {
                 //split response into array
-                response = this.responseText;
-                response = response.split(",");
+                    response = this.responseText;
+                    response = response.split(",");
 
-                if(response[0] == "done") {
-                    //Attendance marked
-                    showSuccessFun(response[1]);
-                } else if (response[0] == "fail") {
-                    //Server Fail to mark attendance
-                    showFailFun(response[1]);
-                } else if (response[0] == "CardEmpty") {
-                    //CardID is empty
-                    showEmptyFun();
-                } else if (response[0] == "Duplicate") {
-                    //Attendance duplicate
-                    showDuplicateFun(response[1]);
-                } else if (response[0] == "Not Exist") {
-                    showNotExistFun();
+                    if(response[0] == "done") {
+                        //Attendance marked
+                        showSuccessFun(response[1]);
+                    } else if (response[0] == "fail") {
+                        //Server Fail to mark attendance
+                        showFailFun(response[1]);
+                    } else if (response[0] == "CardEmpty") {
+                        //CardID is empty
+                        showEmptyFun();
+                    } else if (response[0] == "Duplicate") {
+                        //Attendance duplicate
+                        showDuplicateFun(response[1]);
+                    } else if (response[0] == "Not Exist") {
+                        showNotExistFun();
+                    }
                 }
             };
 

@@ -11,6 +11,14 @@ function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getMember();
+    $("#back-btn").attr("onclick","backToSearch()");
+}
+
+function backToSearch() {
+    page="search";
+    document.getElementById("content-box-a").style.display = "block";
+    document.getElementById("content-box-b").style.display = "";
+    $("#back-btn").attr("onclick","location.href='../'");
 }
 
 function getQueryType() {
@@ -48,12 +56,12 @@ function getMember() {
 
                     if (asetArray2[queryNo].toUpperCase().indexOf(input) > -1) {
                         code = code.concat(
-                            "<tr id='"+asetArray2[0].split(" ").join("_")+"'>\n"+
-                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_text' value='"+asetArray2[0]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_")+"_card_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_")+"_class_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_")+"_edit' onclick='editStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_")+"_delete' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_")+"\")'>Delete</button></td>\n"+
+                            "<tr id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+asetArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+asetArray2[1]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+asetArray2[2]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+asetArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+asetArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteStudent(\""+asetArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
                             "</tr>\n");
 
                         zixuArray = zixuArray.concat(asetArray2[0]+","+asetArray2[1]+","+asetArray2[2]+","+asetArray2[3]+":");
@@ -140,6 +148,8 @@ function clickESC() {
             document.getElementById(last_focus_id+"_card_text").value = last_student_card;
             document.getElementById(last_focus_id+"_class_text").value = last_student_class;
             doneEditStudent(last_focus_id);
+        } else {
+            backToSearch();
         }
     }
 }
@@ -156,9 +166,9 @@ function editStudentSend(name) {
             if (this.responseText == "done") {
                 //Success
                 
-            } else if (this.responseText == "fail") {
+            } else {
                 //Fail
-
+                window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.");
             }
         }
     };
@@ -176,11 +186,10 @@ function deleteStudent(name) {
             if (this.responseText = "done") {
                 $("#"+name).remove();
                 window.alert("Data deleted");
-            } else if (this.responseText == "fail") {
-                //
-            } else {
-                console.log(this.responseText);
-            }
+            } else  {
+                //fail
+                window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.");
+            } 
         }
     };
     xmlhttp.open("POST","delMember.php?id="+delID,true);

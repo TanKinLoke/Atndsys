@@ -18,7 +18,7 @@
                 //If everything is inserted
                 $StudentID = $_REQUEST["StudentID"];
                 $CardID = $_REQUEST["CardID"];
-                $StudentName = $_REQUEST["StudentName"];
+                $StudentName = htmlspecialchars($_REQUEST["StudentName"],ENT_QUOTES);
                 $Class = $_REQUEST["Class"];
     
                 //SQL code
@@ -30,7 +30,8 @@
                     echo "done";
                 } else {
                     //Fail
-                    echo "fail";
+                    $error = mysqli_error($conn);
+                    echo "$error";
                 }
             } else {
                 //If something is not inserted

@@ -1,7 +1,7 @@
 <?php
     $function = $_REQUEST["function"];
-    $data = $_REQUEST["data"];
-    $data2 = $_REQUEST["data2"];
+    $data  = htmlspecialchars($_REQUEST["data"],ENT_QUOTES);
+    $data2= htmlspecialchars($_REQUEST["data2"],ENT_QUOTES);
 
     //SQL Login Details
     $servername="localhost";
@@ -21,15 +21,30 @@
         //Delete venue
         $sql = "DELETE FROM Activity_Venue WHERE Venue='$data'";
         $result = mysqli_query($conn,$sql);
-        echo $result;
+        if ($result == 1) {
+            echo "done";
+        } else {
+            $error = mysqli_error($conn);
+            echo "$error";
+        }
     } else if ($function == "edit") {
         //Edit venue
-        $sql = "UPDATE Activity_Venue SET Venue=$data2 WHERE Venue='$data'";
+        $sql = "UPDATE Activity_Venue SET Venue='$data2' WHERE Venue='$data'";
         $result = mysqli_query($conn,$sql);
-        echo "done";
+        if ($result == 1) {
+            echo "done";
+        } else {
+            $error = mysqli_error($conn);
+            echo "$error";
+        }
     } else if ($function == "add") {
         $sql = "INSERT INTO Activity_Venue (Venue) VALUES ('$data')";
         $result = mysqli_query($conn,$sql);
-        echo "done";
+        if ($result == 1) {
+            echo "done";
+        } else {
+            $error = mysqli_error($conn);
+            echo "$error";
+        }
     }
 ?>

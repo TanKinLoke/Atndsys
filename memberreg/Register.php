@@ -31,7 +31,7 @@
                 //If everything is inserted
                 $StudentID = $_POST["StudentID"];
                 $CardID = $_POST["CardID"];
-                $StudentName = $_POST["StudentName"];
+                $StudentName = htmlspecialchars($_POST["StudentName"],ENT_QUOTES);
                 $Class = $_POST["Class"];
     
                 $sql = "INSERT INTO student_info (Student_Name, Student_ID, Card_ID, Class) VALUES ('$StudentName','$StudentID','$CardID','$Class')";

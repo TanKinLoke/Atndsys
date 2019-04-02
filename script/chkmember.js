@@ -17,7 +17,7 @@ function displayData() {
 function backToSearch() {
     page="search";
     document.getElementById("content-box-a").style.display = "block";
-    document.getElementById("content-box-b").style.display = "";
+    document.getElementById("content-box-b").style.display = "none";
     $("#back-btn").attr("onclick","location.href='../'");
 }
 

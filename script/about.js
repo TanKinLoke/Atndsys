@@ -17,6 +17,7 @@ function getContributorsData() {
                     contributors_name.push(data[i].split(" - ")[0]);
                     contributors_username.push(data[i].split(" - ")[1].split("(")[1].split(")")[0]);
                     contributors_email.push(data[i].split(" - ")[2].split("(")[1].split(")")[0]);
+                    contributors_email.push(data[i].split(" - ")[3].split("[")[1].split("]")[0]);
                 }
                 appendData();
             }

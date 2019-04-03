@@ -90,6 +90,24 @@ td input {
     font-size: 2rem;
 }
 
+.data-name {
+    width: 40rem;
+}
+
+.data-stdid {
+    text-align: center;
+    width: 10rem;
+}
+
+.data-cardid {
+    width: 15rem;
+}
+
+.data-class {
+    text-align: center;
+    width: 10rem;
+}
+
 tr:nth-child(even) {
     background-color: #f2f2f2
 }

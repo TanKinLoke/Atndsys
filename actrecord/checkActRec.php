@@ -21,14 +21,17 @@
     if ($function == "check") {
         $sql = "SELECT * FROM activity_record WHERE Activity_Venue='$data'";
         $result = mysqli_query($conn,$sql);
-        $row = mysqli_fetch_assoc($result);
-        $activityName = $row['Activity_Name'];
+        // $row = mysqli_fetch_assoc($result);
+        // $activityName = $row['Activity_Name'];
 
-        $sql = "SELECT COUNT(*) FROM activity_attendance WHERE Activity_Name='$activityName'";
-        $result2 = mysqli_query($conn,$sql);
-        $result2 = mysqli_fetch_assoc($result2);
-        $result2 = (int)$result2['COUNT(*)'];
-        $count = (int)$count+$result2;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $activityName = $row['Activity_Name'];
+            $sql = "SELECT COUNT(*) FROM activity_attendance WHERE Activity_Name='$activityName'";
+            $result2 = mysqli_query($conn,$sql);
+            $result2 = mysqli_fetch_assoc($result2);
+            $result2 = (int)$result2['COUNT(*)'];
+            $count = (int)$count+$result2;
+        }
 
         if ($count == 0) {  
             echo "clear";

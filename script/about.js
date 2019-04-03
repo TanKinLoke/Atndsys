@@ -52,7 +52,7 @@ function appendData() {
         var temp2 = contributors_username[i] + "contname";
         var temp3 = contributors_username[i] + "contusrname";
         document.getElementById(temp2).innerText = contributors_name[i];
-        document.getElementById(temp3).innerText = contributors_username[i];
+        document.getElementById(temp3).innerText = "@"+contributors_username[i];
         getAvatarURL(i);
     }
 }

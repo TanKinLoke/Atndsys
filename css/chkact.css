@@ -59,6 +59,7 @@
     width: 100%;
     position: relative;
     background-color: white;
+    text-align: center;
 }
 
 .query-type-selector-box {
@@ -77,4 +78,43 @@
     font-size: 1.25rem;
     margin: 1rem 0;
     display: inline-block;
+}
+
+#data-table {
+    display: inline-block;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+td input {
+    border: none;
+    background-color: transparent;
+    font-family: "Product Sans Regular";
+    font-size: 2rem;
+}
+
+.edit-btn {
+    background-image: url("../img/icons8-edit.svg");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-image: url("../img/icons8-trash.svg");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.toDone {
+    background-image: url("../img/icons8-checkmark.svg");
 }

@@ -20,6 +20,7 @@ var last_focus_id = "";
 var last_focus_text;
 var venueArray;
 var last_page;
+var editActRes;
 
 function inputDatas() {
     input_name = document.getElementById("inputnamebox").value;
@@ -117,6 +118,10 @@ function doneVenueText(venue) {
 
 function editVenue(venue) {
     var venue2 = document.getElementById(venue+"_text").value;
+    venue = venue.split("_").join(" ").split("-").join("\'");
+    editActRec("check",venue,venue2);
+
+    venue = venue.split(" ").join("_").split("\'").join("-");
 
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
@@ -271,5 +276,34 @@ function getVenue(page) {
     };
 
     xmlhttp.open("POST","getVenue.php",true);
+    xmlhttp.send();
+}
+
+function editActRec(perform,venue,venue2) {
+    if (perform != "edit" && perform != "check") {
+        return;
+    }
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            if (perform == "check") {
+                if (this.responseText == "exist"){
+                    editActRes = confirm("Edit activity that have this venue as well?");
+                    if (editActRes == true) {
+                        console.log('test');
+                        editActRec("edit",venue,venue2);
+                    }
+                }
+            } else if (perform == "edit") {
+                if (this.responseText == "done") {
+                    console.log('done');
+                } else {
+                    window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.");
+                }
+            }
+        }
+    }
+    xmlhttp.open("POST","checkActRec.php?function="+perform+"&data="+venue+"&data2="+venue2,true);
     xmlhttp.send();
 }

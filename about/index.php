@@ -6,7 +6,7 @@
             <meta charset="utf-8"/>
             <link rel="icon" href="../img/favicon.png">
             <link rel="stylesheet" href="../css/global.css"/>
-            <!-- <link rel="stylesheet" href="../css/memberreg.css"/> -->
+            <link rel="stylesheet" href="../css/about.css"/>
         </head>
     </head>
     <body>
@@ -26,6 +26,15 @@
                 </div>
             </div>
         </div>
-        <!-- <script src="../script/memberreg.js"></script> -->
+        <div class="content">
+            <div class="c1">
+                <div class="c1-title-box">
+                    <h1>CONTRIBUTORS</h1>
+                    <div class="contributors-box" id="contributors-box">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../script/about.js"></script>
     </body>
 </html>

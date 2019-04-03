@@ -13,7 +13,7 @@ var last_activity_date = "";
 function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
-    getActivityBySearch(1);
+    getActivityBySearch();
     page = "show";
     $("#back-btn").attr("onclick","backToSearch()");
 }
@@ -84,13 +84,12 @@ function getActivity(page) {
     xmlhttp.send();
 }
 
-function getActivityBySearch(page) {
-    //Prevent page less than 1
-    if (page < 1) {
-        page = 1;
-    }
-
+function getActivityBySearch() {
     filter = document.getElementById("activity-selector-input").value.toUpperCase();
+    if (filter == "") {
+        getActivity(1);
+        return;
+    }
 
     queryNo = 0;
 
@@ -103,10 +102,6 @@ function getActivityBySearch(page) {
         queryNo = 1;
     }
 
-    end = page * dataPerPage;
-
-    startFrom = (page-1) * dataPerPage;
-
     var code = "";
 
     var xmlhttp = new XMLHttpRequest;
@@ -114,17 +109,10 @@ function getActivityBySearch(page) {
         if (this.status == 200 && this.readyState == 4) {
             activityArray = this.responseText;
             activityArray = activityArray.split(",");
-            
-            //Prevent page more than existing pages
-            if (Math.ceil((activityArray.length - 1)/dataPerPage) < page) {
-                page = Math.ceil((activityArray.length - 1)/dataPerPage);
-                end = page * dataPerPage;
-                startFrom = (page-1) * dataPerPage;
-            }
 
             //last_page = document.getElementById("page-input-no").value = page;
 
-            for (var i = startFrom; i<end ;i++) {
+            for (var i = 0; i<activityArray.length ;i++) {
                 if (activityArray[i] == null || activityArray[i] == "") {
 
                 } else {

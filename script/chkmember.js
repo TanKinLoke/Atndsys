@@ -5,13 +5,16 @@ var last_student_name = "";
 var last_student_id = "";
 var last_student_card = "";
 var last_student_class = "";
+var last_page = "";
+dataPerPage = 2;
+var filer = "";
 
 function displayData() {
     //Shows search results as table based on search query
     page="show";
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
-    getMember();
+    getMemberBySearch();
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
@@ -28,11 +31,93 @@ function getQueryType() {
     return document.getElementById("query-type-selector-input").value;
 }
 
-function getMember() {
+function getMember(page) {
+    //Get data from php and form a table
+    zixuArray = "";
+
+    //Prevent page less than 1
+    if (page < 1) {
+        page = 1;
+    }
+
+    end = page * dataPerPage;
+
+    startFrom = (page-1) * dataPerPage;
+
+    //Get query type
+    var queryType = getQueryType();
+    queryNo = 0;
+
+    if (queryType == "Member School Number") {
+        queryNo = 1;
+    } else if (queryType == "Member Name") {
+        queryNo = 0;
+    } else if (queryType == "Member Class") {
+        queryNo = 3;
+    }
+    
+    var code = "";
+
+    var xmlhttp = new XMLHttpRequest;
+    xmlhttp.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+            memberArray = this.responseText;
+            memberArray = memberArray.split(",");
+
+            //Prevent page more than existing pages
+            if (Math.ceil((memberArray.length - 1)/dataPerPage) < page) {
+                page = Math.ceil((memberArray.length - 1)/dataPerPage);
+                end = page * dataPerPage;
+                startFrom = (page-1) * dataPerPage;
+            }
+
+            for (var i = startFrom; i<end;i++) {
+                if (memberArray[i] == null || memberArray[i] == "") {
+
+                } else {
+                    memberArray2 = memberArray[i].split(":");
+
+                    //Check if the member contain filter input
+                    if (memberArray2[queryNo].toUpperCase().indexOf(input) > -1) {
+                        code = code.concat(
+                            "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                            "<td><input type='text' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text'  id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
+                            "<td><input type='text' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
+                            "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
+                            "</tr>\n");
+
+                        zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
+                    } else {
+
+                    }
+
+                    
+
+                    // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
+                    // memberArray2[queryNo]+
+                    // "</option>");
+            };
+            $("#member-table").html("");
+            $("#member-table").append(code);
+        }
+    }
+    };
+
+    xmlhttp.open("POST","getMember.php",true);
+    xmlhttp.send();
+
+}
+
+function getMemberBySearch() {
     //Get data from php and form a table
     zixuArray = "";
     input = document.getElementById("member-selector-input").value.toUpperCase();
-
+    if (input == "") {
+        getMember(1);
+        return;
+    }
     //Get query type
     var queryType = getQueryType();
     queryNo = 0;

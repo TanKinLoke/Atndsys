@@ -1,6 +1,7 @@
 var contributors_name = [];
 var contributors_username = [];
 var contributors_email = [];
+var contributors_work = [];
 
 function getContributorsData() {
     var fileContent = new XMLHttpRequest();
@@ -17,7 +18,7 @@ function getContributorsData() {
                     contributors_name.push(data[i].split(" - ")[0]);
                     contributors_username.push(data[i].split(" - ")[1].split("(")[1].split(")")[0]);
                     contributors_email.push(data[i].split(" - ")[2].split("(")[1].split(")")[0]);
-                    contributors_email.push(data[i].split(" - ")[3].split("[")[1].split("]")[0]);
+                    contributors_work.push(data[i].split(" - ")[3].split("[")[1].split("]")[0]);
                 }
                 appendData();
             }
@@ -43,17 +44,22 @@ function appendData() {
         var elem6 = document.createElement("h3");
         elem6.classList.add("contributor-username");
         elem6.id = contributors_username[i] + "contusrname";
+        var elem7 = document.createElement("h3");
+        elem7.classList.add("contributor-work");
+        elem7.id = contributors_username[i] + "contusrwork";
         elem4.appendChild(elem5);
         elem4.appendChild(elem6);
+        elem4.appendChild(elem7);
         elem3.appendChild(elem4);
         elem1.appendChild(elem2);
         elem1.appendChild(elem3);
         document.getElementById("contributors-box").appendChild(elem1);
-        var temp1 = contributors_username[i] + "contimg";
         var temp2 = contributors_username[i] + "contname";
         var temp3 = contributors_username[i] + "contusrname";
+        var temp4 = contributors_username[i] + "contusrwork";
         document.getElementById(temp2).innerText = contributors_name[i];
-        document.getElementById(temp3).innerText = "@"+contributors_username[i];
+        document.getElementById(temp3).innerText = "@" + contributors_username[i];
+        document.getElementById(temp4).innerText = contributors_work[i];
         getAvatarURL(i);
     }
 }

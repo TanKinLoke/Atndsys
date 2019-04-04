@@ -157,3 +157,7 @@ td input {
     font-family: "Product Sans Bold";
     font-size: 2rem;
 }
+
+.pg-selector-input::-webkit-inner-spin-button {
+    display: none;
+}

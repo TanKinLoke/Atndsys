@@ -193,6 +193,10 @@ $(document).keyup(function(e) {
     if (e.which == 27) clickESC();
 })
 
+function getPageValue() {
+    return document.getElementById("pg-selector-input").value;
+}
+
 function clickEnter() {
     //Stop editing after pressing Enter button
     if (page == "search") {

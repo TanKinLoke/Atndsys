@@ -75,8 +75,6 @@ function getAvatarURL(i) {
             {
                 var temp1 = avatarURL.responseText;
                 var temp2 = JSON.parse(temp1)["avatar_url"];
-                console.log(contributors_username[i] + "contimg");
-                console.log(temp2);
                 document.getElementById(contributors_username[i] + "contimg").style.backgroundImage = "url('" + temp2 + "')";
             }
         }

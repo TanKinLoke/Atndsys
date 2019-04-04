@@ -51,9 +51,12 @@
             </div>
             </div>
             <div class="content-box-b" style="display:none;" id="content-box-b">
-                <table id="member-table" class="member-table">
-        
-                </table>
+                <table id="member-table" class="member-table"></table>
+                <div class="table-nav-box">
+                    <button class="prev-page-btn"></button>
+                    <input type="text" class="pg-selector-input" id="pg-selector-input"/>
+                    <button class="next-page-btn"></button>
+                </div>
             </div>
         </div>
         <script src="../script/chkmember.js"></script>

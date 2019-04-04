@@ -110,6 +110,10 @@ function getMember(page) {
 
 }
 
+function getPageValue() {
+    return document.getElementById("pg-selector-input").value;
+}
+
 function getMemberBySearch() {
     //Get data from php and form a table
     zixuArray = "";

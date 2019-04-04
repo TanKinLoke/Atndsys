@@ -81,6 +81,12 @@
 
 .member-table {
     display: inline-block;
+    height: 80%;
+}
+
+.table-nav-box {
+    height: 20%;
+    width: 100%;
 }
 
 td input {
@@ -134,4 +140,37 @@ tr:nth-child(even) {
 
 .toDone {
     background-image: url("../img/icons8-checkmark.svg");
+}
+
+.prev-page-btn {
+    background-image: url("../img/icons8-chevron-left-90.png");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.next-page-btn {
+    background-image: url("../img/icons8-chevron-right-90.png");
+    background-size: 100%;
+    background-color: transparent;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.pg-selector-input {
+    height: 5rem;
+    width: 10rem;
+    border: 4px solid black; 
+    margin: 0 2rem;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Product Sans Bold";
+    font-size: 2rem;
 }

@@ -6,7 +6,7 @@ var last_student_id = "";
 var last_student_card = "";
 var last_student_class = "";
 var last_page = "";
-dataPerPage = 2;
+dataPerPage = 10;
 var filer = "";
 
 function displayData() {

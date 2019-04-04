@@ -1,5 +1,5 @@
 var last_page = "";
-dataPerPage = 2;
+dataPerPage = 10;
 var filer = "";
 var zixuArray = "";
 var page = "search";

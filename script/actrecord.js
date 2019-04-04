@@ -21,6 +21,7 @@ var last_focus_text;
 var venueArray;
 var last_page;
 var editActRes;
+dataPerPage = 10;
 
 function inputDatas() {
     input_name = document.getElementById("inputnamebox").value;
@@ -247,9 +248,9 @@ function getVenue(page) {
         page = 1;
     }
 
-    end = page * 5;
+    end = page * dataPerPage;
 
-    startFrom = (page-1) * 5;
+    startFrom = (page-1) * dataPerPage;
 
     var code = "";
 
@@ -260,10 +261,10 @@ function getVenue(page) {
             venueArray = venueArray.split(",");
             
             //Prevent page more than existing pages
-            if (Math.ceil((venueArray.length - 1)/5) < page) {
-                page = Math.ceil((venueArray.length - 1)/5);
-                end = page * 5;
-                startFrom = (page-1) * 5;
+            if (Math.ceil((venueArray.length - 1)/dataPerPage) < page) {
+                page = Math.ceil((venueArray.length - 1)/dataPerPage);
+                end = page * dataPerPage;
+                startFrom = (page-1) * dataPerPage;
             }
 
             last_page = page;

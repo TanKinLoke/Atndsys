@@ -1,5 +1,5 @@
 var last_page = "";
-dataPerPage = 2;
+dataPerPage = 10;
 var filer = "";
 var zixuArray = "";
 var page = "search";
@@ -13,7 +13,7 @@ var last_activity_date = "";
 function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
-    getActivityBySearch();
+    getActivityBySearch(1);
     page = "show";
     $("#back-btn").attr("onclick","backToSearch()");
 }
@@ -29,6 +29,18 @@ function backToSearch() {
 function getQueryType() {
     //Get user selected value on search query type
     return document.getElementById("query-type-selector-input").value;
+}
+
+function getActivityByPage() {
+    getActivityBySearch(getPageValue());
+}
+
+function checkPageInput() {
+    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+    } else {
+        document.getElementById("pg-selector-input").value = last_page;
+    }
 }
 
 function getActivity(page) {
@@ -50,13 +62,18 @@ function getActivity(page) {
             activityArray = activityArray.split(",");
             
             //Prevent page more than existing pages
-            if (Math.ceil((activityArray.length - 1)/dataPerPage) < page) {
+            if (Math.ceil((activityArray.length - 1)/dataPerPage) <= page) {
                 page = Math.ceil((activityArray.length - 1)/dataPerPage);
                 end = page * dataPerPage;
                 startFrom = (page-1) * dataPerPage;
             }
 
-            //last_page = document.getElementById("page-input-no").value = page;
+            last_page = page;
+            if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("pg-selector-input").value = page;
+            }
 
             for (var i = startFrom; i<end ;i++) {
                 if (activityArray[i] == null || activityArray[i] == "") {
@@ -84,10 +101,19 @@ function getActivity(page) {
     xmlhttp.send();
 }
 
-function getActivityBySearch() {
+function getActivityBySearch(page) {
+    //Prevent page less than 1
+    if (page < 1) {
+        page = 1;
+    }
+
+    end = page * dataPerPage;
+
+    startFrom = (page-1) * dataPerPage;
+
     filter = document.getElementById("activity-selector-input").value.toUpperCase();
     if (filter == "") {
-        getActivity(1);
+        getActivity(page);
         return;
     }
 
@@ -110,9 +136,21 @@ function getActivityBySearch() {
             activityArray = this.responseText;
             activityArray = activityArray.split(",");
 
-            //last_page = document.getElementById("page-input-no").value = page;
+            //Prevent page more than existing pages
+            if (Math.ceil((activityArray.length - 1)/dataPerPage) <= page) {
+                page = Math.ceil((activityArray.length - 1)/dataPerPage);
+                end = page * dataPerPage;
+                startFrom = (page-1) * dataPerPage;
+            }
 
-            for (var i = 0; i<activityArray.length ;i++) {
+            last_page = page;
+            if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("pg-selector-input").value = page;
+            }
+
+            for (var i = startFrom; i<end ;i++) {
                 if (activityArray[i] == null || activityArray[i] == "") {
 
                 } else {

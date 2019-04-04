@@ -50,7 +50,7 @@
                 <table id="data-table"></table>
                 <div class="table-nav-box">
                     <button class="prev-page-btn"></button>
-                    <input type="text" class="pg-selector-input" id="pg-selector-input"/>
+                    <input type="number" class="pg-selector-input" id="pg-selector-input"/>
                     <button class="next-page-btn"></button>
                 </div>
             </div>

@@ -79,7 +79,7 @@
                             <button class="popup-venue-next-btn" onclick="getVenue(last_page+1)">
                                 <img src="../img/icons8-chevron-right-90.png"/>
                             </button>
-                            <input class="popup-venue-pg-input" id="popup-venue-pg-input" onchange="getVenue(document.getElementById('popup-venue-pg-input').value)"/>
+                            <input class="popup-venue-pg-input" id="popup-venue-pg-input" onkeyup="getVenue(document.getElementById('popup-venue-pg-input').value)" onchange="checkPageInput()"/>
                         </div>
                         <div class="popup-venue-boxcontent-down">
                             <input class="add-venue-input-box" type="text" id="add_venue_text">

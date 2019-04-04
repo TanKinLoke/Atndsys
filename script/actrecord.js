@@ -53,6 +53,18 @@ function showDatas() {
     document.getElementById("confirm").focus();
 }
 
+function getMemberByPage() {
+    getMemberBySearch(getPageValue());
+}
+
+function checkPageInput() {
+    if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
+                
+    } else {
+        document.getElementById("popup-venue-pg-input").value = last_page;
+    }
+}
+
 function confirmRecord() {
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function () {
@@ -255,9 +267,11 @@ function getVenue(page) {
             }
 
             last_page = page;
-            document.getElementById('popup-venue-pg-input').value = last_page;
-            console.log(startFrom);
-            console.log(end);
+            if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("popup-venue-pg-input").value = page;
+            }
 
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {

@@ -14,7 +14,7 @@ function displayData() {
     page="show";
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
-    getMemberBySearch();
+    getMemberBySearch(1);
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
@@ -29,6 +29,18 @@ function backToSearch() {
 function getQueryType() {
     //Get user selected value on search query type
     return document.getElementById("query-type-selector-input").value;
+}
+
+function getMemberByPage() {
+    getMemberBySearch(getPageValue());
+}
+
+function checkPageInput() {
+    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+    } else {
+        document.getElementById("pg-selector-input").value = last_page;
+    }
 }
 
 function getMember(page) {
@@ -69,6 +81,13 @@ function getMember(page) {
                 page = Math.ceil((memberArray.length - 1)/dataPerPage);
                 end = page * dataPerPage;
                 startFrom = (page-1) * dataPerPage;
+            }
+
+            last_page = page;
+            if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("pg-selector-input").value = page;
             }
 
             for (var i = startFrom; i<end;i++) {
@@ -114,14 +133,24 @@ function getPageValue() {
     return document.getElementById("pg-selector-input").value;
 }
 
-function getMemberBySearch() {
+function getMemberBySearch(page) {
     //Get data from php and form a table
     zixuArray = "";
     input = document.getElementById("member-selector-input").value.toUpperCase();
     if (input == "") {
-        getMember(1);
+        getMember(page);
         return;
     }
+
+    //Prevent page less than 1
+    if (page < 1) {
+        page = 1;
+    }
+
+    end = page * dataPerPage;
+
+    startFrom = (page-1) * dataPerPage;
+
     //Get query type
     var queryType = getQueryType();
     queryNo = 0;
@@ -142,7 +171,21 @@ function getMemberBySearch() {
             memberArray = this.responseText;
             memberArray = memberArray.split(",");
 
-            for (var i = 0; i<memberArray.length ;i++) {
+            //Prevent page more than existing pages
+            if (Math.ceil((memberArray.length - 1)/dataPerPage) < page) {
+                page = Math.ceil((memberArray.length - 1)/dataPerPage);
+                end = page * dataPerPage;
+                startFrom = (page-1) * dataPerPage;
+            }
+
+            last_page = page;
+            if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("pg-selector-input").value = page;
+            }
+
+            for (var i = startFrom; i<end;i++) {
                 if (memberArray[i] == null || memberArray[i] == "") {
 
                 } else {

@@ -50,7 +50,7 @@
                 <table id="data-table"></table>
                 <div class="table-nav-box">
                     <button class="prev-page-btn" onclick="getActivityBySearch(last_page-1)"></button>
-                    <input type="text" class="pg-selector-input" id="pg-selector-input" onkeyup="getActivityByPage()" onchange="checkPageInput()"/>
+                    <input type="text" class="pg-selector-input" id="pg-selector-input" oninput="getActivityByPage()" onchange="checkPageInput()"/>
                     <button class="next-page-btn" onclick="getActivityBySearch(last_page+1)"></button>
                 </div>
             </div>

@@ -12,7 +12,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $originalAct = $_REQUEST['originalAct'];
+    $originalAct = htmlspecialchars($_REQUEST['originalAct'],ENT_QUOTES);
     $ActivityDate = $_REQUEST['activityDate'];
     $ActivityEndTime = $_REQUEST['activityEndTime'];
     $ActivityName = $_REQUEST['activityName'];
@@ -34,6 +34,7 @@
     $sql = "UPDATE activity_record SET Activity_Name='$ActivityName',Activity_Venue='$ActivityVenue',Activity_Date='$ActivityDate',Activity_Start_Time='$ActivityStartTime',Activity_End_Time='$ActivityEndTime' WHERE Activity_Name='$originalAct'";
     
     if(mysqli_query($conn,$sql)) {
+        //Update activity attendance as well
         $sql = "UPDATE activity_attendance SET Activity_Name='$ActivityName' WHERE Activity_Name='$originalAct'";
         if (mysqli_query($conn,$sql)) {
             echo "done";

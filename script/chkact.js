@@ -1,3 +1,4 @@
+// Just contact me if you want to know how this code works, by @VentoBento
 var last_page = "";
 dataPerPage = 10;
 var filer = "";

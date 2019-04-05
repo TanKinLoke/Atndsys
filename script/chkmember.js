@@ -1,3 +1,4 @@
+// Just contact me if you want to know how this code works, by @VentoBento
 var zixuArray = "";
 var page = "search";
 var last_focus_id = "";

@@ -23,6 +23,7 @@
     $result = mysqli_query($conn,$sql);
 
     if ($result == 1) {
+        //Update activity attendance as well
         $sql = "UPDATE activity_attendance SET Student_Name='$newName', Student_ID='$newID',Class='$newClass' WHERE Student_ID='$originalID'";
         if (mysqli_query($conn,$sql)) {
             echo "done";

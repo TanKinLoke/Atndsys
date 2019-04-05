@@ -223,15 +223,14 @@ function doneEditActivity(name) {
 
 $(document).keypress(function(e) {
     if (e.which == 13) clickEnter(); //Enter
+})
+
+$(document).keyup(function(e) {
+    if (e.which == 27) clickESC(); //ESC
     if (e.which == 38)  getActivityBySearch(last_page+1); //up arrow
     if (e.which == 39)  getActivityBySearch(last_page+1); //right arrow
     if (e.which == 40)  getActivityBySearch(last_page-1); //down arrow
     if (e.which == 37)  getActivityBySearch(last_page-1); //left arrow
-})
-
-$(document).keyup(function(e) {
-    //Detect ESC keypress
-    if (e.which == 27) clickESC();
 })
 
 function getPageValue() {

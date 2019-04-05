@@ -34,6 +34,9 @@ function appendData() {
         var elem2 = document.createElement("span");
         elem2.classList.add("contributor-img");
         elem2.id = contributors_username[i] + "contimg";
+        var elem2a = document.createElement("a");
+        elem2a.id = contributors_username[i] + "contlink";
+        elem2a.appendChild(elem2);
         var elem3 = document.createElement("span");
         elem3.classList.add("contributor-details");
         var elem4 = document.createElement("div");
@@ -51,12 +54,15 @@ function appendData() {
         elem4.appendChild(elem6);
         elem4.appendChild(elem7);
         elem3.appendChild(elem4);
-        elem1.appendChild(elem2);
+        elem1.appendChild(elem2a);
         elem1.appendChild(elem3);
         document.getElementById("contributors-box").appendChild(elem1);
+        var temp1 = contributors_username[i] + "contlink";
         var temp2 = contributors_username[i] + "contname";
         var temp3 = contributors_username[i] + "contusrname";
         var temp4 = contributors_username[i] + "contusrwork";
+        document.getElementById(temp1).href = "https://gitlab.com/" + contributors_username[i];
+        document.getElementById(temp1).target = "_blank";
         document.getElementById(temp2).innerText = contributors_name[i];
         document.getElementById(temp3).innerText = "@" + contributors_username[i];
         document.getElementById(temp4).innerText = contributors_work[i];

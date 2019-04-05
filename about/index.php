@@ -27,6 +27,14 @@
             </div>
         </div>
         <div class="content">
+            <div class="c2">
+                <div class="c2img-box">
+                    <a href="https://gitlab.com/icreatorz/atndsys" target="_blank">
+                        <img src="../img/gitlab-icon-rgb.svg" draggable="false"/>
+                    </a>
+                </div>
+                <h4>THIS PROJECT IS CURRENTLY OPEN-SOURCED IN GITLAB</h4>
+            </div>
             <div class="c1">
                 <div class="c1-title-box">
                     <h1>CONTRIBUTORS</h1>

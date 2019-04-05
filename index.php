@@ -73,7 +73,7 @@
         <div class="footer">
             <div class="footer-content-box">
                 <div class="f1">VERSION</div>
-                <div class="f2">V0.1</div>
+                <div class="f2">V1.0</div>
             </div>
         </div>
         <script src="./script/index.js"></script>

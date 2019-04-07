@@ -1,7 +1,7 @@
 var atndlistStatus = false;
 
 function seeAttendance() {
-    $("#export-table").append("<a class='back-btn' onclick='location.reload();'><img src='../img/back-arrow.svg'></a>");
+    //$("#export-table").append("<a class='back-btn' onclick='location.reload();'><img src='../img/back-arrow.svg'></a>");
     //Let user check Attendance List after selecting activity
     if (!atndlistStatus) {
         //Get activity value
@@ -21,6 +21,8 @@ function seeAttendance() {
                 var Actname = ActandStdinfo[0];
                 var Stdinfo = ActandStdinfo[1].split(",");
 
+                $("#export-table").append("<tbody><thead><tr><th>Name</th><th>Student ID</th><th>Class</th></tr></thead>");
+
                 //Loop through all student info
                 for (x in Stdinfo) {
                     var Stddata = Stdinfo[x].split("|");
@@ -33,7 +35,18 @@ function seeAttendance() {
                     "<td class='student_name_td'>"+Stdname+"</td>"+"<td class='student_id_td'>"+Stdid+"</td>"+"<td class='student_cls_td'>"+Stdclass+"</td>"
                     +"\n</tr>\n");
                 }
-                $("#print-button").attr("onclick","print()");   
+
+                $("export-table").append("<tfoot><tr><th>Name</th><th>Student ID</th><th>Class</th></tr></tfoot></tbody>")
+
+                $('#export-table').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5'
+                    ]
+                });
             }
         };
         //Set POST request and send it
@@ -44,24 +57,4 @@ function seeAttendance() {
         document.getElementById("content-box-b").style.display = "none";
         atndlistStatus = false;
     }
-}
-
-//Print the table to PDF
-var doc = new jsPDF();        
-var elementHandler = {
-'#ignorePDF': function (element, renderer) {
-    return true;
-}
-};
-var source = window.document.getElementsByTagName("body")[0];
-doc.fromHTML(
-    source,
-    15,
-    15,
-    {
-    'width': 180,'elementHandlers': elementHandler
-    });
-
-function print(name) {
-    doc.output(name);
 }

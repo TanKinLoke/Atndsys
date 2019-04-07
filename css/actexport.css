@@ -95,19 +95,38 @@
 
 .student_name_td {
     height: auto;
-    width: 90rem;
+    width: 80rem;
     text-align: left;
     padding-left: 2rem;
 }
 
 .student_id_td {
     height: auto;
-    width: 10%;
+    width: 12rem;
 }
 
 .student_cls_td {
     height: auto;
-    width: 10%;
+    width: 12rem;
+}
+
+table.dataTable {
+    padding-top: 3rem;
+}
+
+table.dataTable thead tr {
+    width: 100% !important;
+}
+
+table.dataTable thead th:nth-child(1){
+    padding: 8px 10px !important;
+    width: 80rem !important;
+    text-align: left;
+}
+
+table.dataTable thead th:nth-child(2),table.dataTable thead th:nth-child(3) {
+    padding: 8px 10px !important;
+    width: 12rem !important;
 }
 
 #export-table {
@@ -118,9 +137,18 @@
 
 tr {
     font-size: 2rem;
-    display: inline-block;
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2
+}
+
+label {
+    font-size: 1.5rem;
+}
+
+.dataTables_filter input {
+    height: 3rem;
+    width: 15rem;
+    border: 2px solid black; 
 }

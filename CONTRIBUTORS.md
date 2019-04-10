@@ -1,4 +1,4 @@
-Cheah Zixu - (genesis331) - (zixucheah331@naver.com) - [Frontend Developer]
+Cheah Zixu - (genesis331) - (cheah3838@gmail.com) - [Frontend Developer]
 Tan Kin Loke - (VentoBento) - (kinloketan@gmail.com) - [Backend & System Developer]
 Ooi Jun Xiang - (Jun-Xiang) - (jxooi0959@gmail.com) - [Frontend Developer]
 Tan Chuen Keat - (TanChuenKeat) - (tanckeat55@hotmail.com) - [System Developer]

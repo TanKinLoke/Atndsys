@@ -123,12 +123,16 @@ h4 {
     vertical-align: middle;
     opacity: 0;
     transition: 0.2s;
-    margin-top: -12rem;
-    margin-left: 1rem;
+    margin: -130px auto 0 auto;
 }
 
 .testers{
     cursor: pointer;
+    padding: 0 2.5rem;
+}
+
+.t{
+    margin: 5rem 0;
 }
 
 .testers:hover .tooltip{

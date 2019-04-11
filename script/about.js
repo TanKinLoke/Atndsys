@@ -89,3 +89,100 @@ function getAvatarURL(i) {
 }
 
 window.onload = getContributorsData();
+
+var testers_name = [];
+var testers_email = [];
+
+function getTestersData() {
+    var fileContent = new XMLHttpRequest();
+    fileContent.open("GET", "../TESTERS.md", true);
+    fileContent.onreadystatechange = function ()
+    {
+        if(fileContent.readyState === 4)
+        {
+            if(fileContent.status === 200 || fileContent.status == 0)
+            {
+                var data = fileContent.responseText;
+                data = data.split("\n");
+                for (var i = 0; i <= data.length - 1; i++) {
+                    testers_name.push(data[i].split(" - ")[0]);
+                    testers_email.push(data[i].split(" - ")[1].split("(")[1].split(")")[0]);
+                }
+                appendTestersData();
+            }
+        }
+    }
+    fileContent.send();
+}
+
+
+
+function appendTestersData() {
+    for (var i = 0; i <= testers_name.length - 1;i++) {
+        var testers_tooltip = testers_name[i] + "tester";
+        var elem1 = document.createElement("div");
+        elem1.classList.add("testers");
+        elem1.id = testers_tooltip;
+        elem1.setAttribute('onclick', click)
+
+        var elem2 = document.createElement("span");
+        elem2.classList.add("testers-details");
+
+        var elem3 = document.createElement("div");
+        elem3.classList.add("testers-details-box");
+        
+        var elem4 = document.createElement("h2");
+        elem4.classList.add("testers-name");
+        elem4.id = testers_name[i] + "testname";
+
+        elem3.appendChild(elem4);
+        elem2.appendChild(elem3);
+        elem1.appendChild(elem2);
+
+        document.getElementById("testers-box").appendChild(elem1);
+
+        var temp1 = testers_name[i] + "testname";
+        document.getElementById(temp1).innerText = testers_name[i];
+        // tooltip
+        var tooltip = document.createElement("div");
+        tooltip.classList.add("tooltip");
+
+        var p = document.createElement("p");
+        var testers_tooltip_text = testers_name[i] + "tooltip-text";
+        p.id = testers_tooltip_text;
+        p.classList.add('tooltip_text')
+        tooltip.appendChild(p);
+        document.getElementById(testers_tooltip).appendChild(tooltip);
+        document.getElementById(testers_tooltip_text).innerText = 'Copy Email To Clipboard';
+
+        var testers_input = testers_email[i] ;
+        var input = document.createElement('input');
+        input.id = testers_input;
+        document.getElementById(testers_tooltip).appendChild(input);
+        input.setAttribute('value', testers_input);
+        input.setAttribute('type', 'text');
+        input.style.opacity = 0;
+        input.style.width = '10px';
+
+        document.getElementById(testers_tooltip).addEventListener('click', function(){click(this)})
+        document.getElementById(testers_tooltip).addEventListener('mouseout',function(){out(this)})
+
+        function click(e){
+            var elem_id = e.lastChild.id;
+            document.getElementById(elem_id).select();
+            document.execCommand('copy');
+
+            var text = e.querySelector('.tooltip_text');
+            text.innerText = "Copied";
+            text.style.lineHeight = '3rem';
+        }
+
+        function out(e){
+            var text = e.querySelector('.tooltip_text');
+            text.innerText = "Copy Email To Clipboard";
+            text.style.lineHeight = 'initial';
+        }
+    }
+}
+
+window.onload = getTestersData();

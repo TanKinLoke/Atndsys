@@ -42,6 +42,13 @@
                     </div>
                 </div>
             </div>
+            <div class="t">
+                <div class="t-title">
+                    <h1>TESTERS</h1>
+                </div>
+                <div class="testers-box" id="testers-box">
+                </div>
+            </div>
         </div>
         <script src="../script/about.js"></script>
     </body>

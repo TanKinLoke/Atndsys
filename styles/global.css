@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #1E1E1E;
+    color: white;
+    font-size: 10px;
+    font-family: "Product Sans Regular";
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: "Product Sans Regular";
+    src: url("../fonts/Product-Sans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Product Sans Bold";
+    src: url("../fonts/Product-Sans-Bold.ttf");
+}
+
+.header {
+    height: 12rem;
+    width: 100%;
+}
+
+.content {
+    height: 85%;
+    width: 100%;
+    text-align: center;
+}
+
+.header-contents {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 5rem;
+}
+
+.header-logo {
+    height: 9rem;
+    width: 9rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-logo img {
+    height: 9rem;
+}
+
+.header-title {
+    height: 100%;
+    display: inline-block;
+    font-family: "Product Sans Bold";
+    font-size: 1.5rem;
+    vertical-align: middle;
+}

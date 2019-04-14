@@ -1,0 +1,193 @@
+.content-box {
+    display: inline-block;
+    height: 80%;
+    width: 85%;
+}
+
+.content-box-center {
+    height: auto;
+    width: 100%;
+    text-align: left;
+}
+
+.c1,.c6 {
+    display: inline-block;
+    height: 20rem;
+    width: 25rem;
+    padding: 1.5rem 3rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    margin: 0.5rem;
+}
+
+.c1-content {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.c1a img {
+    height: 9rem;
+}
+
+.c1b {
+    font-family: "Product Sans Bold";
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+}
+
+.contribute-btn {
+    font-family: "Product Sans Bold";
+    font-size: 1.5rem;
+    background-color: #1E1E1E;
+    padding: 1.25rem 2.5rem;
+    border: none;
+    color: white;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+p {
+    vertical-align: middle;
+    display: inline-block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.contribute-btn img {
+    height: 3rem;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+}
+
+.c2 {
+    display: inline-block;
+    height: 20rem;
+    width: 45rem;
+    padding: 1.5rem 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    margin: 0.5rem;
+}
+
+.c2a,.c3a,.c4a {
+    height: 60%;
+    width: 100%;
+    color: black;
+    text-align: left;
+}
+
+.c2a-content,.c3a-content,.c4a-content,.c6a-content {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.c2a-1,.c4a-1 {
+    font-size: 5rem;
+    font-family: "Product Sans Bold";
+    padding-left: 2.5rem;
+}
+
+.c2a-2,.c3a-1,.c4a-2 {
+    font-size: 1.5rem;
+    font-family: "Product Sans Bold";
+    padding-left: 2.5rem;
+}
+
+.c2b,.c3b,.c4b {
+    height: 40%;
+    width: 100%;
+    text-align: right;
+}
+
+.addmb-btn,.chkmb-btn,.atdtake-btn,.export-btn {
+    font-family: "Product Sans Bold";
+    font-size: 1.5rem;
+    background-color: #1E1E1E;
+    padding: 1.25rem 2.5rem;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+    margin: 0.2rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-30%);
+    cursor: pointer;
+}
+
+.addmb-btn img,.chkmb-btn img,.atdtake-btn img,.export-btn img {
+    height: 3rem;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+}
+
+.c3,.c5 {
+    display: inline-block;
+    height: 20rem;
+    width: 45rem;
+    padding: 1.5rem 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    margin: 0.5rem;
+    color: black;
+}
+
+.c3a-2 {
+    margin-top: 1rem;
+    font-size: 3rem;
+    font-family: "Product Sans Bold";
+    padding-left: 2rem;
+}
+
+.c4 {
+    display: inline-block;
+    height: 20rem;
+    width: 45rem;
+    padding: 1.5rem 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    margin: 0.5rem;
+    color: black;
+}
+
+.c6a {
+    height: 100%;
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+
+.c6a-1 {
+    font-family: "Product Sans Bold";
+    font-size: 1.5rem;
+    color: black;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.c6a-2 {
+    font-family: "Product Sans Bold";
+    font-size: 4rem;
+    color: black;
+    text-align: center;
+    margin: 1rem 0;
+}

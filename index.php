@@ -19,7 +19,7 @@
                     ATTENDANCE SYSTEM
                 </div>
                 <div class="header-page-name-box">
-                    MAIN INDEX
+                    MAIN MENU
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@
         </div>
         <div class="footer">
             <div class="footer-content-box">
-                <div class="f1">VERSION</div>
-                <div class="f2">V1.0</div>
+                <div class="f1">ATNDSYS VERSION</div>
+                <div class="f2">1.0</div>
             </div>
         </div>
         <script src="./script/index.js"></script>

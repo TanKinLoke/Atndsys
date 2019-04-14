@@ -12,7 +12,7 @@
         <section class="header">
             <div class="header-contents">
                 <div class="header-logo">
-                    <img src="./img/logowhite.png"/>
+                    <img src="./img/logowhite.png" draggable="false"/>
                 </div>
                 <div class="header-title">
                     ATTENDANCE SYSTEM
@@ -25,13 +25,13 @@
                     <div class="c1">
                         <div class="c1-content">
                             <div class="c1a">
-                                <img src="./img/gitlab-icon-rgb.svg"/>
+                                <img src="./img/gitlab-icon-rgb.svg" draggable="false"/>
                             </div>
                             <div class="c1b">OPEN SOURCED</div>
                             <div class="c1c">
                                 <button class="contribute-btn" onclick="window.open('https://gitlab.com/icreatorz/atndsys','_blank')">
                                     <p>SEE REPO</p>
-                                    <img src="./img/icons8-bookmark-90.png"/>
+                                    <img src="./img/icons8-bookmark-90.png" draggable="false"/>
                                 </button>
                             </div>
                         </div>
@@ -67,11 +67,11 @@
                         <div class="c2b">
                             <button class="chkmb-btn" onclick="location.replace('./chkmember/')">
                                 <p>CHECK MEMBER</p>
-                                <img src="./img/icons8-search-90.png"/>
+                                <img src="./img/icons8-search-90.png" draggable="false"/>
                             </button>
                             <button class="addmb-btn" onclick="location.replace('./memberreg/')">
                                 <p>ADD MEMBER</p>
-                                <img src="./img/icons8-plus-90.png"/>
+                                <img src="./img/icons8-plus-90.png" draggable="false"/>
                             </button>
                         </div>
                     </div>
@@ -95,11 +95,11 @@
                         <div class="c3b">
                             <button class="export-btn" onclick="location.replace('./actexport/')">
                                 <p>EXPORT</p>
-                                <img src="./img/icons8-box-90.png"/>
+                                <img src="./img/icons8-box-90.png" draggable="false"/>
                             </button>
                             <button class="atdtake-btn" onclick="location.replace('./actatnd/')">
                                 <p>MARK ATTENDANCE</p>
-                                <img src="./img/icons8-ok-90.png"/>
+                                <img src="./img/icons8-ok-90.png" draggable="false"/>
                             </button>
                         </div>
                     </div>
@@ -122,11 +122,11 @@
                         <div class="c4b">
                             <button class="export-btn" onclick="location.replace('./chkact/')">
                                 <p>CHECK ACTIVITY</p>
-                                <img src="./img/icons8-search-90.png"/>
+                                <img src="./img/icons8-search-90.png" draggable="false"/>
                             </button>
                             <button class="atdtake-btn" onclick="location.replace('./actrecord/')">
                                 <p>ADD ACTIVITY</p>
-                                <img src="./img/icons8-plus-90.png"/>
+                                <img src="./img/icons8-plus-90.png" draggable="false"/>
                             </button>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                                 </div>
                                 <button class="contribute-btn" onclick="location.replace('./about/')">
                                     <p>LEARN MORE</p>
-                                    <img src="./img/icons8-bookmark-90.png"/>
+                                    <img src="./img/icons8-bookmark-90.png" draggable="false"/>
                                 </button>
                             </div>
                         </div>

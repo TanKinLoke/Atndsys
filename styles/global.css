@@ -10,6 +10,10 @@ html, body {
     overflow: hidden;
 }
 
+* {
+    user-select: none;
+}
+
 @font-face {
     font-family: "Product Sans Regular";
     src: url("../fonts/Product-Sans-Regular.ttf");

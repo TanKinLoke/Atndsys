@@ -39,7 +39,28 @@
                     <div class="c2">
                         <div class="c2a">
                             <div class="c2a-content">
-                                <div class="c2a-1">70</div>
+                                <div class="c2a-1">
+                                    <?php
+                                        $servername = "localhost";
+                                        $username = "root";
+                                        $password = "";
+                                        $dbname = "i-Attendance";
+                                    
+                                        //Create connection
+                                        $conn = new mysqli($servername,$username,$password,$dbname);
+                                    
+                                        //Check connection
+                                        if ($conn->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
+                                    
+                                        $sql = "SELECT COUNT(*) FROM student_info";
+                                        $result = mysqli_query($conn,$sql);
+                                        $result = mysqli_fetch_assoc($result);
+
+                                        echo $result['COUNT(*)'];
+                                    ?>
+                                </div>
                                 <div class="c2a-2">MEMBERS REGISTERED</div>
                             </div>
                         </div>
@@ -61,7 +82,13 @@
                                     LATEST ACTIVITY
                                 </div>
                                 <div class="c3a-2">
-                                    GENERAL MEETING
+                                    <?php
+                                    $sql = "SELECT * FROM `activity_record` ORDER BY pkey DESC";
+                                    $result = mysqli_query($conn,$sql);
+                                    $result = mysqli_fetch_assoc($result);
+
+                                    echo $result['Activity_Name'];
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +106,15 @@
                     <div class="c4">
                         <div class="c4a">
                             <div class="c4a-content">
-                                <div class="c4a-1">5</div>
+                                <div class="c4a-1">
+                                    <?php
+                                        $sql = "SELECT COUNT(*) FROM activity_record";
+                                        $result = mysqli_query($conn,$sql);
+                                        $result = mysqli_fetch_assoc($result);
+
+                                        echo $result['COUNT(*)'];
+                                    ?>
+                                </div>
                                 <div class="c4a-2">ACTIVITIES CREATED</div>
                             </div>
                         </div>

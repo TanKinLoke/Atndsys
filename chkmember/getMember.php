@@ -12,7 +12,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = ("SELECT * FROM student_info");
+    $sql = "SELECT * FROM student_info";
     $result = mysqli_query($conn,$sql);
     $response = "";
 

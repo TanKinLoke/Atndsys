@@ -3,6 +3,11 @@ var contributors_username = [];
 var contributors_email = [];
 var contributors_work = [];
 
+window.onload = function() {
+    getContributorsData();
+    getTestersData();
+}
+
 function getContributorsData() {
     var fileContent = new XMLHttpRequest();
     fileContent.open("GET", "../CONTRIBUTORS.md", true);
@@ -88,8 +93,6 @@ function getAvatarURL(i) {
     avatarURL.send();
 }
 
-window.onload = getContributorsData();
-
 var testers_name = [];
 var testers_email = [];
 
@@ -114,8 +117,6 @@ function getTestersData() {
     }
     fileContent.send();
 }
-
-
 
 function appendTestersData() {
     for (var i = 0; i <= testers_name.length - 1;i++) {
@@ -184,5 +185,3 @@ function appendTestersData() {
         }
     }
 }
-
-window.onload = getTestersData();

@@ -198,7 +198,7 @@ function addVenue() {
 
 window.onload = function() {
     getVenue(1);
-    interval = setInterval(getVenue,100);
+    interval = setInterval(getVenue,1000);
     if (sessionStorage.getItem("activityAdded")) {
         sessionStorage.setItem("activityAdded", "false");
         showVenueBox();

@@ -6,10 +6,11 @@ var last_student_name = "";
 var last_student_id = "";
 var last_student_card = "";
 var last_student_class = "";
-var last_page = "";
+last_page = 1;
 dataPerPage = 10;
 var filer = "";
 var interval;
+last_page = 1;
 
 function displayData() {
     //Shows search results as table based on search query
@@ -17,7 +18,7 @@ function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getMemberBySearch(1);
-    interval = setInterval(getMemberBySearch,100);
+    interval = setInterval(getMemberBySearch,1000);
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
@@ -152,6 +153,10 @@ function getPageValue() {
 }
 
 function getMemberBySearch(page) {
+    if (page == undefined || page == "") {
+        page=last_page;
+    }
+
     //Get data from php and form a table
     zixuArray = "";
     input = document.getElementById("member-selector-input").value.toUpperCase();
@@ -163,10 +168,6 @@ function getMemberBySearch(page) {
     //Prevent page less than 1
     if (page < 1) {
         page = 1;
-    }
-
-    if (page == undefined || page == "") {
-        page=last_page;
     }
 
     last_page = page;
@@ -203,37 +204,46 @@ function getMemberBySearch(page) {
             }
 
             last_page = page;
+            var dataMatch = [];
 
-            for (var i = startFrom; i<end;i++) {
+            for (var i = 0; i<memberArray.length;i++) {
                 if (memberArray[i] == null || memberArray[i] == "") {
 
-                } else {
+                }else {
                     memberArray2 = memberArray[i].split(":");
 
                     //Check if the member contain filter input
                     if (memberArray2[queryNo].toUpperCase().indexOf(input) > -1) {
-                        code = code.concat(
-                            "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
-                            "<td><input type='text' class='data-name' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-stdid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-cardid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-class' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
-                            "</tr>\n");
-
-                        zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
-                    } else {
-
+                        dataMatch.push(memberArray[i]);
+                        
                     }
-
-                    
 
                     // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
                     // memberArray2[queryNo]+
                     // "</option>");
-                };
+                }
             
             }
+
+            for (var i = startFrom;i < end;i++) {
+                if (dataMatch[i] == null || dataMatch[i] == "") {
+
+                } else {
+                    memberArray2 = dataMatch[i].split(":");
+
+                    code = code.concat(
+                        "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                        "<td><input type='text' class='data-name' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-stdid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-cardid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-class' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
+                        "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
+                        "</tr>\n");
+    
+                    zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
+                }
+            }
+
         if (code == "") {
             if (page == 1) {
                 if (document.getElementById("pg-selector-input") == document.activeElement) {

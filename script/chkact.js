@@ -15,12 +15,14 @@ function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getActivityBySearch(1);
+    interval = setInterval(getActivityBySearch,100);
     page = "show";
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
 function backToSearch() {
     //Back to search page
+    clearInterval(interval);
     page="search";
     document.getElementById("content-box-a").style.display = "block";
     document.getElementById("content-box-b").style.display = "none";
@@ -46,7 +48,7 @@ function checkPageInput() {
 
 function getActivity(page) {
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -70,11 +72,7 @@ function getActivity(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
+            
 
             for (var i = startFrom; i<end ;i++) {
                 if (activityArray[i] == null || activityArray[i] == "") {
@@ -92,8 +90,24 @@ function getActivity(page) {
                         "</tr>\n"
                     )
             };
-            $("#data-table").html("");
-            $("#data-table").append("<tbody>"+code+"</tbody>");
+            }
+            if (code == "") {
+                if (page == 1) {
+                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("pg-selector-input").value = page;
+                    }
+                } else {
+                    getActivityBySearch(page-1);
+                }
+            } else {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+                $("#data-table").html("<tbody>"+code+"</tbody>");
             }
         }
     };
@@ -104,7 +118,7 @@ function getActivity(page) {
 
 function getActivityBySearch(page) {
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -145,11 +159,6 @@ function getActivityBySearch(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
 
             for (var i = startFrom; i<end ;i++) {
                 if (activityArray[i] == null || activityArray[i] == "") {
@@ -169,9 +178,25 @@ function getActivityBySearch(page) {
                         "</tr>\n"
                         )
                     } 
-            };
-            $("#data-table").html("");
-            $("#data-table").append("<tbody>"+code+"</tbody>");
+                }
+            }
+            if (code == "") {
+                if (page == 1) {
+                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("pg-selector-input").value = page;
+                    }
+                } else {
+                    getActivityBySearch(page-1);
+                }
+            } else {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+                $("#data-table").html("<tbody>"+code+"</tbody>");
             }
         }
     };

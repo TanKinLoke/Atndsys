@@ -9,6 +9,7 @@ var last_student_class = "";
 var last_page = "";
 dataPerPage = 10;
 var filer = "";
+var interval;
 
 function displayData() {
     //Shows search results as table based on search query
@@ -16,11 +17,13 @@ function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getMemberBySearch(1);
+    interval = setInterval(getMemberBySearch,100);
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
 function backToSearch() {
     //Back to search page
+    clearInterval(interval);
     page="search";
     document.getElementById("content-box-a").style.display = "block";
     document.getElementById("content-box-b").style.display = "none";
@@ -49,7 +52,7 @@ function getMember(page) {
     zixuArray = "";
 
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -85,11 +88,6 @@ function getMember(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
 
             for (var i = startFrom; i<end;i++) {
                 if (memberArray[i] == null || memberArray[i] == "") {
@@ -98,31 +96,44 @@ function getMember(page) {
                     memberArray2 = memberArray[i].split(":");
 
                     //Check if the member contain filter input
-                    if (memberArray2[queryNo].toUpperCase().indexOf(input) > -1) {
-                        code = code.concat(
-                            "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
-                            "<td><input type='text' class='data-name' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-stdid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-cardid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-class' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
-                            "</tr>\n");
+                    code = code.concat(
+                        "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                        "<td><input type='text' class='data-name' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-stdid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-cardid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-class' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
+                        "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
+                        "</tr>\n");
 
-                        zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
-                    } else {
-
-                    }
+                    zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
 
                     
 
                     // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
                     // memberArray2[queryNo]+
                     // "</option>");
-            };
-            $("#member-table").html("");
-            $("#member-table").append(code);
+                }
+                
+            }
+            if (code == "") {
+                if (page == 1) {
+                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("pg-selector-input").value = page;
+                    }
+                } else {
+                    getMemberBySearch(page-1);
+                }
+            } else {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                    
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+                $("#member-table").html("<tbody>"+code+"</tbody>");
+            }
         }
-    }
     };
 
     xmlhttp.open("POST","getMember.php",true);
@@ -144,7 +155,7 @@ function getMemberBySearch(page) {
     }
 
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -180,11 +191,6 @@ function getMemberBySearch(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
 
             for (var i = startFrom; i<end;i++) {
                 if (memberArray[i] == null || memberArray[i] == "") {
@@ -213,9 +219,26 @@ function getMemberBySearch(page) {
                     // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
                     // memberArray2[queryNo]+
                     // "</option>");
-            };
-            $("#member-table").html("");
-            $("#member-table").append(code);
+                };
+            
+            }
+        if (code == "") {
+            if (page == 1) {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+            } else {
+                getMemberBySearch(page-1);
+            }
+        } else {
+            if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("pg-selector-input").value = page;
+            }
+            $("#member-table").html("<tbody>"+code+"</tbody>");
         }
     }
     };

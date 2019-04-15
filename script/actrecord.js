@@ -84,10 +84,12 @@ function confirmRecord() {
 }
 
 function showVenueBox() {
+
     document.getElementById("popup-venue-box-container").style.display = "block";
 }
 
 function closeVenueBox() {
+
     document.getElementById("popup-venue-box-container").style.display = "none";
 }
 
@@ -196,6 +198,7 @@ function addVenue() {
 
 window.onload = function() {
     getVenue(1);
+    interval = setInterval(getVenue,100);
     if (sessionStorage.getItem("activityAdded")) {
         sessionStorage.setItem("activityAdded", "false");
         showVenueBox();
@@ -247,7 +250,7 @@ function clickEnter() {
 
 function getVenue(page) {
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -271,11 +274,6 @@ function getVenue(page) {
             }
 
             last_page = page;
-            if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("popup-venue-pg-input").value = page;
-            }
 
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {
@@ -288,8 +286,24 @@ function getVenue(page) {
                     "</tr>\n");
                 }
             };
-            $("#venue-settings").html("");
-            $("#venue-settings").append("<tbody>"+code+"</tbody>");
+            if (code == "") {
+                if (page == 1) {
+                    if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("popup-venue-pg-input").value = page;
+                    }
+                } else {
+                    getVenue(page-1);
+                }
+            } else {
+                if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
+                
+                } else {
+                    document.getElementById("popup-venue-pg-input").value = page;
+                }
+                $("#venue-settings").html("<tbody>"+code+"</tbody>");
+            }
         }
     };
 

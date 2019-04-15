@@ -36,7 +36,7 @@ function seeAttendance() {
                     +"\n</tr>\n");
                 }
 
-                $("export-table").append("<tfoot><tr><th>Name</th><th>Student ID</th><th>Class</th></tr></tfoot></tbody>")
+                $("export-table").append("</tbody>")
 
                 $('#export-table').DataTable({
                     dom: 'Bfrtip',

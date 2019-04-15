@@ -15,12 +15,14 @@ function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getActivityBySearch(1);
+    interval = setInterval(getActivityBySearch,100);
     page = "show";
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
 function backToSearch() {
     //Back to search page
+    clearInterval(interval);
     page="search";
     document.getElementById("content-box-a").style.display = "block";
     document.getElementById("content-box-b").style.display = "none";
@@ -46,7 +48,7 @@ function checkPageInput() {
 
 function getActivity(page) {
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -116,7 +118,7 @@ function getActivity(page) {
 
 function getActivityBySearch(page) {
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 

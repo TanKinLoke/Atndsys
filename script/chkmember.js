@@ -9,6 +9,7 @@ var last_student_class = "";
 var last_page = "";
 dataPerPage = 10;
 var filer = "";
+var interval;
 
 function displayData() {
     //Shows search results as table based on search query
@@ -16,11 +17,13 @@ function displayData() {
     document.getElementById("content-box-a").style.display = "none";
     document.getElementById("content-box-b").style.display = "block";
     getMemberBySearch(1);
+    interval = setInterval(getMemberBySearch,100);
     $("#back-btn").attr("onclick","backToSearch()");
 }
 
 function backToSearch() {
     //Back to search page
+    clearInterval(interval);
     page="search";
     document.getElementById("content-box-a").style.display = "block";
     document.getElementById("content-box-b").style.display = "none";
@@ -49,7 +52,7 @@ function getMember(page) {
     zixuArray = "";
 
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 
@@ -152,7 +155,7 @@ function getMemberBySearch(page) {
     }
 
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 

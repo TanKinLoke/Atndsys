@@ -84,10 +84,12 @@ function confirmRecord() {
 }
 
 function showVenueBox() {
+
     document.getElementById("popup-venue-box-container").style.display = "block";
 }
 
 function closeVenueBox() {
+
     document.getElementById("popup-venue-box-container").style.display = "none";
 }
 
@@ -196,6 +198,7 @@ function addVenue() {
 
 window.onload = function() {
     getVenue(1);
+    interval = setInterval(getVenue,100);
     if (sessionStorage.getItem("activityAdded")) {
         sessionStorage.setItem("activityAdded", "false");
         showVenueBox();
@@ -247,7 +250,7 @@ function clickEnter() {
 
 function getVenue(page) {
     //Prevent page less than 1
-    if (page < 1) {
+    if (page < 1 || page == undefined || page == "") {
         page = 1;
     }
 

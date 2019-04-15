@@ -165,7 +165,7 @@ function getActivityBySearch(page) {
                         "<td><input type='date' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_date_text' value='"+activityArray2[2]+"' readonly=\"true\"></td>\n"+
                         "<td><input type='time' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_starttime_text' value='"+activityArray2[3]+"' readonly=\"true\"></td>\n"+
                         "<td><input type='time' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_endtime_text' value='"+activityArray2[4]+"' readonly=\"true\"></td>\n"+
-                        "<td><button type='button' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' onclick='editActivity(\""+activityArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Edit</button>\n<button type='button' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' onclick='deleteActivity(\""+activityArray2[0].split(" ").join("_").split("\'").join("-")+"\")'>Delete</button></td>\n"+
+                        "<td><button type='button' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn onclick='editActivity(\""+activityArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+activityArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteActivity(\""+activityArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
                         "</tr>\n"
                         )
                     } 

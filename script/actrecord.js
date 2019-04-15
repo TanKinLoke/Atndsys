@@ -285,19 +285,19 @@ function getVenue(page) {
             };
             if (code == "") {
                 if (page == 1) {
-                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                    if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
                 
                     } else {
-                        document.getElementById("pg-selector-input").value = page;
+                        document.getElementById("popup-venue-pg-input").value = page;
                     }
                 } else {
                     getVenue(page-1);
                 }
             } else {
-                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
                 
                 } else {
-                    document.getElementById("pg-selector-input").value = page;
+                    document.getElementById("popup-venue-pg-input").value = page;
                 }
                 $("#venue-settings").html("<tbody>"+code+"</tbody>");
             }

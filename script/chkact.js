@@ -149,11 +149,6 @@ function getActivityBySearch(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
 
             for (var i = startFrom; i<end ;i++) {
                 if (activityArray[i] == null || activityArray[i] == "") {

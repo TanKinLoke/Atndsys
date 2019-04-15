@@ -271,11 +271,6 @@ function getVenue(page) {
             }
 
             last_page = page;
-            if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("popup-venue-pg-input").value = page;
-            }
 
             for (var i = startFrom; i<end ;i++) {
                 if (venueArray[i] == null || venueArray[i] == "") {
@@ -288,7 +283,16 @@ function getVenue(page) {
                     "</tr>\n");
                 }
             };
-            $("#venue-settings").html("<tbody>"+code+"</tbody>");
+            if (code == "") {
+                getActivityBySearch(page-1);
+            } else {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+                $("#venue-settings").html("<tbody>"+code+"</tbody>");
+            }
         }
     };
 

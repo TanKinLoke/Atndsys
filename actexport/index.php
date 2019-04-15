@@ -81,7 +81,7 @@
                 <div class="content-title" id="content-title">ACTIVITY_NAME</div>
                 <div class="content-desc">ATTENDANCE LIST</div>
             </div>
-            <div class="content-table-box">
+            <div class="content-table-box" id="content-table-box">
                 <table id="export-table" class="display" style="width:100%">
                     
                 </table>

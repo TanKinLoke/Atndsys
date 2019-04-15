@@ -26,10 +26,10 @@
         //Loop through the result
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
-                $value1 = $row['Student_Name'];
-                $value2 = $row['Student_ID'];
-                $value3 = $row['Class'];
-                $response .= "$value1|$value2|$value3,";
+                $stdname = $row['Student_Name'];
+                $stdID = $row['Student_ID'];
+                $class = $row['Class'];
+                $response .= "$stdname|$stdID|$class,";
             }
             //Remove , from the last character in response
             $response = rtrim($response,",");

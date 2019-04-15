@@ -113,7 +113,15 @@ function getMember(page) {
                 
             }
             if (code == "") {
-                getMemberBySearch(page-1);
+                if (page == 1) {
+                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("pg-selector-input").value = page;
+                    }
+                } else {
+                    getMemberBySearch(page-1);
+                }
             } else {
                 if (document.getElementById("pg-selector-input") == document.activeElement) {
                     
@@ -212,7 +220,15 @@ function getMemberBySearch(page) {
             
             }
         if (code == "") {
-            getMemberBySearch(page-1);
+            if (page == 1) {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+            } else {
+                getMemberBySearch(page-1);
+            }
         } else {
             if (document.getElementById("pg-selector-input") == document.activeElement) {
                 

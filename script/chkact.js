@@ -90,7 +90,15 @@ function getActivity(page) {
             };
             }
             if (code == "") {
-                getActivityBySearch(page-1);
+                if (page == 1) {
+                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("pg-selector-input").value = page;
+                    }
+                } else {
+                    getActivityBySearch(page-1);
+                }
             } else {
                 if (document.getElementById("pg-selector-input") == document.activeElement) {
                 
@@ -171,7 +179,15 @@ function getActivityBySearch(page) {
                 }
             }
             if (code == "") {
-                getActivityBySearch(page-1);
+                if (page == 1) {
+                    if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+                    } else {
+                        document.getElementById("pg-selector-input").value = page;
+                    }
+                } else {
+                    getActivityBySearch(page-1);
+                }
             } else {
                 if (document.getElementById("pg-selector-input") == document.activeElement) {
                 

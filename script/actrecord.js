@@ -288,8 +288,7 @@ function getVenue(page) {
                     "</tr>\n");
                 }
             };
-            $("#venue-settings").html("");
-            $("#venue-settings").append("<tbody>"+code+"</tbody>");
+            $("#venue-settings").html("<tbody>"+code+"</tbody>");
         }
     };
 

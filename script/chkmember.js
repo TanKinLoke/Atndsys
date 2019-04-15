@@ -85,11 +85,6 @@ function getMember(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
 
             for (var i = startFrom; i<end;i++) {
                 if (memberArray[i] == null || memberArray[i] == "") {
@@ -98,31 +93,36 @@ function getMember(page) {
                     memberArray2 = memberArray[i].split(":");
 
                     //Check if the member contain filter input
-                    if (memberArray2[queryNo].toUpperCase().indexOf(input) > -1) {
-                        code = code.concat(
-                            "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
-                            "<td><input type='text' class='data-name' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-stdid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-cardid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
-                            "<td><input type='text' class='data-class' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
-                            "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
-                            "</tr>\n");
+                    code = code.concat(
+                        "<tr id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"'>\n"+
+                        "<td><input type='text' class='data-name' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_text' value='"+memberArray2[0].split("\'").join("&#039;") +"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-stdid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_ID_text' value='"+memberArray2[1]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-cardid' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_card_text' value='"+memberArray2[2]+"' readonly=\"true\"></td>\n"+
+                        "<td><input type='text' class='data-class' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_class_text' value='"+memberArray2[3]+"' readonly=\"true\"></td>\n"+
+                        "<td><button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_edit' class='edit-btn' onclick='editStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button>\n<button type='button' id='"+memberArray2[0].split(" ").join("_").split("\'").join("-")+"_delete' class='delete-btn' onclick='deleteStudent(\""+memberArray2[0].split(" ").join("_").split("\'").join("-")+"\")'></button></td>\n"+
+                        "</tr>\n");
 
-                        zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
-                    } else {
-
-                    }
+                    zixuArray = zixuArray.concat(memberArray2[0]+","+memberArray2[1]+","+memberArray2[2]+","+memberArray2[3]+":");
 
                     
 
                     // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
                     // memberArray2[queryNo]+
                     // "</option>");
-            };
-            $("#member-table").html("");
-            $("#member-table").append(code);
+                }
+                
+            }
+            if (code == "") {
+                getMemberBySearch(page-1);
+            } else {
+                if (document.getElementById("pg-selector-input") == document.activeElement) {
+                    
+                } else {
+                    document.getElementById("pg-selector-input").value = page;
+                }
+                $("#member-table").html("<tbody>"+code+"</tbody>");
+            }
         }
-    }
     };
 
     xmlhttp.open("POST","getMember.php",true);
@@ -180,11 +180,6 @@ function getMemberBySearch(page) {
             }
 
             last_page = page;
-            if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-            } else {
-                document.getElementById("pg-selector-input").value = page;
-            }
 
             for (var i = startFrom; i<end;i++) {
                 if (memberArray[i] == null || memberArray[i] == "") {
@@ -213,9 +208,18 @@ function getMemberBySearch(page) {
                     // code = code.concat("<option id='"+memberArray2[queryNo]+"'>"+
                     // memberArray2[queryNo]+
                     // "</option>");
-            };
-            $("#member-table").html("");
-            $("#member-table").append(code);
+                };
+            
+            }
+        if (code == "") {
+            getMemberBySearch(page-1);
+        } else {
+            if (document.getElementById("pg-selector-input") == document.activeElement) {
+                
+            } else {
+                document.getElementById("pg-selector-input").value = page;
+            }
+            $("#member-table").html("<tbody>"+code+"</tbody>");
         }
     }
     };

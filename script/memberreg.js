@@ -27,12 +27,12 @@ function submitDetails() {
             if (input2.value !== "") {
                 center0.style.display = "none";
                 center1.style.display = "block";
-                output0.innerText = input0.value;
-                input_name = input0.value;
-                output1.innerText = input1.value;
-                input_id = input1.value;
-                output2.innerText = input2.value;
-                input_class = input2.value;
+                output0.innerText = input0.value.toUpperCase();
+                input_name = input0.value.toUpperCase();
+                output1.innerText = input1.value.toUpperCase();
+                input_id = input1.value.toUpperCase();
+                output2.innerText = input2.value.toUpperCase();
+                input_class = input2.value.toUpperCase();
                 pageCheck = 1;
                 if (document.getElementById("CardID").focus() != true) {
                     document.getElementById("CardID").focus();
@@ -64,24 +64,28 @@ function endProcess() {
     
     var success = "New member data has been added to the database successfully.";
     var fail = "Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke.";
+    var exist = "Member is already registered";
     var empty = "Some info is being left empty. Please fill it and submit again. If you think is this a bug, please contact system administrator, @Cheah Zixu and @Kin Loke.";
     
     var xmlhttp = new XMLHttpRequest;
     xmlhttp.onreadystatechange = function() {
         if (this.status == 200 && this.readyState == 4) {
-            if(this.responseText == "done" && success != "") {
+            if(this.responseText == "done") {
                 //Success
                 window.alert(success);
-                success = "";
                 center0.style.display = "block";
                 center1.style.display = "none";
                 input0.value = "";
                 input1.value = "";
                 input2.value = "";
-            }  else if(this.responseText == "empty" && empty != "") {
+            }  else if(this.responseText == "empty") {
                 //Some info is being left empty
                 window.alert(empty);
-                empty = "";
+                center0.style.display = "block";
+                center1.style.display = "none";
+            } else if(this.responseText == "exist") {
+                //Member registered or Member exist in database
+                window.alert(exist);
                 center0.style.display = "block";
                 center1.style.display = "none";
             } else {

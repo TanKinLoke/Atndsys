@@ -250,9 +250,15 @@ function clickEnter() {
 
 function getVenue(page) {
     //Prevent page less than 1
-    if (page < 1 || page == undefined || page == "") {
+    if (page < 1) {
         page = 1;
     }
+
+    if (page == undefined || page == "") {
+        page=last_page;
+    }
+
+    last_page = page;
 
     end = page * dataPerPage;
 

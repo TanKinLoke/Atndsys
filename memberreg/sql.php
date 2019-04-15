@@ -20,6 +20,13 @@
                 $CardID = $_REQUEST["CardID"];
                 $StudentName = htmlspecialchars($_REQUEST["StudentName"],ENT_QUOTES);
                 $Class = $_REQUEST["Class"];
+
+                $sql = "SELECT COUNT(*) FROM student_info WHERE Student_ID='$StudentID'";
+                $result = mysqli_fetch_assoc(mysqli_query($conn,$sql));
+                if ($result['COUNT(*)'] == 1) {
+                    echo "exist";
+                    exit;
+                }
     
                 //SQL code
                 $sql = "INSERT INTO student_info (Student_Name, Student_ID, Card_ID, Class) VALUES ('$StudentName','$StudentID','$CardID','$Class')";

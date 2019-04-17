@@ -135,22 +135,22 @@
                     <div class="c5">
                     </div>
                     <div class="c6">
-                                <div class="c6a">
-                                    <div class="c6a-content">
-                                        <div class="c6a-1">
-                                            ATNDSYS VERSION
-                                        </div>
-                                        <div class="c6a-2">
-                                            V1.0
-                                        </div>
-                                    </div>
+                        <div class="c6a">
+                            <div class="c6a-content">
+                                <div class="c6a-1">
+                                    ATNDSYS VERSION
                                 </div>
-                                <div class="c6b">
-                                    <button class="contribute-btn" onclick="location.replace('./about/')">
-                                        <p>LEARN MORE</p>
-                                        <img src="./img/icons8-bookmark-90.png" draggable="false"/>
-                                    </button>
+                                <div class="c6a-2">
+                                    V1.0
                                 </div>
+                            </div>
+                        </div>
+                        <div class="c6b">
+                            <button class="contribute-btn" onclick="location.replace('./about/')">
+                                <p>LEARN MORE</p>
+                                <img src="./img/icons8-bookmark-90.png" draggable="false"/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

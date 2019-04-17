@@ -24,22 +24,29 @@
 }
 
 .c1-content {
-    height: auto;
+    height: 100%;
     width: 100%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
-.c1a img {
+.c1a {
+    height: 60%;
+    width: 100%;
+}
+
+.c1aa img {
     height: 9rem;
 }
 
-.c1b {
+.c1ab {
     font-family: "Product Sans Bold";
     font-size: 1.5rem;
     color: black;
     text-align: center;
+}
+
+.c1c {
+    height: 40%;
+    width: 100%;
 }
 
 .contribute-btn {
@@ -49,9 +56,11 @@
     padding: 1.25rem 2.5rem;
     border: none;
     color: white;
-    margin-top: 2rem;
     border-radius: 1rem;
     cursor: pointer;
+    position: relative;
+    top: 50%;
+    transform: translateY(-30%);
 }
 
 p {
@@ -170,10 +179,23 @@ p {
 }
 
 .c6a {
-    height: 100%;
+    height: 60%;
     width: 100%;
     color: black;
     text-align: center;
+}
+
+.c6b {
+    height: 40%;
+    width: 100%;
+}
+
+.c6a-content {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .c6a-1 {
@@ -181,7 +203,6 @@ p {
     font-size: 1.5rem;
     color: black;
     text-align: center;
-    margin: 1rem 0;
 }
 
 .c6a-2 {
@@ -189,5 +210,4 @@ p {
     font-size: 4rem;
     color: black;
     text-align: center;
-    margin: 1rem 0;
 }

@@ -25,9 +25,11 @@
                     <div class="c1">
                         <div class="c1-content">
                             <div class="c1a">
-                                <img src="./img/gitlab-icon-rgb.svg" draggable="false"/>
+                                <div class="c1aa">
+                                    <img src="./img/gitlab-icon-rgb.svg" draggable="false"/>
+                                </div>
+                                <div class="c1ab">OPEN SOURCED</div>
                             </div>
-                            <div class="c1b">OPEN SOURCED</div>
                             <div class="c1c">
                                 <button class="contribute-btn" onclick="window.open('https://gitlab.com/icreatorz/atndsys','_blank')">
                                     <p>SEE REPO</p>
@@ -133,20 +135,22 @@
                     <div class="c5">
                     </div>
                     <div class="c6">
-                        <div class="c6a">
-                            <div class="c6a-content">
-                                <div class="c6a-1">
-                                    ATNDSYS VERSION
+                                <div class="c6a">
+                                    <div class="c6a-content">
+                                        <div class="c6a-1">
+                                            ATNDSYS VERSION
+                                        </div>
+                                        <div class="c6a-2">
+                                            V1.0
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="c6a-2">
-                                    V1.0
+                                <div class="c6b">
+                                    <button class="contribute-btn" onclick="location.replace('./about/')">
+                                        <p>LEARN MORE</p>
+                                        <img src="./img/icons8-bookmark-90.png" draggable="false"/>
+                                    </button>
                                 </div>
-                                <button class="contribute-btn" onclick="location.replace('./about/')">
-                                    <p>LEARN MORE</p>
-                                    <img src="./img/icons8-bookmark-90.png" draggable="false"/>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

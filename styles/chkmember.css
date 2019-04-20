@@ -1,0 +1,127 @@
+.content-box {
+    display: inline-block;
+    text-align: center;
+    height: 80%;
+    width: 100%;
+}
+
+.sec1 {
+    height: 100%;
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+.sec2 {
+    height: 100%;
+    width: 60%;
+    display: inline-block;
+}
+
+.title {
+    margin: 3rem 0 2rem 0;
+    font-size: 1.5rem;
+    font-family: "Product Sans Bold";
+    vertical-align: middle;
+    position: relative;
+}
+
+.title img {
+    height: 2.5rem;
+    width: auto;
+    vertical-align: middle;
+    margin: 0 2rem;
+    transform: translateY(-10%);
+    cursor: pointer;
+}
+
+.search-box-content {
+    margin: 2rem 0;
+    height: auto;
+    width: 100%;
+}
+
+.search-input {
+    height: 100%;
+    width: 80%;
+    background: transparent;
+    border: none;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    font-family: "Product Sans Bold";
+}
+
+.search-input-box {
+    height: 6rem;
+    width: 100%;
+    background: white;
+    border: none;
+    border-radius: 1rem;
+    text-align: right;
+}
+
+.search-btn {
+    height: 100%;
+    width: 15%;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus,input:focus {
+    outline: none;
+}
+
+.search-btn img {
+    height: 50%;
+    width: 50%;
+}
+
+.filter-menu {
+    transition: 0.2s ease-out;
+    height: 0rem;
+    width: 0rem;
+    position: absolute;
+    top: 2rem;
+    float: left;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    opacity: 0;
+}
+
+.filter-menu.show {
+    transition: 0.2s ease-out;
+    height: 25rem;
+    width: 30rem;
+    opacity: 1;
+}
+
+.filter-op-title {
+    font-size: 1.5rem;
+    font-family: "Product Sans Bold";
+    color: black;
+    padding: 3rem 0 1rem 3rem;
+}
+
+.filter-chkbox {
+    margin-right: 1rem;
+}
+
+.filter-op {
+    font-size: 1.75rem;
+    font-family: "Product Sans Bold";
+    color: black;
+    margin: 1rem 0 1rem 3rem;
+    padding: 1rem 0;
+    display: none;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.filter-op.show {
+    transition: 0.3s;
+    opacity: 1;
+}

@@ -389,3 +389,36 @@ function deleteStudent(name) {
     xmlhttp.open("POST","delMember.php?id="+delID,true);
     xmlhttp.send();
 }
+
+//V2
+var filterMenuStatus = 0;
+
+function launchFilterMenu() {
+    $(".filter-menu").addClass("show");
+    filterMenuStatus = 1;
+    setTimeout(() => {
+        $(".filter-op").css("display","block");
+    }, 150);
+    setTimeout(() => {
+        $(".filter-op").addClass("show");
+    }, 180);
+}
+
+$(".filter-menu").on("click", function(e) {
+    e.stopPropagation();
+});
+
+$("body").on("click", function() {
+    if (filterMenuStatus == 1) {
+        filterMenuStatus++;
+    } else if (filterMenuStatus == 2) {
+        setTimeout(() => {
+            $(".filter-op").removeClass("show");
+        }, 100);
+        setTimeout(() => {
+            $(".filter-menu").removeClass("show");
+        }, 200);
+        // $(".filter-op").css("display","none");
+        filterMenuStatus = 0;
+    }
+});

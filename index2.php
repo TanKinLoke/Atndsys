@@ -15,7 +15,7 @@
                     <img src="./img/logowhite.png" draggable="false"/>
                 </div>
                 <div class="header-title">
-                    ATTENDANCE SYSTEM
+                    ATTENDANCE SYSTEM&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;DASHBOARD
                 </div>
             </div>
         </section>

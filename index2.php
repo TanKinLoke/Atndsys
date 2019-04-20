@@ -33,7 +33,7 @@
                             <div class="c1c">
                                 <button class="contribute-btn" onclick="window.open('https://gitlab.com/icreatorz/atndsys','_blank')">
                                     <p>SEE REPO</p>
-                                    <img src="./img/icons8-bookmark-90.png" draggable="false"/>
+                                    <img src="./img/icons8-bookmark.svg" draggable="false"/>
                                 </button>
                             </div>
                         </div>
@@ -69,11 +69,11 @@
                         <div class="c2b">
                             <button class="chkmb-btn" onclick="location.replace('./chkmember/')">
                                 <p>CHECK MEMBER</p>
-                                <img src="./img/icons8-search-90.png" draggable="false"/>
+                                <img src="./img/icons8-search.svg" draggable="false"/>
                             </button>
                             <button class="addmb-btn" onclick="location.replace('./memberreg/')">
                                 <p>ADD MEMBER</p>
-                                <img src="./img/icons8-plus-90.png" draggable="false"/>
+                                <img src="./img/icons8-plus.svg" draggable="false"/>
                             </button>
                         </div>
                     </div>
@@ -97,11 +97,11 @@
                         <div class="c3b">
                             <button class="export-btn" onclick="location.replace('./actexport/')">
                                 <p>EXPORT</p>
-                                <img src="./img/icons8-box-90.png" draggable="false"/>
+                                <img src="./img/icons8-box.svg" draggable="false"/>
                             </button>
                             <button class="atdtake-btn" onclick="location.replace('./actatnd/')">
                                 <p>MARK ATTENDANCE</p>
-                                <img src="./img/icons8-ok-90.png" draggable="false"/>
+                                <img src="./img/icons8-ok.svg" draggable="false"/>
                             </button>
                         </div>
                     </div>
@@ -124,15 +124,31 @@
                         <div class="c4b">
                             <button class="export-btn" onclick="location.replace('./chkact/')">
                                 <p>CHECK ACTIVITY</p>
-                                <img src="./img/icons8-search-90.png" draggable="false"/>
+                                <img src="./img/icons8-search.svg" draggable="false"/>
                             </button>
                             <button class="atdtake-btn" onclick="location.replace('./actrecord/')">
                                 <p>ADD ACTIVITY</p>
-                                <img src="./img/icons8-plus-90.png" draggable="false"/>
+                                <img src="./img/icons8-plus.svg" draggable="false"/>
                             </button>
                         </div>
                     </div>
                     <div class="c5">
+                        <div class="c5a">
+                            <div class="c5a-content">
+                                <img src="./img/Messenger_Logo_Color_RGB.svg" draggable="false"/>
+                                <div class="c5a-text">MESSENGER PLATFORM</div>
+                            </div>
+                        </div>
+                        <div class="c5b">
+                            <button class="export-btn" onclick="">
+                                <p>CHECK</p>
+                                <img src="./img/icons8-search.svg" draggable="false"/>
+                            </button>
+                            <button class="atdtake-btn" onclick="">
+                                <p>SEND</p>
+                                <img src="./img/icons8-plus.svg" draggable="false"/>
+                            </button>
+                        </div>
                     </div>
                     <div class="c6">
                         <div class="c6a">
@@ -148,7 +164,7 @@
                         <div class="c6b">
                             <button class="contribute-btn" onclick="location.replace('./about/')">
                                 <p>LEARN MORE</p>
-                                <img src="./img/icons8-bookmark-90.png" draggable="false"/>
+                                <img src="./img/icons8-bookmark.svg" draggable="false"/>
                             </button>
                         </div>
                     </div>

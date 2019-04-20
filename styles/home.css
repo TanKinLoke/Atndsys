@@ -37,7 +37,7 @@
     height: 9rem;
 }
 
-.c1ab {
+.c1ab,.c5a-text {
     font-family: "Product Sans Bold";
     font-size: 1.5rem;
     color: black;
@@ -71,7 +71,7 @@ p {
 }
 
 .contribute-btn img {
-    height: 3rem;
+    height: 2.5rem;
     vertical-align: middle;
     margin-left: 0.5rem;
 }
@@ -89,19 +89,23 @@ p {
     margin: 0.5rem;
 }
 
-.c2a,.c3a,.c4a {
+.c2a,.c3a,.c4a,.c5a {
     height: 60%;
     width: 100%;
     color: black;
     text-align: left;
 }
 
-.c2a-content,.c3a-content,.c4a-content,.c6a-content {
+.c2a-content,.c3a-content,.c4a-content,.c5a-content,.c6a-content {
     height: auto;
     width: 100%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.c5a-content {
+    text-align: center;
 }
 
 .c2a-1,.c4a-1 {
@@ -116,7 +120,7 @@ p {
     padding-left: 2.5rem;
 }
 
-.c2b,.c3b,.c4b {
+.c2b,.c3b,.c4b,.c5b {
     height: 40%;
     width: 100%;
     text-align: right;
@@ -185,9 +189,19 @@ p {
     text-align: center;
 }
 
+.c5b {
+    text-align: center;
+}
+
 .c6b {
     height: 40%;
     width: 100%;
+}
+
+.c5a-content img {
+    height: 5rem;
+    width: auto;
+    padding-bottom: 1.75rem;
 }
 
 .c6a-content {

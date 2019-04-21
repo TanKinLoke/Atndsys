@@ -111,11 +111,54 @@ function getTestersData() {
                     testers_name.push(data[i].split(" - ")[0]);
                     testers_email.push(data[i].split(" - ")[1].split("(")[1].split(")")[0]);
                 }
+                if (testers_name.length > 1) {
+                    for (i = 0; i < testers_name.length; i++) {
+                        sortTesters();
+                    }
+                }
                 appendTestersData();
             }
         }
     }
     fileContent.send();
+}
+
+function sortTesters() {
+    var temp = "";
+    for (i = 1; i < testers_name.length; i++) {
+        if (testers_name[i].charCodeAt(0) < testers_name[i - 1].charCodeAt(0)) {
+            temp = testers_name[i - 1];
+            testers_name[i - 1] = testers_name[i];
+            testers_name[i] = temp;
+            temp = "";
+            temp = testers_email[i - 1];
+            testers_email[i - 1] = testers_email[i];
+            testers_email[i] = temp;
+            temp = "";
+        }
+        else if (testers_name[i].charCodeAt(0) > testers_name[i - 1].charCodeAt(0)) {
+            continue;
+        }
+        else {
+            var len = testers_name[i].length < testers_name[i - 1].length ? testers_name[i].length : testers_name[i - 1].length;
+            for (ii = 1; ii < len; ii++) {
+                if (testers_name[i].substring(ii).charCodeAt(0) < testers_name[i - 1].substring(ii).charCodeAt(0)) {
+                    temp = testers_name[i - 1];
+                    testers_name[i - 1] = testers_name[i];
+                    testers_name[i] = temp;
+                    temp = "";
+                    temp = testers_email[i - 1];
+                    testers_email[i - 1] = testers_email[i];
+                    testers_email[i] = temp;
+                    temp = "";
+                    break;
+                }
+                else if (testers_name[i].substring(ii).charCodeAt(0) > testers_name[i - 1].substring(ii).charCodeAt(0)) {
+                    break;
+                }
+            }
+        }
+    }
 }
 
 function appendTestersData() {

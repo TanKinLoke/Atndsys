@@ -3,5 +3,6 @@ Tan Kin Loke - (VentoBento) - (kinloketan@gmail.com) - [Backend & System Develop
 Ooi Jun Xiang - (Jun-Xiang) - (jxooi0959@gmail.com) - [Frontend Developer]
 Soon Hai Qin - (HaiQin0403) - (haiqin0403@gmail.com) - [Frontend Developer]
 Tan Chuen Keat - (TanChuenKeat) - (tanckeat55@hotmail.com) - [System Developer]
+Tan Hao Yang - (AunsunTHY) - (tan.haoyang@yahoo.com) - [Backend Developer]
 Teoh Zi Hong - (sk4rm) - (t30hz1h0n9@gmail.com) - [Backend Developer]
 Bryan Lai Wei Ming - (QuanTBacon) - (bryanlai820@gmail.com) - [Project Secretary]

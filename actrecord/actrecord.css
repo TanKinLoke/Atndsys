@@ -203,7 +203,7 @@ a {
 
 .page-content-2 {
     display: inline-block;
-    padding: 4rem 4rem 2rem 4rem;
+    padding: 4rem 4rem 6rem 4rem;
     width: 85%;
     background-color: white;
     border-radius: 1.5rem;
@@ -277,6 +277,14 @@ a {
     display: inline-block;
 }
 
+.pc1 > .input1 {
+    display: block;
+}
+
+.pc1 > .input2 {
+    margin-top: 2rem;
+}
+
 .input-title {
     font-family: 'Product Sans Regular';
     font-size: 1.3rem;
@@ -286,7 +294,7 @@ a {
 
 .input1 > .input-form {
     height: 6rem;
-    width: 70rem;
+    width: 65rem;
     border-radius: 10px;
     box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
     text-align: center;
@@ -315,7 +323,7 @@ a {
 
 .input2 > .input-form {
     height: 6rem;
-    width: 25rem;
+    width: 30rem;
     border-radius: 10px;
     box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
     text-align: center;
@@ -346,16 +354,6 @@ a {
     cursor: pointer;
 }
 
-.add-card-btn.done {
-    transition: 0.2s;
-    background-color: #36F67D !important;
-}
-
-.add-card-btn.error {
-    transition: 0.2s;
-    background-color: rgb(246, 54, 54);
-}
-
 .btn:hover {
     transition: 0.2s;
     background-color: rgb(51, 132, 219);
@@ -376,6 +374,95 @@ a {
 
 .submit-card-btn {
     padding: 1.3rem 3.8rem;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.overlay.appear {
+    transition: 0.2s;
+    opacity: 1;
+}
+
+.overlay-content {
+    height: 100%;
+    width: 40%;
+    display: inline-block;
+}
+
+.popup-box {
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    padding: 7rem 0 5rem 0;
+    border-radius: 1.5rem;
+    background-color: white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.popup-c1 img {
+    height: 4.5rem;
+}
+
+.popup-c2 {
+    font-family: 'Product Sans Regular';
+    font-size: 1.5rem;
+    color: black;
+    padding-top: 2rem;
+}
+
+.popup-c3 {
+    padding-top: 3rem;
+}
+
+.popup-c3 p {
+    font-size: 1.3rem;
+    color: #979797;
+    vertical-align: middle;
+    display: inline-block;
+    font-family: 'Product Sans Regular';
+}
+
+.popup-c3 img {
+    height: 2.3rem;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+}
+
+.popup-c4 {
+    padding-top: 4.5rem;
+}
+
+.popup-indicator {
+    height: 5rem;
+    width: 5rem;
+    background-color: #3694F6;
+    border-radius: 1rem;
+    display: inline-block;
+}
+
+.popup-indicator.done {
+    transition: 0.4s;
+    background-color: #36F67D;
+}
+
+.popup-indicator img {
+    height: 3.5rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .input-type1 {
@@ -404,4 +491,39 @@ a {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+}
+
+.hidden-input {
+    float: left;
+    opacity: 0;
+}
+
+.pc1 {
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pc2 {
+    width: 35%;
+    display: inline-block;
+    text-align: center;
+}
+
+.pc2-c1 {
+    font-size: 5rem;
+    font-family: 'Product Sans Bold';
+}
+
+.pc2-c2 {
+    font-size: 1.5rem;
+    font-family: 'Product Sans Bold';
+}
+
+.pc2-c3 {
+    margin-top: 3rem;
+}
+
+.pc2-c4 {
+    margin-top: 1rem;
 }

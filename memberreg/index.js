@@ -20,9 +20,10 @@ $(".popup-box").on("click", function(e) {
 });
 
 var cardID = "";
+
 $(".hidden-input").on("keyup", function() {
     cardID = $(".hidden-input").val();
-    if (cardID.length == 8) {
+    if (cardID.length == 10) {
         $("#popup-indicator-img").attr("src","../Assets/imgs/baseline-done-24px.svg");
         $(".popup-indicator").addClass("done");
         setTimeout(() => {
@@ -38,6 +39,7 @@ $(".hidden-input").on("keyup", function() {
 var nameval = "";
 var schnoval = "";
 var classval = "";
+
 function gatherDatas() {
     nameval = $("#name-input").val();
     schnoval = $("#schno-input").val();
@@ -54,7 +56,14 @@ function submitDatas() {
                 $(".input3 > .input-form").removeClass("error");
                 if (cardID !== "") {
                     $(".add-card-btn").removeClass("error");
-                    //TODO()
+
+                    
+                    var xmlhttp = new XMLHttpRequest;
+                    xmlhttp.onreadystatechange = function() {
+                        //TODO(zixu)
+                    }
+                    xmlhttp.open("POST","sql.php?StudentID="+schnoval+"&CardID="+cardID+"&StudentName="+nameval+"&Class="+classval,true);
+                    xmlhttp.send();
                 } else {
                     $(".add-card-btn").addClass("error");
                 }

@@ -57,10 +57,12 @@ function submitDatas() {
                 if (cardID !== "") {
                     $(".add-card-btn").removeClass("error");
 
-                    
+
                     var xmlhttp = new XMLHttpRequest;
                     xmlhttp.onreadystatechange = function() {
-                        //TODO(zixu)
+                        if (this.status == 200 & this.readyState == 4) {
+                            //TODO(zixu)
+                        }
                     }
                     xmlhttp.open("POST","sql.php?StudentID="+schnoval+"&CardID="+cardID+"&StudentName="+nameval+"&Class="+classval,true);
                     xmlhttp.send();

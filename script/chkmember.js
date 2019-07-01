@@ -33,7 +33,7 @@ function backToSearch() {
 
 function getQueryType() {
     //Get user selected value on search query type
-    return document.getElementById("query-type-selector-input").value;
+    return document.getElementById("searchby").value;
 }
 
 function getMemberByPage() {
@@ -44,7 +44,7 @@ function checkPageInput() {
     if (document.getElementById("pg-selector-input") == document.activeElement) {
                 
     } else {
-        document.getElementById("pg-selector-input").value = last_page;
+        document.getElementById("nav-index-num").innerHTML = last_page;
     }
 }
 
@@ -71,11 +71,11 @@ function getMember(page) {
     var queryType = getQueryType();
     queryNo = 0;
 
-    if (queryType == "Member School Number") {
+    if (queryType == "School Number") {
         queryNo = 1;
-    } else if (queryType == "Member Name") {
+    } else if (queryType == "Name") {
         queryNo = 0;
-    } else if (queryType == "Member Class") {
+    } else if (queryType == "Class") {
         queryNo = 3;
     }
     
@@ -124,21 +124,13 @@ function getMember(page) {
             }
             if (code == "") {
                 if (page == 1) {
-                    if (document.getElementById("pg-selector-input") == document.activeElement) {
-                
-                    } else {
-                        document.getElementById("pg-selector-input").value = page;
-                    }
+                    document.getElementById("nav-index-num").innerHTML = page;
                 } else {
                     getMemberBySearch(page-1);
                 }
             } else {
-                if (document.getElementById("pg-selector-input") == document.activeElement) {
-                    
-                } else {
-                    document.getElementById("pg-selector-input").value = page;
-                }
-                $("#member-table").html("<tbody>"+code+"</tbody>");
+                document.getElementById("nav-index-num").innerHTML = page;
+                $("#form-results").html("<tbody>"+code+"</tbody>");
             }
         }
     };
@@ -149,7 +141,7 @@ function getMember(page) {
 }
 
 function getPageValue() {
-    return document.getElementById("pg-selector-input").value;
+    return document.getElementById("nav-index-num").innerHTML;
 }
 
 function getMemberBySearch(page) {
@@ -249,7 +241,7 @@ function getMemberBySearch(page) {
                 if (document.getElementById("pg-selector-input") == document.activeElement) {
                 
                 } else {
-                    document.getElementById("pg-selector-input").value = page;
+                    document.getElementById("nav-index-num").innerHTML = page;
                 }
             } else {
                 getMemberBySearch(page-1);
@@ -258,7 +250,7 @@ function getMemberBySearch(page) {
             if (document.getElementById("pg-selector-input") == document.activeElement) {
                 
             } else {
-                document.getElementById("pg-selector-input").value = page;
+                document.getElementById("nav-index-num").innerHTML = page;
             }
             $("#member-table").html("<tbody>"+code+"</tbody>");
         }

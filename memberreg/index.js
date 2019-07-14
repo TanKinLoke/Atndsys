@@ -61,7 +61,8 @@ function submitDatas() {
                     var xmlhttp = new XMLHttpRequest;
                     xmlhttp.onreadystatechange = function() {
                         if (this.status == 200 & this.readyState == 4) {
-                            //TODO(zixu)
+                            $(".input-type1").text("");
+                            $(".input-type2").text("");
                         }
                     }
                     xmlhttp.open("POST","sql.php?StudentID="+schnoval+"&CardID="+cardID+"&StudentName="+nameval+"&Class="+classval,true);

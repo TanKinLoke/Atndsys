@@ -289,7 +289,7 @@ a {
     width: 70rem;
     border-radius: 10px;
     box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
-    text-align: center;
+    text-align: right;
 }
 
 .input1 > .input-form img {
@@ -298,6 +298,7 @@ a {
     top: 50%;
     transform: translateY(-50%);
     padding: 1rem;
+    margin-right: 1rem;
     transition: 0.2s;
     background-color: transparent;
     border-radius: 1.4rem;
@@ -325,63 +326,10 @@ a {
     box-shadow: 0px 1px 5px 0.5px rgba(255, 62, 62, 0.4);
 }
 
-.add-card {
-    margin: 4rem 4rem 0 4rem;
-}
-
-.submit-card {
-    text-align: right;
-    margin: 1rem;
-}
-
-.btn {
-    padding: 1.3rem 2.8rem;
-    transition: 0.2s;
-    background-color: #3694F6;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Product Sans Bold';
-    font-size: 1.5rem;
-    color: white;
-    cursor: pointer;
-}
-
-.add-card-btn.done {
-    transition: 0.2s;
-    background-color: #36F67D !important;
-}
-
-.add-card-btn.error {
-    transition: 0.2s;
-    background-color: rgb(246, 54, 54);
-}
-
-.btn:hover {
-    transition: 0.2s;
-    background-color: rgb(51, 132, 219);
-}
-
-.btn img {
-    height: 2.5rem;
-    margin-right: 0.8rem;
-    vertical-align: middle;
-}
-
-.btn-text {
-    vertical-align: middle;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    display: inline-block;
-}
-
-.submit-card-btn {
-    padding: 1.3rem 3.8rem;
-}
-
 .input-type1 {
     display: inline-block;
     height: 90%;
-    width: 90%;
+    width: 88%;
     border: none;
     outline: none;
     font-size: 2rem;
@@ -404,4 +352,8 @@ a {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+}
+
+.data-name {
+    width: 40rem;
 }

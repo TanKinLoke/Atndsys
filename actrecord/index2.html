@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Attendance Record</title>
+        <title>Activity Registration</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./actrecord.css">
         <link rel="icon" href="../img/favicon.png"/>
@@ -24,7 +24,7 @@
         <section class="overlay" style="display: none;" onclick="closePopup();">
             <div class="overlay-content">
                 <div class="popup-box">
-                    <div class="popup-c1">
+                    <!-- <div class="popup-c1">
                         <img src="../Assets/imgs/baseline-credit_card-24px.svg"/>
                     </div>
                     <div class="popup-c2">Please tap Keep Card on the Scanner.</div>
@@ -37,7 +37,7 @@
                             <img src="../Assets/imgs/baseline-remove-24px-1.svg" id="popup-indicator-img"/>
                         </div>
                     </div>
-                    <input type="text" class="hidden-input autofocus"/>
+                    <input type="text" class="hidden-input autofocus"/> -->
                 </div>
             </div>
         </section>
@@ -46,13 +46,17 @@
                 <div class="sidebar-box-content">
                     <div class="sidebar-icon-box-content">
                         <div class="sidebar1-icon-box sidebar-icon-box">
-                            <img src="../Assets/imgs/baseline-account_circle-24px.svg"/>
+                            <a href="../memberreg/index2.html">
+                                <img src="../Assets/imgs/baseline-account_circle-24px.svg"/>
+                            </a>
                         </div>
-                        <div class="sidebar2-icon-box sidebar-icon-box active">
-                            <img src="../Assets/imgs/baseline-assignment_ind-24px-1.svg"/>
+                        <div class="sidebar2-icon-box sidebar-icon-box">
+                            <a href="../actatnd/index2.html">
+                                <img src="../Assets/imgs/baseline-assignment_ind-24px.svg"/>
+                            </a>
                         </div>
-                        <div class="sidebar3-icon-box sidebar-icon-box">
-                            <img src="../Assets/imgs/baseline-calendar_today-24px.svg"/>
+                        <div class="sidebar3-icon-box sidebar-icon-box active">
+                            <img src="../Assets/imgs/baseline-calendar_today-24px-1.svg"/>
                         </div>
                         <div class="sidebar4-icon-box sidebar-icon-box">
                             <img src="../Assets/imgs/baseline-message-24px.svg"/>
@@ -68,69 +72,49 @@
             <section class="sidebar-blank"></section><!--
             --><section class="content-box">
                     <div class="content">
-                        <div class="page-title">Attendance Record</div>
+                        <div class="page-title">Activity Registration</div>
                         <div class="page-content-box">
                             <div class="page-content">
-                                <div class="form-title">Activity Name</div>
+                                <div class="form-title">Activity Details</div>
                                 <div class="input1">
-                                    <div class="input-title">Search Query</div>
+                                    <div class="input-title">Activity Name</div>
                                     <div class="input-form">
                                         <input type="text" id="name-input" class="input-type1"/>
-                                        <img src="../Assets/imgs/baseline-search-24px.svg"/>
                                     </div>
                                 </div>
                                 <div class="input2">
-                                    <div class="input-title">Search By</div>
+                                    <div class="input-title">Activity Date</div>
                                     <div class="input-form">
-                                        <select name="searchby" id="searchby" class="input-type2">
-                                            <option value="Name">Name</option>
-                                            <option value="Venue">Venue</option>
-                                            <option value="Year">Year</option>
+                                        <input type="date" id="date-input" class="input-type2"/>
+                                    </div>
+                                </div>
+                                <div class="input3">
+                                    <div class="input-title">Activity Venue</div>
+                                    <div class="input-form">
+                                        <select name="actvenue" id="actvenue-input" class="input-type2">
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="page-content-2">
-                                <div class="form-title">Activity Overview</div>
-                                <div class="pc1">
-                                    <div class="input1">
-                                        <div class="input-title">Activity Name</div>
-                                        <div class="input-form">
-                                            <input type="text" id="name-input" class="input-type1" readonly/>
-                                        </div>
+                                <div class="input4">
+                                    <div class="input-title">From</div>
+                                    <div class="input-form">
+                                        <input type="time" id="starttime-input" class="input-type2"/>
                                     </div>
-                                    <div class="input2">
-                                        <div class="input-title">Activity Venue</div>
-                                        <div class="input-form">
-                                            <input type="text" id="name-input" class="input-type1" readonly/>
-                                        </div>
+                                </div>
+                                <div class="input5">
+                                    <div class="input-title">To</div>
+                                    <div class="input-form">
+                                        <input type="time" id="endtime-input" class="input-type2"/>
                                     </div>
-                                    <div class="input2">
-                                        <div class="input-title">Activity Date</div>
-                                        <div class="input-form">
-                                            <input type="text" id="name-input" class="input-type1" readonly/>
-                                        </div>
-                                    </div>
-                                </div><!--
-                                --><div class="pc2">
-                                    <div class="pc2-c1">
-                                        13
-                                    </div>
-                                    <div class="pc2-c2">
-                                        has attended
-                                    </div>
-                                    <div class="pc2-c3">
-                                        <button class="btn" onclick="">
-                                            <img src="../Assets/imgs/baseline-credit_card-24px-1.svg"/>
-                                            <p class="add-card-btn-text btn-text">Mark Attendance</p>
-                                        </button>
-                                    </div>
-                                    <div class="pc2-c4">
-                                        <button class="btn" onclick="">
-                                            <img src="../Assets/imgs/baseline-create-24px-1.svg"/>
-                                            <p class="add-card-btn-text btn-text">Edit Attendance</p>
-                                        </button>
-                                    </div>
+                                </div>
+                                <button class="btn" onclick="addVenueProcess();">
+                                    <img src="../Assets/imgs/baseline-add-24px.svg"/>
+                                    <p class="add-card-btn-text btn-text">Add New Venue</p>
+                                </button>
+                                <div class="submit-card">
+                                     <button class="btn submit-card-btn" onclick="submitDatas();">
+                                        <p class="btn-text">Submit</p>
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -194,7 +194,7 @@ a {
 
 .page-content {
     display: inline-block;
-    padding: 4rem 4rem 2rem 4rem;
+    padding: 4rem 4rem 4rem 4rem;
     width: 85%;
     background-color: white;
     border-radius: 1.5rem;
@@ -277,24 +277,6 @@ a {
     display: inline-block;
 }
 
-.input3 {
-    margin-top: 2rem;
-    margin-left: 2rem;
-    display: inline-block;
-}
-
-.input4 {
-    margin-top: 2rem;
-    margin-left: 2rem;
-    display: inline-block;
-}
-
-.input5 {
-    margin-top: 2rem;
-    margin-left: 2rem;
-    display: inline-block;
-}
-
 .pc1 > .input1 {
     display: block;
 }
@@ -315,7 +297,7 @@ a {
     width: 65rem;
     border-radius: 10px;
     box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
-    text-align: center;
+    text-align: right;
 }
 
 .input1 > .input-form img {
@@ -352,42 +334,6 @@ a {
     box-shadow: 0px 1px 5px 0.5px rgba(255, 62, 62, 0.4);
 }
 
-.input3 > .input-form {
-    height: 6rem;
-    width: 30rem;
-    border-radius: 10px;
-    box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
-    text-align: center;
-}
-
-.input3 > .input-form.error {
-    box-shadow: 0px 1px 5px 0.5px rgba(255, 62, 62, 0.4);
-}
-
-.input4 > .input-form {
-    height: 6rem;
-    width: 20rem;
-    border-radius: 10px;
-    box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
-    text-align: center;
-}
-
-.input4 > .input-form.error {
-    box-shadow: 0px 1px 5px 0.5px rgba(255, 62, 62, 0.4);
-}
-
-.input5 > .input-form {
-    height: 6rem;
-    width: 20rem;
-    border-radius: 10px;
-    box-shadow: 0px 1px 5px 0.5px rgba(169,169,169,0.4);
-    text-align: center;
-}
-
-.input5 > .input-form.error {
-    box-shadow: 0px 1px 5px 0.5px rgba(255, 62, 62, 0.4);
-}
-
 .add-card {
     margin: 4rem 4rem 0 4rem;
 }
@@ -398,9 +344,6 @@ a {
 }
 
 .btn {
-    display: block;
-    margin-left: 2rem;
-    margin-top: 4rem;
     padding: 1.3rem 2.8rem;
     transition: 0.2s;
     background-color: #3694F6;
@@ -410,10 +353,6 @@ a {
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
-}
-
-.submit-card .btn {
-    display: inline-block;
 }
 
 .btn:hover {
@@ -530,7 +469,7 @@ a {
 .input-type1 {
     display: inline-block;
     height: 90%;
-    width: 92%;
+    width: 88%;
     border: none;
     outline: none;
     font-size: 2rem;

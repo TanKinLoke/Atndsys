@@ -75,6 +75,7 @@ function confirmRecord() {
                 //Back to home page
                 window.history.back();
             } else if (this.responseText == "fail") {
+                //Fail
                 window.alert("Error occured. Please contact system administrator, @Cheah Zixu and @Kin Loke");
             }
         }
@@ -98,6 +99,7 @@ document.getElementById("popup-venue-box").onclick = function (e) {
 }
 
 function deleteVenue(venue) {
+    //Delete venue
     venue = venue.split("_").join(" ").split("-").join("\'");
 
     var xmlhttp = new XMLHttpRequest;
@@ -111,6 +113,7 @@ function deleteVenue(venue) {
 }
 
 function editVenueText(venue) {
+    //When they click the edit button
     if (last_focus_id != "" && last_focus_id != null) {
         doneVenueText(last_focus_text.split(" ").join("_"));
     }
@@ -123,6 +126,7 @@ function editVenueText(venue) {
 }
 
 function doneVenueText(venue) {
+    //When they click the done button
     rmLastClick();
     $("#"+venue+"_edit").removeClass("toDone");
     $("#"+venue+"_edit").attr("onclick","editVenueText('"+venue+"')");
@@ -197,8 +201,9 @@ function addVenue() {
 }
 
 window.onload = function() {
+    //When the site loads, it run these first
     getVenue(1);
-    interval = setInterval(getVenue,1000);
+    interval = setInterval(getVenue,1000); //Run getVenue() for every 1 second
     if (sessionStorage.getItem("activityAdded")) {
         sessionStorage.setItem("activityAdded", "false");
         showVenueBox();
@@ -240,8 +245,10 @@ function undoEdit() {
 function clickEnter() {
     if (last_focus_id == "" || last_focus_text == "" || last_focus_id == null || last_focus_text == null) {
         if (document.getElementById("add_venue_text").value != "" && document.getElementById("add_venue_text").value != null)
+            //Equivalent to add Venue after finish typed the details
             addVenue();
     } else {
+        //Equivalent to done button when editing venue names
         var localvenue = last_focus_text.split(" ").join("_").split("\'").join("-");
         doneVenueText(localvenue);
     }
@@ -293,7 +300,9 @@ function getVenue(page) {
                 }
             };
             if (code == "") {
+                //If get nothing from PHP
                 if (page == 1) {
+                    //If page no is 1
                     if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
                 
                     } else {
@@ -303,11 +312,13 @@ function getVenue(page) {
                     getVenue(page-1);
                 }
             } else {
+                //If there is value in "code" variable
                 if (document.getElementById("popup-venue-pg-input") == document.activeElement) {
                 
                 } else {
                     document.getElementById("popup-venue-pg-input").value = page;
                 }
+                //Insert the HTML code in "code" variable to "venue-settings"
                 $("#venue-settings").html("<tbody>"+code+"</tbody>");
             }
         }
@@ -327,6 +338,7 @@ function editActRec(perform,venue,venue2) {
         if (this.status == 200 && this.readyState == 4) {
             if (perform == "check") {
                 if (this.responseText == "exist"){
+                    //There are activity using the venue edited
                     editActRes = confirm("Edit activity that have this venue as well?");
                     if (editActRes == true) {
                         console.log('test');

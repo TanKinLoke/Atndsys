@@ -5,7 +5,7 @@ function seeAttendance() {
     //Let user check Attendance List after selecting activity
     //if (!atndlistStatus) {
         //Get activity value
-        setInterval(seeAttendance,3000);
+        setInterval(seeAttendance,3000); //Run seeAttendance() every 3 seconds to perform live update
         var displayTitle = document.getElementById("activity-selector-input").value;
         document.getElementById("content-box-b").style.display = "block";
         document.getElementById("content-title").innerText = displayTitle;
@@ -41,6 +41,7 @@ function seeAttendance() {
                 var tableHTML = "<thead><tr><th>Name</th><th>Student ID</th><th>Class</th></tr></thead>"+code;
                 $('#export-table').html(tableHTML);
 
+                //Uses the DataTable library here to optimize the table and add some features
                 $('#export-table').DataTable({
                     dom: 'Bfrtip',
                     buttons: [

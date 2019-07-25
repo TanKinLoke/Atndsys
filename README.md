@@ -1,7 +1,7 @@
 # ATNDSYS
 
 ## About ATNDSYS
-**ATNDSYS** is a project made by a group of students from i-CreatorZ of Chung Ling High School, Penang. The objective for this project was to simplify and automate the process of taking attendance of other participating students for a specific event. Rather than the traditional pen and paper, we enter the information of students directly into our computers through an RFID scanner and their respective students.
+**ATNDSYS** is a project made by a group of students from i-CreatorZ of Chung Ling High School, Penang. The objective for this project was to simplify and automate the process of taking attendance of other participating students for a specific event. Rather than the traditional pen and paper, we enter the information of students directly into our computers through an RFID scanner and their respective student cards.
 
 ## Installation Guide
 TBA

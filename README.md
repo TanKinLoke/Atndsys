@@ -10,12 +10,12 @@ TBA
 TBA
 
 ## Contributors & Testers
-- Cheah Zixu (genesis331) **[Frontend Developer]**
-- Tan Kin Loke (VentoBento) **[Backend & System Developer]**
-- Ooi Jun Xiang (Jun-Xiang) **[Frontend Developer]**
-- Soon Hai Qin (HaiQin0403) **[Frontend Developer]**
-- Tan Chuen Keat (TanChuenKeat) **[System Developer]**
-- Tan Hao Yang (AunsunTHY) **[Backend Developer]**
+- Cheah Zixu ([genesis331](https://github.com/genesis331)) **[Frontend Developer]**
+- Tan Kin Loke ([VentoBento](https://github.com/TanKinLoke)) **[Backend & System Developer]**
+- Ooi Jun Xiang ([Jun-Xiang](https://github.com/Jun-Xiang)) **[Frontend Developer]**
+- Soon Hai Qin ([HaiQin0403](https://github.com/HaiQin0403)) **[Frontend Developer]**
+- Tan Chuen Keat ([TanChuenKeat](https://github.com/TanChuenKeat)) **[System Developer]**
+- Tan Hao Yang ([AunsunTHY](https://github.com/AunsunTHY)) **[Backend Developer]**
 - Teoh Zi Hong (sk4rm) **[Backend Developer]**
-- Bryan Lai Wei Ming (QuanTBacon) **[Project Secretary]**
+- Bryan Lai Wei Ming ([QuanTBacon](https://github.com/QuanTBacon)) **[Project Secretary]**
 - Lim Jun Yi **[Tester & Helper]**
